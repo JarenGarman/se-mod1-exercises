@@ -25,4 +25,7 @@ class Bag
     end
     @candy_strings.include?(candy)
   end
+  def eat
+    @bag = @bag.drop(1)
+  end
 end
