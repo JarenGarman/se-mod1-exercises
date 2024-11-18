@@ -32,7 +32,7 @@ RSpec.describe Retirement do
   it 'errors with a negative retirement age' do
     retire = Retirement.new
 
-    result = retire.calculate(-2, 65)
+    result = retire.calculate(25, -65)
     expected = "Error. Age cannot be negative."
 
     expect(result).to eq(expected)
