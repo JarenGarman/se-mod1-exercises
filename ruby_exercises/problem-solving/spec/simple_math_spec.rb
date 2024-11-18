@@ -39,31 +39,39 @@ RSpec.describe SimpleMath do
   end
 
   it 'can multiply two numbers' do
+    sm = SimpleMath.new
 
-    # instantiate the class
-    #
-    # call the method being tested
-    # determine your expected result
-    #
-    # check results
+    result = sm.multiply(25, 10)
+    expected = 250
+
+    expect(result).to eq(expected)
   end
 
 
   it 'can multiply two other numbers' do
+    sm = SimpleMath.new
 
-    # instantiate the class
-    #
-    # call the method being tested
-    # determine your expected result
-    #
-    # check results
+    result = sm.multiply(14, 82)
+    expected = 1148
+
+    expect(result).to eq(expected)
   end
 
   it 'can divide two numbers' do
-    # your code goes here
+    sm = SimpleMath.new
+
+    result = sm.divide(250, 10)
+    expected = 25
+
+    expect(result).to eq(expected)
   end
 
   it 'can divide two other numbers' do
-    # # your code goes here
+    sm = SimpleMath.new
+
+    result = sm.divide(2048, 512)
+    expected = 4
+
+    expect(result).to eq(expected)
   end
 end
