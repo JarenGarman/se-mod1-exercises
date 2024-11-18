@@ -8,13 +8,13 @@ RSpec.describe Drops do
     expect(drops.count).to eq(0)
   end
 
-  xit 'drips' do
+  it 'drops' do
     drops = Drops.new
-    drops.drip
+    drops.drop
 
     expect(drops.count).to eq(1)
 
-    3.times { drops.drip }
+    3.times { drops.drop }
 
     expect(drops.count).to eq(4)
   end
