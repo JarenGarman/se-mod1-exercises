@@ -33,4 +33,12 @@ class Bag
     @count -= amount
     @bag.shift(amount)
   end
+  def eat
+    @candy_sugar = @bag.map do |candy|
+      candy.sugar
+    end
+    @bag.shift(1)
+    @count -= 1
+    @candy_sugar[0]
+  end
 end
