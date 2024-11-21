@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require_relative 'door'
 
 RSpec.describe Door do
   it 'is locked' do
-    door = Door.new
+    door = described_class.new
 
     expect(door.locked?).to be true
   end
 
   it 'unlocks the door' do
-    door = Door.new
+    door = described_class.new
 
     door.unlock
 

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Define Baby class
 class Item
   attr_reader :type, :price, :discount, :deal
 
@@ -5,6 +8,6 @@ class Item
     @type = type
     @price = pricing.fetch(:price)
     @discount = pricing.fetch(:discount)
-    @deal = 1.0 - ((@price - @discount)/@price.to_f)
+    @deal = 1.0 - ((@price - @discount) / @price.to_f)
   end
 end

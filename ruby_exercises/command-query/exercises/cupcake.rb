@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Define Cupcake class
 class Cupcake
   attr_reader :flavor, :grams_of_sugar
 

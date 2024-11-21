@@ -1,28 +1,35 @@
+# frozen_string_literal: true
+
+# Define class
 class Student
   attr_reader :grade
 
   def initialize
     @grade = 'C'
   end
+
   def study
-    if @grade == 'F'
+    case @grade
+    when 'F'
       @grade = 'D'
-    elsif @grade == 'D'
+    when 'D'
       @grade = 'C'
-    elsif @grade == 'C'
+    when 'C'
       @grade = 'B'
-    elsif @grade == 'B' || @grade == 'A'
+    when 'B' || @grade == 'A'
       @grade = 'A'
     end
   end
+
   def slack_off
-    if @grade == 'A'
+    case @grade
+    when 'A'
       @grade = 'B'
-    elsif @grade == 'B'
+    when 'B'
       @grade = 'C'
-    elsif @grade == 'C'
+    when 'C'
       @grade = 'D'
-    elsif @grade == 'D' || @grade == 'F'
+    when 'D' || @grade == 'F'
       @grade = 'F'
     end
   end

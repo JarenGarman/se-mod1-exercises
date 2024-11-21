@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Define Kid class
 class Kid
   attr_reader :grams_of_sugar_eaten
 
@@ -5,12 +8,14 @@ class Kid
     @grams_of_sugar_eaten = 0
     @hyperactive = false
   end
+
   def eat_candy
     @grams_of_sugar_eaten += 5
-    if @grams_of_sugar_eaten >= 60
-      @hyperactive = true
-    end
+    return unless @grams_of_sugar_eaten >= 60
+
+    @hyperactive = true
   end
+
   def hyperactive?
     @hyperactive
   end

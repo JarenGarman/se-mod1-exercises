@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require_relative 'wallet'
 
 RSpec.describe Wallet do
   it 'starts at zero' do
-    wallet = Wallet.new
+    wallet = described_class.new
 
     expect(wallet.cents).to eq(0)
   end
 
   it 'can add pennies' do
-    wallet = Wallet.new
+    wallet = described_class.new
 
     wallet << :penny
     expect(wallet.cents).to eq(1)
@@ -19,7 +21,7 @@ RSpec.describe Wallet do
   end
 
   it 'can add nickels' do
-    wallet = Wallet.new
+    wallet = described_class.new
 
     wallet << :nickel
     expect(wallet.cents).to eq(5)
@@ -29,7 +31,7 @@ RSpec.describe Wallet do
   end
 
   it 'can add dimes' do
-    wallet = Wallet.new
+    wallet = described_class.new
 
     wallet << :dime
     expect(wallet.cents).to eq(10)
@@ -39,7 +41,7 @@ RSpec.describe Wallet do
   end
 
   it 'can add quarters' do
-    wallet = Wallet.new
+    wallet = described_class.new
 
     wallet << :quarter
     expect(wallet.cents).to eq(25)
@@ -49,7 +51,7 @@ RSpec.describe Wallet do
   end
 
   it 'can take coins out' do
-    wallet = Wallet.new
+    wallet = described_class.new
     wallet << :penny
     wallet << :penny
     wallet << :penny
@@ -63,7 +65,7 @@ RSpec.describe Wallet do
   end
 
   it 'can take various coins out' do
-    wallet = Wallet.new
+    wallet = described_class.new
     wallet << :penny
     wallet << :dime
     wallet << :quarter
@@ -74,7 +76,7 @@ RSpec.describe Wallet do
   end
 
   it 'ignores coins that arent there' do
-    wallet = Wallet.new
+    wallet = described_class.new
     wallet << :penny
     wallet.take(:dime)
 

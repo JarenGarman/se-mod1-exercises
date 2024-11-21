@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
+# Define Children class
 class Children
   def initialize
     @children = []
-    @eldest = nil
   end
-  def << child
+
+  def <<(child)
     @children << child
   end
+
   def eldest
-    if !@children.empty?
-      @ages = @children.map do |child|
-        child.age
-      end
-      @eldest = @children[@ages.index(@ages.max)]
-    end
+    return nil if @children.empty?
+
+    @ages = @children.map(&:age)
+    @children[@ages.index(@ages.max)]
   end
 end

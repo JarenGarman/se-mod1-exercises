@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Define Child class
 class Child
   attr_reader :name, :age
 

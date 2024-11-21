@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require_relative 'kid'
 
 RSpec.describe Kid do
   it 'has not eaten sugar' do
-    kid = Kid.new
+    kid = described_class.new
 
     expect(kid.grams_of_sugar_eaten).to eq(0)
   end
 
   it 'gets 5 grams from eating candy' do
-    kid = Kid.new
+    kid = described_class.new
 
     kid.eat_candy
 
@@ -21,13 +23,13 @@ RSpec.describe Kid do
   end
 
   it 'is not hyperactive' do
-    kid = Kid.new
+    kid = described_class.new
 
     expect(kid.hyperactive?).to be false
   end
 
   it 'is hyperactive after 60 grams of sugar' do
-    kid = Kid.new
+    kid = described_class.new
 
     11.times { kid.eat_candy }
 

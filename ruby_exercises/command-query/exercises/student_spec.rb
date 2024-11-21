@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require_relative 'student'
 
 RSpec.describe Student do
   it 'has a mediocre grade' do
-    student = Student.new
+    student = described_class.new
 
     expect(student.grade).to eq('C')
   end
 
   it 'can improve its grade' do
-    student = Student.new
+    student = described_class.new
 
     student.study
     expect(student.grade).to eq('B')
@@ -19,7 +21,7 @@ RSpec.describe Student do
   end
 
   it 'can only get so good' do
-    student = Student.new
+    student = described_class.new
 
     3.times { student.study }
 
@@ -27,7 +29,7 @@ RSpec.describe Student do
   end
 
   it 'can get worse' do
-    student = Student.new
+    student = described_class.new
 
     student.slack_off
     expect(student.grade).to eq('D')
@@ -37,14 +39,14 @@ RSpec.describe Student do
   end
 
   it 'can only get so worse' do
-    student = Student.new
+    student = described_class.new
 
     100.times { student.slack_off }
     expect(student.grade).to eq('F')
   end
 
   it 'slacking off is immediately noticable' do
-    student = Student.new
+    student = described_class.new
 
     100.times { student.study }
     student.slack_off
@@ -53,13 +55,11 @@ RSpec.describe Student do
   end
 
   it 'however, so is studying' do
-    student = Student.new
+    student = described_class.new
 
     100.times { student.slack_off }
     student.study
 
     expect(student.grade).to eq('D')
-
   end
 end
-
