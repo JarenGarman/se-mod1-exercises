@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Define class
 class Cat
   attr_reader :name, :sound
 

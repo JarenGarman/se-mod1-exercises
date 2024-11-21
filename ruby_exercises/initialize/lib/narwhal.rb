@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Define class
 class Narwhal
   attr_reader :name, :weight
 
@@ -6,6 +9,7 @@ class Narwhal
     @weight = hash[:weight]
     @cute = hash[:cute]
   end
+
   def cute?
     @cute
   end

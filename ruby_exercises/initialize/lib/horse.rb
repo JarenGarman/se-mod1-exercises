@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Define class
 class Horse
   attr_reader :name, :diet
 
@@ -5,6 +8,7 @@ class Horse
     @name = name
     @diet = []
   end
+
   def add_to_diet(food)
     @diet << food
   end

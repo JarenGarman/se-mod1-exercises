@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Define class
 class Monkey
   attr_reader :name, :type, :favorite_food
 

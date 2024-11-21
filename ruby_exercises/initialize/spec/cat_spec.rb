@@ -1,22 +1,24 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require_relative '../lib/cat'
 
 RSpec.describe Cat do
   it 'exists' do
-    carlos = Cat.new("Carlos")
+    carlos = described_class.new('Carlos')
 
-    expect(carlos).to be_an_instance_of(Cat)
+    expect(carlos).to be_an_instance_of(described_class)
   end
 
   it 'has a name' do
-    carlos = Cat.new("Carlos")
+    carlos = described_class.new('Carlos')
 
-    expect(carlos.name).to eq("Carlos")
+    expect(carlos.name).to eq('Carlos')
   end
 
   it 'has a sound' do
-    carlos = Cat.new("Carlos")
+    carlos = described_class.new('Carlos')
 
-    expect(carlos.sound).to eq("meow")
+    expect(carlos.sound).to eq('meow')
   end
 end
