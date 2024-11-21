@@ -1,12 +1,13 @@
-RSpec.describe 'inject pattern test' do
+# frozen_string_literal: false
 
+RSpec.describe 'inject pattern test' do
   it 'test 1' do
     numbers = [28, 12, 38, 1, 91]
     # Iterate over the numbers array defined above,
     # to find the difference of all the numbers
     difference = 0
     numbers.each do |number|
-      difference = difference - number
+      difference -= number
     end
     expect(difference).to eq(-170)
   end
@@ -22,7 +23,7 @@ RSpec.describe 'inject pattern test' do
     # to find the difference of all the values
 
     difference = 0
-    bills.each do |(category, amount)|
+    bills.each_value do |amount|
       difference -= amount
     end
     expect(difference).to eq(-2262)
@@ -35,7 +36,7 @@ RSpec.describe 'inject pattern test' do
 
     product = 1
     numbers.each do |number|
-      product = product * number
+      product *= number
     end
     expect(product).to eq(210)
   end
@@ -50,14 +51,14 @@ RSpec.describe 'inject pattern test' do
     # to find the product of all the values
 
     product = 1
-    scrabble_score.each do |(key, value)|
-      product = product * value
+    scrabble_score.each_value do |value|
+      product *= value
     end
     expect(product).to eq(138)
   end
 
   it 'test 5' do
-    airlines = ["Southwest", "Delta", "United", "Frontier"]
+    airlines = %w[Southwest Delta United Frontier]
     # Iterate over the airlines array defined above to
     # create a hash with the name of the airline as the
     # key and the length of the name as the value
@@ -67,10 +68,10 @@ RSpec.describe 'inject pattern test' do
       number_of_letters[airline] = airline.length
     end
     expected = {
-      "Southwest" => 9,
-      "Delta" => 5,
-      "United" => 6,
-      "Frontier" => 8
+      'Southwest' => 9,
+      'Delta' => 5,
+      'United' => 6,
+      'Frontier' => 8
     }
     expect(number_of_letters).to eq(expected)
   end
@@ -87,19 +88,19 @@ RSpec.describe 'inject pattern test' do
     # to create an array of all the toppings
 
     toppings = []
-    topping_calories.each do |topping, calories|
+    topping_calories.each_key do |topping|
       toppings << topping.to_s
     end
-    expect(toppings).to eq(["pepperoni", "sausage", "olives", "peppers", "onions"])
+    expect(toppings).to eq(%w[pepperoni sausage olives peppers onions])
   end
 
   it 'test 7' do
-    elements = [["a", 1], ["b", 9], ["c", 21]]
+    elements = [['a', 1], ['b', 9], ['c', 21]]
     # Iterate over the elements array defined above
     # to find the sum of all the integers
 
     sum_of_second_values = 0
-    elements.each do |letter, integer|
+    elements.each do |_letter, integer|
       sum_of_second_values += integer
     end
     expect(sum_of_second_values).to eq(31)
@@ -133,7 +134,7 @@ RSpec.describe 'inject pattern test' do
     # calorie count by the quantity
 
     total_calories = 0
-    toppings.each do |topping, hash|
+    toppings.each_value do |hash|
       total_calories += (hash[:calories] * hash[:quantity])
     end
     expect(total_calories).to eq(6950)
@@ -152,8 +153,8 @@ RSpec.describe 'inject pattern test' do
     # summing all of the averages
 
     final_grade = 0.0
-    grades.each do |category, array|
-      final_grade += (array.sum.to_f / array.size.to_f)
+    grades.each_value do |array|
+      final_grade += (array.sum / array.size.to_f)
     end
     expect(final_grade).to eq(85.40)
   end
@@ -161,15 +162,15 @@ RSpec.describe 'inject pattern test' do
   it 'test 10' do
     menu = {
       empanadas: {
-        flavors: ["chicken", "potato", "steak", "veggie"],
+        flavors: %w[chicken potato steak veggie],
         gluten_free: false
       },
       scones: {
-        flavors: ["blueberry", "vanilla"],
+        flavors: %w[blueberry vanilla],
         gluten_free: false
       },
       parfaits: {
-        flavors: ["blueberry", "strawberry", "cherry"],
+        flavors: %w[blueberry strawberry cherry],
         gluten_free: true
       }
     }
@@ -179,11 +180,11 @@ RSpec.describe 'inject pattern test' do
 
     printable_menu = "Menu:\n"
     menu.each do |item, hash|
-      if hash[:gluten_free]
-        gluten = "(gluten free)\n"
-      else
-        gluten = "(non gluten free)\n"
-      end
+      gluten = if hash[:gluten_free]
+                 "(gluten free)\n"
+               else
+                 "(non gluten free)\n"
+               end
       hash[:flavors][hash[:flavors].size - 1].insert(0, 'and ')
       printable_menu.insert(-1, "- #{hash[:flavors].join(', ')} #{item} #{gluten}")
     end

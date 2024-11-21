@@ -1,5 +1,6 @@
-RSpec.describe 'find pattern' do
+# frozen_string_literal: true
 
+RSpec.describe 'find pattern' do
   it 'test 1' do
     ages = [39, 45, 29, 24, 50]
     first_younger_than_thirty = nil
@@ -90,7 +91,7 @@ RSpec.describe 'find pattern' do
   end
 
   it 'test 7' do
-    people = ["Willie", "Carmen Sandiego", "Bryan", "Faith", "Zac"]
+    people = ['Willie', 'Carmen Sandiego', 'Bryan', 'Faith', 'Zac']
     carmen = nil
     people.each do |person|
       if person.include?('Carmen')
@@ -98,16 +99,16 @@ RSpec.describe 'find pattern' do
         break
       end
     end
-    expect(carmen).to eq("Carmen Sandiego")
+    expect(carmen).to eq('Carmen Sandiego')
   end
 
   it 'test 8' do
     places = {
-      Bangkok: "Willie",
-      Santa_Fe: "Carmen Sandiego",
-      Rome: "Bryan",
-      Munich: "Faith",
-      Mogudishu: "Zac"
+      Bangkok: 'Willie',
+      Santa_Fe: 'Carmen Sandiego',
+      Rome: 'Bryan',
+      Munich: 'Faith',
+      Mogudishu: 'Zac'
     }
     where_is_carmen_sandiego = nil
     places.each do |place, person|
@@ -133,11 +134,11 @@ RSpec.describe 'find pattern' do
 
   it 'test 10' do
     purchases = {
-      "shoes" => :paid,
-      "backpack" => :paid,
-      "books" => :pending,
-      "posters" => :paid,
-      "food" => :pending
+      'shoes' => :paid,
+      'backpack' => :paid,
+      'books' => :pending,
+      'posters' => :paid,
+      'food' => :pending
     }
     first_pending = nil
     purchases.each do |item, status|
@@ -146,24 +147,24 @@ RSpec.describe 'find pattern' do
         break
       end
     end
-    expect(first_pending).to eq("books").or eq("food")
+    expect(first_pending).to eq('books').or eq('food')
   end
 
   it 'test 11' do
     purchases = {
-      "shoes" => :paid,
-      "backpack" => :paid,
-      "books" => :pending,
-      "posters" => :paid,
-      "food" => :pending
+      'shoes' => :paid,
+      'backpack' => :paid,
+      'books' => :pending,
+      'posters' => :paid,
+      'food' => :pending
     }
     starts_with_s = nil
-    purchases.each do |item, status|
+    purchases.each_key do |item|
       if item.start_with?('s')
         starts_with_s = item
         break
       end
     end
-    expect(starts_with_s).to eq("shoes")
+    expect(starts_with_s).to eq('shoes')
   end
 end

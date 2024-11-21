@@ -1,5 +1,6 @@
-RSpec.describe 'select pattern' do
+# frozen_string_literal: true
 
+RSpec.describe 'select pattern' do
   it 'test 1' do
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     evens = []
@@ -15,13 +16,11 @@ RSpec.describe 'select pattern' do
       two: 2,
       three: 3,
       four: 4,
-      five: 5,
+      five: 5
     }
     evens = {}
     numbers.each do |name, number|
-      if number.even?
-        evens[name] = number
-      end
+      evens[name] = number if number.even?
     end
 
     expected = {
@@ -32,113 +31,98 @@ RSpec.describe 'select pattern' do
   end
 
   it 'test 3' do
-    rainbow = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+    rainbow = %w[red orange yellow green blue indigo violet]
     greater_than_four = []
     rainbow.each do |color|
-      if color.length > 4
-        greater_than_four << color
-      end
+      greater_than_four << color if color.length > 4
     end
 
-    expect(greater_than_four).to eq(["orange", "yellow", "green", "indigo", "violet"])
+    expect(greater_than_four).to eq(%w[orange yellow green indigo violet])
   end
 
   it 'test 4' do
     rainbow = {
-      first: "red",
-      second: "orange",
-      third: "yellow",
-      fourth: "green",
-      fifth: "blue",
-      sixth: "indigo",
-      seventh: "violet"
+      first: 'red',
+      second: 'orange',
+      third: 'yellow',
+      fourth: 'green',
+      fifth: 'blue',
+      sixth: 'indigo',
+      seventh: 'violet'
     }
     greater_than_four = {}
     rainbow.each do |position, color|
-      if color.length > 4
-        greater_than_four[position] = color
-      end
+      greater_than_four[position] = color if color.length > 4
     end
 
     expected = {
-      second: "orange",
-      third: "yellow",
-      fourth: "green",
-      sixth: "indigo",
-      seventh: "violet"
+      second: 'orange',
+      third: 'yellow',
+      fourth: 'green',
+      sixth: 'indigo',
+      seventh: 'violet'
     }
     expect(greater_than_four).to eq(expected)
   end
 
   it 'test 5' do
-    furniture = ["dining table", "bed", "coffee table", "deck chairs"]
+    furniture = ['dining table', 'bed', 'coffee table', 'deck chairs']
     words_with_c = []
-    furniture.each do |furniture|
-      if furniture.match(/c/)
-        words_with_c << furniture
-      end
+    furniture.each do |item|
+      words_with_c << item if /c/.match?(item)
     end
-    expect(words_with_c).to eq(["coffee table", "deck chairs"])
+    expect(words_with_c).to eq(['coffee table', 'deck chairs'])
   end
 
   it 'test 6' do
     furniture = {
-      dining_room: "dining table",
-      bedroom: "bed",
-      living_room: "coffee table",
-      patio: "deck chairs"
+      dining_room: 'dining table',
+      bedroom: 'bed',
+      living_room: 'coffee table',
+      patio: 'deck chairs'
     }
     words_with_c = {}
-    furniture.each do |room, furniture|
-      if furniture.match(/c/)
-        words_with_c[room] = furniture
-      end
+    furniture.each do |room, item|
+      words_with_c[room] = item if /c/.match?(item)
     end
     expected = {
-      living_room: "coffee table",
-      patio: "deck chairs"
+      living_room: 'coffee table',
+      patio: 'deck chairs'
     }
     expect(words_with_c).to eq(expected)
   end
 
   it 'test 7' do
-    meals = ["chips and salsa", "chicken alfredo", "banana pudding"]
+    meals = ['chips and salsa', 'chicken alfredo', 'banana pudding']
     two_words = []
     meals.each do |meal|
-      if meal.split(' ').size == 2
-        two_words << meal
-      end
+      two_words << meal if meal.split(' ').size == 2
     end
-    expect(two_words).to eq(["chicken alfredo", "banana pudding"])
+    expect(two_words).to eq(['chicken alfredo', 'banana pudding'])
   end
 
   it 'test 8' do
     meal = {
-      appetizer: "chips and salsa",
-      entre: "chicken alfredo",
-      dessert: "banana pudding"
+      appetizer: 'chips and salsa',
+      entre: 'chicken alfredo',
+      dessert: 'banana pudding'
     }
     two_words = {}
-    meal.each do |mealtime, meal|
-      if meal.split(' ').size == 2
-        two_words[mealtime] = meal
-      end
+    meal.each do |mealtime, item|
+      two_words[mealtime] = item if item.split(' ').size == 2
     end
     expected = {
-      entre: "chicken alfredo",
-      dessert: "banana pudding"
+      entre: 'chicken alfredo',
+      dessert: 'banana pudding'
     }
     expect(two_words).to eq(expected)
   end
-
 
   it 'test 9' do
     prices = [3, 1.4, 3.5, 2, 4.9, 9.1, 8.0]
     floats = []
     prices.each do |price|
-      if price.to_s.include?('.')
-        floats << price
-      end
+      floats << price if price.to_s.include?('.')
     end
     expect(floats).to eq([1.4, 3.5, 4.9, 9.1, 8.0])
   end
@@ -155,9 +139,7 @@ RSpec.describe 'select pattern' do
     }
     floats = {}
     items.each do |item, amount|
-      if amount.to_s.include?('.')
-        floats[item] = amount
-      end
+      floats[item] = amount if amount.to_s.include?('.')
     end
     expected = {
       toaster: 1.4,
@@ -169,4 +151,3 @@ RSpec.describe 'select pattern' do
     expect(floats).to eq(expected)
   end
 end
-

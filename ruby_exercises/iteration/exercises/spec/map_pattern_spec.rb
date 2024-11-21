@@ -1,28 +1,29 @@
-RSpec.describe 'map pattern' do
+# frozen_string_literal: true
 
+RSpec.describe 'map pattern' do
   it 'test 1' do
-    names = ["alice", "bob", "charlie"]
+    names = %w[alice bob charlie]
     capitalized_names = []
     names.each do |name|
       capitalized_names << name.capitalize
     end
-    expect(capitalized_names).to eq(["Alice", "Bob", "Charlie"])
+    expect(capitalized_names).to eq(%w[Alice Bob Charlie])
   end
 
   it 'test 2' do
     family = {
-      mother: "alice",
-      father: "bob",
-      brother: "charlie"
+      mother: 'alice',
+      father: 'bob',
+      brother: 'charlie'
     }
     capitalized_family = {}
     family.each do |relationship, name|
       capitalized_family[relationship] = name.capitalize
     end
     expected = {
-      mother: "Alice",
-      father: "Bob",
-      brother: "Charlie"
+      mother: 'Alice',
+      father: 'Bob',
+      brother: 'Charlie'
     }
     expect(capitalized_family).to eq(expected)
   end
@@ -90,7 +91,7 @@ RSpec.describe 'map pattern' do
   end
 
   it 'test 7' do
-    names = ["alice", "bob", "charlie", "david", "eve"]
+    names = %w[alice bob charlie david eve]
     lengths = []
     names.each do |name|
       lengths << name.length
@@ -100,11 +101,11 @@ RSpec.describe 'map pattern' do
 
   it 'test 8' do
     family = {
-      mother: "alice",
-      father: "bob",
-      brother: "charlie",
-      uncle: "david",
-      sister: "eve"
+      mother: 'alice',
+      father: 'bob',
+      brother: 'charlie',
+      uncle: 'david',
+      sister: 'eve'
     }
     lengths = {}
     family.each do |person, name|
@@ -121,34 +122,33 @@ RSpec.describe 'map pattern' do
   end
 
   it 'test 9' do
-    names = ["alice", "bob", "charlie", "david", "eve"]
+    names = %w[alice bob charlie david eve]
     backwards = []
     names.each do |name|
       backwards << name.reverse
     end
-    expect(backwards).to eq(["ecila", "bob", "eilrahc", "divad", "eve"])
+    expect(backwards).to eq(%w[ecila bob eilrahc divad eve])
   end
 
   it 'test 10' do
     family = {
-      mother: "alice",
-      father: "bob",
-      brother: "charlie",
-      uncle: "david",
-      sister: "eve"
+      mother: 'alice',
+      father: 'bob',
+      brother: 'charlie',
+      uncle: 'david',
+      sister: 'eve'
     }
     backwards = {}
     family.each do |person, name|
       backwards[person] = name.reverse
     end
     expected = {
-      mother: "ecila",
-      father: "bob",
-      brother: "eilrahc",
-      uncle: "divad",
-      sister: "eve"
+      mother: 'ecila',
+      father: 'bob',
+      brother: 'eilrahc',
+      uncle: 'divad',
+      sister: 'eve'
     }
     expect(backwards).to eq(expected)
   end
 end
-
