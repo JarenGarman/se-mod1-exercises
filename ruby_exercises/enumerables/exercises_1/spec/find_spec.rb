@@ -1,35 +1,36 @@
-RSpec.describe 'find test' do
+# frozen_string_literal: true
 
+RSpec.describe 'find test' do
   it 'first seven letter word' do
-    words = ["capricious", "berry", "unicorn", "bag", "apple", "festering", "pretzel", "pencil"]
+    words = %w[capricious berry unicorn bag apple festering pretzel pencil]
     found = words.find do |word|
       word.length == 7
     end
-    expect(found).to eq("unicorn")
+    expect(found).to eq('unicorn')
   end
 
   it 'no waldo' do
-    words = ["scarf", "sandcastle", "flag", "pretzel", "crow", "key"]
+    words = %w[scarf sandcastle flag pretzel crow key]
     found = words.find do |word|
       word == 'waldo'
     end
-    expect(found).to eq(nil)
+    expect(found).to be_nil
   end
 
   it 'found waldo' do
-    words = ["noise", "dog", "fair", "house", "waldo", "bucket", "fish"]
+    words = %w[noise dog fair house waldo bucket fish]
     found = words.find do |word|
       word == 'waldo'
     end
-    expect(found).to eq("waldo")
+    expect(found).to eq('waldo')
   end
 
   it 'no three letter words' do
-    words = ["piglet", "porridge", "bear", "blueberry"]
+    words = %w[piglet porridge bear blueberry]
     found = words.find do |word|
       word.length == 3
     end
-    expect(found).to eq(nil)
+    expect(found).to be_nil
   end
 
   it 'find 13' do
@@ -42,34 +43,32 @@ RSpec.describe 'find test' do
 
   it 'find first even number' do
     numbers = [3, 7, 13, 11, 10, 2, 17]
-    found = numbers.find do |number|
-      number % 2 == 0
-    end
+    found = numbers.find(&:even?)
     expect(found).to eq(10)
   end
 
   it 'first multiple of 3' do
     numbers = [2, 8, 9, 27, 24, 5]
     found = numbers.find do |number|
-      number % 3 == 0
+      (number % 3).zero?
     end
     expect(found).to eq(9)
   end
 
   it 'first word starting with q' do
-    words = ["weirdo", "quill", "fast", "quaint", "quitter", "koala"]
+    words = %w[weirdo quill fast quaint quitter koala]
     found = words.find do |word|
       word.start_with?('q')
     end
-    expect(found).to eq("quill")
+    expect(found).to eq('quill')
   end
 
   it 'first word ending with er' do
-    words = ["biggest", "pour", "blight", "finger", "pie", "border"]
+    words = %w[biggest pour blight finger pie border]
     found = words.find do |word|
       word.end_with?('er')
     end
-    expect(found).to eq("finger")
+    expect(found).to eq('finger')
   end
 
   it 'first number greater than 20' do
@@ -80,4 +79,3 @@ RSpec.describe 'find test' do
     expect(found).to eq(21)
   end
 end
-

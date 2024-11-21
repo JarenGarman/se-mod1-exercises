@@ -1,7 +1,8 @@
-RSpec.describe 'find pattern' do
+# frozen_string_literal: true
 
+RSpec.describe 'find pattern' do
   it 'finds first seven letter word' do
-    words = ["capricious", "berry", "unicorn", "bag", "apple", "festering", "pretzel", "pencil"]
+    words = %w[capricious berry unicorn bag apple festering pretzel pencil]
     found = nil
     words.each do |word|
       if word.length == 7
@@ -9,11 +10,11 @@ RSpec.describe 'find pattern' do
         break
       end
     end
-    expect(found).to eq("unicorn")
+    expect(found).to eq('unicorn')
   end
 
   it 'no waldo' do
-    words = ["scarf", "sandcastle", "flag", "pretzel", "crow", "key"]
+    words = %w[scarf sandcastle flag pretzel crow key]
     found = nil
     words.each do |word|
       if word == 'waldo'
@@ -21,11 +22,11 @@ RSpec.describe 'find pattern' do
         break
       end
     end
-    expect(found).to eq(nil)
+    expect(found).to be_nil
   end
 
   it 'found waldo' do
-    words = ["noise", "dog", "fair", "house", "waldo", "bucket", "fish"]
+    words = %w[noise dog fair house waldo bucket fish]
     found = nil
     words.each do |word|
       if word == 'waldo'
@@ -33,11 +34,11 @@ RSpec.describe 'find pattern' do
         break
       end
     end
-    expect(found).to eq("waldo")
+    expect(found).to eq('waldo')
   end
 
   it 'no three letter words' do
-    words = ["piglet", "porridge", "bear", "blueberry"]
+    words = %w[piglet porridge bear blueberry]
     found = nil
     words.each do |word|
       if word.length == 3
@@ -45,14 +46,14 @@ RSpec.describe 'find pattern' do
         break
       end
     end
-    expect(found).to eq(nil)
+    expect(found).to be_nil
   end
 
   it 'finds 13' do
     numbers = [2, 13, 19, 8, 3, 27]
     found = nil
     numbers.each do |number|
-      if number = 13
+      if number == 13
         found = number
         break
       end
@@ -64,7 +65,7 @@ RSpec.describe 'find pattern' do
     numbers = [3, 7, 13, 11, 10, 2, 17]
     found = nil
     numbers.each do |number|
-      if number % 2 == 0
+      if number.even?
         found = number
         break
       end
@@ -76,7 +77,7 @@ RSpec.describe 'find pattern' do
     numbers = [2, 8, 9, 27, 24, 5]
     found = nil
     numbers.each do |number|
-      if number % 3 == 0
+      if (number % 3).zero?
         found = number
         break
       end
@@ -85,7 +86,7 @@ RSpec.describe 'find pattern' do
   end
 
   it 'first word starting with q' do
-    words = ["weirdo", "quill", "fast", "quaint", "quitter", "koala"]
+    words = %w[weirdo quill fast quaint quitter koala]
     found = nil
     words.each do |word|
       if word.start_with?('q')
@@ -93,11 +94,11 @@ RSpec.describe 'find pattern' do
         break
       end
     end
-    expect(found).to eq("quill")
+    expect(found).to eq('quill')
   end
 
   it 'first word ending with er' do
-    words = ["biggest", "pour", "blight", "finger", "pie", "border"]
+    words = %w[biggest pour blight finger pie border]
     found = nil
     words.each do |word|
       if word.end_with?('er')
@@ -105,7 +106,7 @@ RSpec.describe 'find pattern' do
         break
       end
     end
-    expect(found).to eq("finger")
+    expect(found).to eq('finger')
   end
 
   it 'first number greater than 20' do

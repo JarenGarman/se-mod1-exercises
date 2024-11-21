@@ -1,35 +1,36 @@
-RSpec.describe 'one' do
+# frozen_string_literal: true
 
+RSpec.describe 'one' do
   it 'one more' do
-    words = ["bigger", "better", "more", "improved", "advantageous"]
+    words = %w[bigger better more improved advantageous]
     exactly_one = words.one? do |word|
       word == 'more'
     end
-    expect(exactly_one).to eq(true)
+    expect(exactly_one).to be(true)
   end
 
   it 'not even one ring' do
-    ornaments = ["bracelet", "anklet", "earring"]
+    ornaments = %w[bracelet anklet earring]
     exactly_one_ring = ornaments.one? do |ornament|
       ornament == 'ring'
     end
-    expect(exactly_one_ring).to eq(false)
+    expect(exactly_one_ring).to be(false)
   end
 
   it 'not just one ring' do
-    ornaments = ["bracelet", "ring", "ring", "anklet", "earring"]
+    ornaments = %w[bracelet ring ring anklet earring]
     exactly_one_ring = ornaments.one? do |ornament|
       ornament == 'ring'
     end
-    expect(exactly_one_ring).to eq(false)
+    expect(exactly_one_ring).to be(false)
   end
 
   it 'one time' do
-    words = ["morning", "time", "evening", "noon", "dusk", "dawn"]
+    words = %w[morning time evening noon dusk dawn]
     exactly_one_time = words.one? do |word|
       word == 'time'
     end
-    expect(exactly_one_time).to eq(true)
+    expect(exactly_one_time).to be(true)
   end
 
   it 'one double digit number' do
@@ -37,14 +38,12 @@ RSpec.describe 'one' do
     exactly_one_double_digit = numbers.one? do |number|
       number.to_s.length == 2
     end
-    expect(exactly_one_double_digit).to eq(true)
+    expect(exactly_one_double_digit).to be(true)
   end
 
   it 'not even one number' do
     numbers = [3, 20, 81, 10, 391, 32]
-    exactly_one_even_number = numbers.one? do |number|
-      number.even?
-    end
-    expect(exactly_one_even_number).to eq(false)
+    exactly_one_even_number = numbers.one?(&:even?)
+    expect(exactly_one_even_number).to be(false)
   end
 end

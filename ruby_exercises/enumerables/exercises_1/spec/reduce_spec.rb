@@ -1,5 +1,6 @@
-RSpec.describe 'reduce' do
+# frozen_string_literal: true
 
+RSpec.describe 'reduce' do
   it 'sums a list of numbers' do
     numbers = [32, 1, 21, 5, 81, 333]
     result = numbers.reduce(0) do |sum, number|
@@ -25,10 +26,10 @@ RSpec.describe 'reduce' do
   end
 
   it 'capitalize key words in phrase' do
-    keywords = ["fish", "blue"]
+    keywords = %w[fish blue]
     result_array = keywords.reduce('one fish two fish red fish blue fish'.split(' ')) do |array, keyword|
       array.each do |word|
-        word = word.upcase! if word == keyword
+        word.upcase! if word == keyword
       end
     end
     result = result_array.join(' ')
@@ -52,11 +53,10 @@ RSpec.describe 'reduce' do
   end
 
   it 'adds all second values together' do
-    elements = [["a", 1], ["b", 9], ["c", 21]]
+    elements = [['a', 1], ['b', 9], ['c', 21]]
     result = elements.reduce(0) do |sum, element|
       sum + element[1]
     end
     expect(result).to eq(31)
   end
 end
-

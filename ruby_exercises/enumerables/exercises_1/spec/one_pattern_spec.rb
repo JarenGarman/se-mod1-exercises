@@ -1,43 +1,44 @@
-RSpec.describe 'one pattern' do
+# frozen_string_literal: true
 
+RSpec.describe 'one pattern' do
   it 'one more' do
-    words = ["bigger", "better", "more", "improved", "advantageous"]
+    words = %w[bigger better more improved advantageous]
     count = 0
     words.each do |word|
       count += 1 if word == 'more'
     end
     exactly_one = count == 1
-    expect(exactly_one).to eq(true)
+    expect(exactly_one).to be(true)
   end
 
   it 'not even one ring' do
-    ornaments = ["bracelet", "anklet", "earring"]
+    ornaments = %w[bracelet anklet earring]
     count = 0
     ornaments.each do |ornament|
       count += 1 if ornament == 'ring'
     end
     exactly_one_ring = count == 1
-    expect(exactly_one_ring).to eq(false)
+    expect(exactly_one_ring).to be(false)
   end
 
   it 'not just one ring' do
-    ornaments = ["bracelet", "ring", "ring", "anklet", "earring"]
+    ornaments = %w[bracelet ring ring anklet earring]
     count = 0
     ornaments.each do |ornament|
       count += 1 if ornament == 'ring'
     end
     exactly_one_ring = count == 1
-    expect(exactly_one_ring).to eq(false)
+    expect(exactly_one_ring).to be(false)
   end
 
   it 'one time' do
-    words = ["morning", "time", "evening", "noon", "dusk", "dawn"]
+    words = %w[morning time evening noon dusk dawn]
     count = 0
     words.each do |word|
       count += 1 if word == 'time'
     end
     exactly_one_time = count == 1
-    expect(exactly_one_time).to eq(true)
+    expect(exactly_one_time).to be(true)
   end
 
   it 'one double digit number' do
@@ -47,7 +48,7 @@ RSpec.describe 'one pattern' do
       count += 1 if number.to_s.length == 2
     end
     exactly_one_double_digit = count == 1
-    expect(exactly_one_double_digit).to eq(true)
+    expect(exactly_one_double_digit).to be(true)
   end
 
   it 'not one even number' do
@@ -57,6 +58,6 @@ RSpec.describe 'one pattern' do
       count += 1 if number.even?
     end
     exactly_one_even_number = count == 1
-    expect(exactly_one_even_number).to eq(false)
+    expect(exactly_one_even_number).to be(false)
   end
 end

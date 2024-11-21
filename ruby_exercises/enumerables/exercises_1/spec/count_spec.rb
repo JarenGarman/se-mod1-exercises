@@ -1,7 +1,8 @@
-RSpec.describe 'count test' do
+# frozen_string_literal: false
 
+RSpec.describe 'count test' do
   it 'words with e' do
-    words = ["thing", "phone", "bark", "belt", "shoe", "bath"]
+    words = %w[thing phone bark belt shoe bath]
     tally = words.count do |word|
       word.include?('e')
     end
@@ -17,15 +18,15 @@ RSpec.describe 'count test' do
   end
 
   it 'words that are uppercase' do
-    words = ["trousers", "SOCKS", "sweater", "Cap", "SHOE", "TIE"]
+    words = %w[trousers SOCKS sweater Cap SHOE TIE]
     tally = words.count do |word|
-      word.upcase! == nil
+      word.upcase!.nil?
     end
     expect(tally).to eq(3)
   end
 
   it 'words ending in ing' do
-    words = ["thought", "brake", "shin", "juice", "trash"]
+    words = %w[thought brake shin juice trash]
     tally = words.count do |word|
       word.end_with?('ing')
     end
@@ -34,16 +35,14 @@ RSpec.describe 'count test' do
 
   it 'even numbers' do
     numbers = [9, 2, 1, 3, 18, 39, 71, 4, 6]
-    tally = numbers.count do |number|
-      number % 2 == 0
-    end
+    tally = numbers.count(&:even?)
     expect(tally).to eq(4)
   end
 
   it 'multiples of 5' do
     numbers = [2, 5, 19, 25, 35, 67]
     tally = numbers.count do |number|
-      number % 5 == 0
+      (number % 5).zero?
     end
     expect(tally).to eq(3)
   end
@@ -57,11 +56,10 @@ RSpec.describe 'count test' do
   end
 
   it 'four letter words' do
-    words = ["bake", "bark", "corn", "apple", "wart", "bird", "umbrella", "fart"]
+    words = %w[bake bark corn apple wart bird umbrella fart]
     tally = words.count do |word|
       word.length == 4
     end
     expect(tally).to eq(6)
   end
 end
-
