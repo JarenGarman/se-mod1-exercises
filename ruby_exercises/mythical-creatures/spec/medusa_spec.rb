@@ -32,10 +32,31 @@ RSpec.describe Medusa do
   end
 
   it 'can only have three victims' do
-    # your code here
+    medusa = Medusa.new('Cassiopeia')
+    victim1 = Person.new('Perseus')
+    victim2 = Person.new('Jack')
+    victim3 = Person.new('Smith')
+    medusa.stare(victim1)
+    medusa.stare(victim2)
+    medusa.stare(victim3)
+    expect(medusa.statues.count).to eq(3)
+    victim4 = Person.new('Kenneth')
+    medusa.stare(victim4)
+    expect(medusa.statues.count).to eq(3)
+
   end
 
   it 'if a fourth victim is stoned the first is unstoned' do
-    # your code here
+    medusa = Medusa.new('Cassiopeia')
+    victim1 = Person.new('Perseus')
+    victim2 = Person.new('Jack')
+    victim3 = Person.new('Smith')
+    medusa.stare(victim1)
+    medusa.stare(victim2)
+    medusa.stare(victim3)
+    expect(medusa.statues.first.name).to eq('Perseus')
+    victim4 = Person.new('Kenneth')
+    medusa.stare(victim4)
+    expect(medusa.statues.first.name).to eq('Jack')
   end
 end
