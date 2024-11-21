@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rspec'
-require_relative 'wallet'
+require_relative 'wallet_new'
 
 RSpec.describe Wallet do
   it 'starts at zero' do
