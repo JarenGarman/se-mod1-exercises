@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Define class
 class Bag
   def initialize
     @bag = []
@@ -15,16 +18,15 @@ class Bag
     @bag
   end
 
-  def << type
+  def <<(type)
     @bag << type
   end
 
   def contains?(candy)
-    @candy_strings = @bag.map do |candy|
-      candy.type
-    end
+    @candy_strings = @bag.map(&:type)
     @candy_strings.include?(candy)
   end
+
   def eat
     @bag = @bag.drop(1)
   end
