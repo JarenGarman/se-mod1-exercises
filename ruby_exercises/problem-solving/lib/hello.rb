@@ -1,5 +1,7 @@
-class Hello
+# frozen_string_literal: true
 
+# Define class
+class Hello
   def initialize
     @name = nil
   end
