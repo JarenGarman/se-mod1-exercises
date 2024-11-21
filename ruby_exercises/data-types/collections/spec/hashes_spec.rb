@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Hashes' do
   it 'test 1' do
     # In the line below, create a new empty hash called empty
-    empty = Hash.new
+    empty = {}
     expect(empty).to eq({})
   end
 
@@ -13,26 +15,26 @@ RSpec.describe 'Hashes' do
 
   it 'test 3' do
     # In the line below, create a hash called ages. The hash should
-    # have a key of "ben" with a value of 4 and a key of "kelly" with
+    # have a key of 'ben' with a value of 4 and a key of 'kelly' with
     # a value of 6
-    ages = {'ben' => 4, 'kelly' => 6}
+    ages = { 'ben' => 4, 'kelly' => 6 }
     expect(ages.length).to eq(2)
-    expect(ages["ben"]).to eq(4)
-    expect(ages["kelly"]).to eq(6)
+    expect(ages['ben']).to eq(4)
+    expect(ages['kelly']).to eq(6)
   end
 
   it 'test 4' do
     # In the line below, create a hash called ages. The hash should
     # have a key of :ben with a value of 4 and a key of :kelly with
     # a value of 6.
-    ages = {ben: 4, kelly: 6}
+    ages = { ben: 4, kelly: 6 }
     expect(ages.length).to eq(2)
     expect(ages[:ben]).to eq(4)
     expect(ages[:kelly]).to eq(6)
 
     # There are two different syntaxes for doing this. Use the other way to
     # achieve the same result
-    ages = Hash[ben:4, kelly: 6]
+    ages = Hash[ben: 4, kelly: 6]
     expect(ages.length).to eq(2)
     expect(ages[:ben]).to eq(4)
     expect(ages[:kelly]).to eq(6)
@@ -41,9 +43,9 @@ RSpec.describe 'Hashes' do
   it 'test 5' do
     # In the line below, create a new hash called ingredients.
     # Create a "tomatoes" key and a :carrots key with the corresponding values.
-    ingredients = {'tomatoes' => 3, carrots: 7}
+    ingredients = { 'tomatoes' => 3, carrots: 7 }
 
-    expect(ingredients["tomatoes"]).to eq(3)
+    expect(ingredients['tomatoes']).to eq(3)
     expect(ingredients[:carrots]).to eq(7)
   end
 
@@ -52,138 +54,138 @@ RSpec.describe 'Hashes' do
     # default values of zero.
     ingredients = Hash.new(0)
 
-    expect(ingredients["tomatoes"]).to eq(0)
+    expect(ingredients['tomatoes']).to eq(0)
     expect(ingredients[:carrots]).to eq(0)
   end
 
   it 'test 7' do
     books = {
-      "John Steinbeck" => "Grapes of Wrath",
-      "Harper Lee" => "To Kill a Mockingbird"
+      'John Steinbeck' => 'Grapes of Wrath',
+      'Harper Lee' => 'To Kill a Mockingbird'
     }
     # Using the books hash defined above,
-    # access the value "Grapes of Wrath"  in the line below
+    # access the value 'Grapes of Wrath'  in the line below
     grapes = books['John Steinbeck']
-    expect(grapes).to eq("Grapes of Wrath")
+    expect(grapes).to eq('Grapes of Wrath')
   end
 
   it 'test 8' do
     books = {
-      "John Steinbeck" => "Grapes of Wrath",
-      "Harper Lee" => "To Kill a Mockingbird"
+      'John Steinbeck' => 'Grapes of Wrath',
+      'Harper Lee' => 'To Kill a Mockingbird'
     }
     # Using the books hash defined above,
-    # add a new key of "Ernest Hemmingway"
-    # with a value of "For Whom the Bell Tolls"
+    # add a new key of 'Ernest Hemmingway'
+    # with a value of 'For Whom the Bell Tolls'
     # in the line below
     books['Ernest Hemmingway'] = 'For Whom the Bell Tolls'
     expected = {
-      "John Steinbeck" => "Grapes of Wrath",
-      "Harper Lee" => "To Kill a Mockingbird",
-      "Ernest Hemmingway" => "For Whom the Bell Tolls"
+      'John Steinbeck' => 'Grapes of Wrath',
+      'Harper Lee' => 'To Kill a Mockingbird',
+      'Ernest Hemmingway' => 'For Whom the Bell Tolls'
     }
     expect(books).to eq(expected)
   end
 
   it 'test 9' do
     books = {
-      "John Steinbeck" => "Grapes of Wrath",
-      "Harper Lee" => "To Kill a Mockingbird"
+      'John Steinbeck' => 'Grapes of Wrath',
+      'Harper Lee' => 'To Kill a Mockingbird'
     }
     # Using the books hash defined above,
     # change the value associated with
-    # "John Steinbeck" to "Of Mice and Men"
+    # 'John Steinbeck' to 'Of Mice and Men'
     books['John Steinbeck'] = 'Of Mice and Men'
     expected = {
-      "John Steinbeck" => "Of Mice and Men",
-      "Harper Lee" => "To Kill a Mockingbird"
+      'John Steinbeck' => 'Of Mice and Men',
+      'Harper Lee' => 'To Kill a Mockingbird'
     }
     expect(books).to eq(expected)
   end
 
   it 'test 10' do
     books = {
-      "John Steinbeck" => "Grapes of Wrath",
-      "Harper Lee" => "To Kill a Mockingbird"
+      'John Steinbeck' => 'Grapes of Wrath',
+      'Harper Lee' => 'To Kill a Mockingbird'
     }
     # Using the books hash defined above,
-    # delete the key "Harper Lee"
+    # delete the key 'Harper Lee'
     books.delete('Harper Lee')
     expected = {
-      "John Steinbeck" => "Grapes of Wrath"
+      'John Steinbeck' => 'Grapes of Wrath'
     }
     expect(books).to eq(expected)
   end
 
   it 'test 11' do
     books = {
-      John_Steinbeck: "Grapes of Wrath",
-      Harper_Lee: "To Kill a Mockingbird"
+      John_Steinbeck: 'Grapes of Wrath',
+      Harper_Lee: 'To Kill a Mockingbird'
     }
     # Using the books hash defined above,
-    # access the value "Grapes of Wrath"  in the line below
+    # access the value 'Grapes of Wrath'  in the line below
     grapes = books[:John_Steinbeck]
-    expect(grapes).to eq("Grapes of Wrath")
+    expect(grapes).to eq('Grapes of Wrath')
   end
 
   it 'test 12' do
     books = {
-      John_Steinbeck: "Grapes of Wrath",
-      Harper_Lee: "To Kill a Mockingbird"
+      John_Steinbeck: 'Grapes of Wrath',
+      Harper_Lee: 'To Kill a Mockingbird'
     }
     # Using the books hash defined above,
     # add a new key of :Ernest_Hemmingway
-    # with a value of "For Whom the Bell Tolls"
+    # with a value of 'For Whom the Bell Tolls'
     # in the line below
     books[:Ernest_Hemmingway] = 'For Whom the Bell Tolls'
     expected = {
-      John_Steinbeck: "Grapes of Wrath",
-      Harper_Lee: "To Kill a Mockingbird",
-      Ernest_Hemmingway: "For Whom the Bell Tolls"
+      John_Steinbeck: 'Grapes of Wrath',
+      Harper_Lee: 'To Kill a Mockingbird',
+      Ernest_Hemmingway: 'For Whom the Bell Tolls'
     }
     expect(books).to eq(expected)
   end
 
   it 'test 13' do
     books = {
-      John_Steinbeck: "Grapes of Wrath",
-      Harper_Lee: "To Kill a Mockingbird"
+      John_Steinbeck: 'Grapes of Wrath',
+      Harper_Lee: 'To Kill a Mockingbird'
     }
     # Using the books hash defined above,
     # change the value associated with
-    # :John_Steinbeck to "Of Mice and Men"
+    # :John_Steinbeck to 'Of Mice and Men'
     books[:John_Steinbeck] = 'Of Mice and Men'
-    expected =  {
-      John_Steinbeck: "Of Mice and Men",
-      Harper_Lee: "To Kill a Mockingbird"
+    expected = {
+      John_Steinbeck: 'Of Mice and Men',
+      Harper_Lee: 'To Kill a Mockingbird'
     }
     expect(books).to eq(expected)
   end
 
   it 'test 14' do
     books = {
-      John_Steinbeck: "Grapes of Wrath",
-      Harper_Lee: "To Kill a Mockingbird"
+      John_Steinbeck: 'Grapes of Wrath',
+      Harper_Lee: 'To Kill a Mockingbird'
     }
     # Using the books hash defined above,
     # delete the key :Harper_Lee
     books.delete(:Harper_Lee)
     expected = {
-      John_Steinbeck: "Grapes of Wrath"
+      John_Steinbeck: 'Grapes of Wrath'
     }
     expect(books).to eq(expected)
   end
 
   it 'test 15' do
     ages = {
-      "Jimmy" => 4,
-      "Julio" => 8,
-      "Juliet" => 9
+      'Jimmy' => 4,
+      'Julio' => 8,
+      'Juliet' => 9
     }
     # Using the ages hash defined above
     # increment Julio's age by one
     ages['Julio'] = ages['Julio'] + 1
-    expect(ages["Julio"]).to eq(9)
+    expect(ages['Julio']).to eq(9)
   end
 
   it 'test 16' do
@@ -195,7 +197,7 @@ RSpec.describe 'Hashes' do
     # Using the ages hash defined above
     # get an array of all the names
     names = ages.keys
-    expect(names).to eq([:Jimmy, :Julio, :Juliet])
+    expect(names).to eq(%i[Jimmy Julio Juliet])
   end
 
   it 'test 17' do
@@ -231,12 +233,12 @@ RSpec.describe 'Hashes' do
     # Call a method on the ages hash defined above
     # to figure out if :Jimmy is a key
     jimmy_in_hash = ages.key?(:Jimmy)
-    expect(jimmy_in_hash).to eq(true)
+    expect(jimmy_in_hash).to be(true)
 
     # Now figure out if :Jackie is in the hash
 
     jackie_in_hash = ages.key?(:Jackie)
-    expect(jackie_in_hash).to eq(false)
+    expect(jackie_in_hash).to be(false)
   end
 
   it 'test 20' do

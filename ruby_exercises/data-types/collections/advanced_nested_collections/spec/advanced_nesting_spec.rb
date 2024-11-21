@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'nesting'
 
 # The intent of this exercise is to practice working with nested collections.
@@ -11,13 +13,12 @@ require_relative 'nesting'
 # The collection you're going to be using lives in ./nesting.rb and is called stores.
 # If you spot an error or want to make this exercise better, please let us know!
 
-
 RSpec.describe 'Advanced Nested Collections' do
   it 'test 1' do
     # EXAMPLE
     employees = stores[:olive_garden][:employees]
 
-    expected = ["Jeff", "Zach", "Samantha"]
+    expected = %w[Jeff Zach Samantha]
     expect(employees).to eq(expected)
   end
 
@@ -25,7 +26,7 @@ RSpec.describe 'Advanced Nested Collections' do
     # Find the ingredients for pancakes
     pancake_ingredients = stores[:dennys][:dishes][0][:ingredients]
 
-    expected = ["Flour", "Eggs", "Milk", "Syrup"]
+    expected = %w[Flour Eggs Milk Syrup]
     expect(pancake_ingredients).to eq(expected)
   end
 
@@ -40,7 +41,7 @@ RSpec.describe 'Advanced Nested Collections' do
     # Find the ingredients for a Big Mac
     big_mac_ingredients = stores[:macdonalds][:dishes][0][:ingredients]
 
-    expected = ['Bun','Hamburger','Ketchup','pickles']
+    expected = %w[Bun Hamburger Ketchup pickles]
     expect(big_mac_ingredients).to eq(expected)
   end
 
@@ -48,7 +49,7 @@ RSpec.describe 'Advanced Nested Collections' do
     # Find a list of restaurants
     store_names = stores.keys
 
-    expected = [:olive_garden, :dennys, :macdonalds]
+    expected = %i[olive_garden dennys macdonalds]
     expect(store_names).to eq(expected)
   end
 
@@ -57,48 +58,48 @@ RSpec.describe 'Advanced Nested Collections' do
     dishes_names = stores[:olive_garden][:dishes].map do |hash|
       hash[:name]
     end
-    expect(dishes_names).to eq(['Risotto', 'Steak'])
+    expect(dishes_names).to eq(%w[Risotto Steak])
   end
 
   it 'test 7' do
     # Return a list of employees across
     # all restaurants
-    employee_names = stores.map do |store, hash|
+    employee_names = stores.map do |_store, hash|
       hash[:employees]
     end
     employee_names = employee_names.flatten
-    expected = ["Jeff", "Zach", "Samantha", "Bob", "Sue", "James", "Alvin", "Simon", "Theodore"]
+    expected = %w[Jeff Zach Samantha Bob Sue James Alvin Simon Theodore]
     expect(employee_names).to eq(expected)
   end
 
   it 'test 8' do
     # Return a list of all ingredients
     # across all restaurants
-    ingredients = stores.map do |store, hash|
+    ingredients = stores.map do |_store, hash|
       hash[:dishes].map do |dish_hash|
         dish_hash[:ingredients]
       end
     end
     ingredients = ingredients.flatten
-    expected = [
-      "Rice",
-      "Cheese",
-      "Butter",
-      "Beef",
-      "Garlic",
-      "Flour",
-      "Eggs",
-      "Milk",
-      "Syrup",
-      "Flour",
-      "Eggs",
-      "Syrup",
-      "Bun",
-      "Hamburger",
-      "Ketchup",
-      "pickles",
-      "Potatoes",
-      "Salt"
+    expected = %w[
+      Rice
+      Cheese
+      Butter
+      Beef
+      Garlic
+      Flour
+      Eggs
+      Milk
+      Syrup
+      Flour
+      Eggs
+      Syrup
+      Bun
+      Hamburger
+      Ketchup
+      pickles
+      Potatoes
+      Salt
     ]
     expect(ingredients).to eq(expected)
   end
@@ -119,15 +120,15 @@ RSpec.describe 'Advanced Nested Collections' do
       olive_garden_menu[dish[:name]] = dish
     end
     expected = {
-      "Risotto" => {
-        :name => "Risotto",
-        :ingredients => ["Rice", "Cheese", "Butter"],
-        :price => 12
+      'Risotto' => {
+        name: 'Risotto',
+        ingredients: %w[Rice Cheese Butter],
+        price: 12
       },
-      "Steak" => {
-        :name => "Steak",
-        :ingredients => ["Beef", "Garlic"],
-        :price => 15
+      'Steak' => {
+        name: 'Steak',
+        ingredients: %w[Beef Garlic],
+        price: 15
       }
     }
     expect(olive_garden_menu).to eq(expected)
@@ -135,43 +136,43 @@ RSpec.describe 'Advanced Nested Collections' do
 
   it 'test 11' do
     # Return a full menu across all restaurants
-    full_menu ={}
-    stores.each do |store, array|
+    full_menu = {}
+    stores.each_value do |array|
       array[:dishes].each do |dish|
         full_menu[dish[:name]] = dish
       end
     end
 
     expected = {
-      "Risotto" => {
-        :name => "Risotto",
-        :ingredients => ["Rice", "Cheese", "Butter"],
-        :price => 12
+      'Risotto' => {
+        name: 'Risotto',
+        ingredients: %w[Rice Cheese Butter],
+        price: 12
       },
-      "Steak" => {
-        :name => "Steak",
-        :ingredients => ["Beef", "Garlic"],
-        :price => 15
+      'Steak' => {
+        name: 'Steak',
+        ingredients: %w[Beef Garlic],
+        price: 15
       },
-      "Pancakes" => {
-        :name => "Pancakes",
-        :ingredients => ["Flour", "Eggs", "Milk", "Syrup"],
-        :price => 10
+      'Pancakes' => {
+        name: 'Pancakes',
+        ingredients: %w[Flour Eggs Milk Syrup],
+        price: 10
       },
-      "Waffles" => {
-        :name => "Waffles",
-        :ingredients => ["Flour", "Eggs", "Syrup"],
-        :price => 7
+      'Waffles' => {
+        name: 'Waffles',
+        ingredients: %w[Flour Eggs Syrup],
+        price: 7
       },
-      "Big Mac" => {
-        :name => "Big Mac",
-        :ingredients => ["Bun", "Hamburger", "Ketchup", "pickles"],
-        :price => 5
+      'Big Mac' => {
+        name: 'Big Mac',
+        ingredients: %w[Bun Hamburger Ketchup pickles],
+        price: 5
       },
-      "Fries" => {
-        :name => "Fries",
-        :ingredients => ["Potatoes", "Salt"],
-        :price => 2
+      'Fries' => {
+        name: 'Fries',
+        ingredients: %w[Potatoes Salt],
+        price: 2
       }
     }
     expect(full_menu).to eq(expected)
