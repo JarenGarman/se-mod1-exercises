@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-# Define class
 require_relative 'bag'
-
+# Define class
 class TrickOrTreater
   attr_reader :dressed_up_as, :bag, :sugar_level
 

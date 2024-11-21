@@ -1,39 +1,41 @@
+# frozen_string_literal: false
+
 require './spec/spec_helper'
 require './lib/centaur'
 
 RSpec.describe Centaur do
   it 'has a name' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     expect(centaur.name).to eq('George')
   end
 
   it 'has a horse breed' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     expect(centaur.breed).to eq('Palomino')
   end
 
   it 'has excellent bow skills' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     expect(centaur.shoot).to eq('Twang!!!')
   end
 
   it 'makes a horse sound when it runs' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     expect(centaur.run).to eq('Clop clop clop clop!')
   end
 
   it 'when first created, it is not cranky' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     expect(centaur.cranky?).to be false
   end
 
   it 'when first created, it is standing up' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     expect(centaur.standing?).to be true
   end
 
   it 'gets tired after running or shooting a bow thrice' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     expect(centaur.cranky?).to be false
 
     centaur.run
@@ -43,8 +45,8 @@ RSpec.describe Centaur do
     expect(centaur.cranky?).to be true
   end
 
-  it 'will not shoot a bow when cranky' do
-    centaur = Centaur.new('George', 'Palomino')
+  it 'does not shoot a bow when cranky' do
+    centaur = described_class.new('George', 'Palomino')
 
     expect(centaur.cranky?).to be false
 
@@ -53,14 +55,14 @@ RSpec.describe Centaur do
     expect(centaur.shoot).to eq('NO!')
   end
 
-  it 'will not sleep when it is standing' do
-    centaur = Centaur.new('George', 'Palomino')
+  it 'does not sleep when it is standing' do
+    centaur = described_class.new('George', 'Palomino')
 
     expect(centaur.sleep).to eq('NO!')
   end
 
   it 'is not standing after laying down' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     centaur.lay_down
 
     expect(centaur.standing?).to be false
@@ -68,32 +70,32 @@ RSpec.describe Centaur do
   end
 
   it 'can sleep when laying down' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     centaur.lay_down
-    expect(centaur.sleep).to_not eq('NO!')
+    expect(centaur.sleep).not_to eq('NO!')
   end
 
   it 'cannot shoot a bow when laying down' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     centaur.lay_down
     expect(centaur.shoot).to eq('NO!')
   end
 
   it 'cannot run while laying down' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     centaur.lay_down
     expect(centaur.run).to eq('NO!')
   end
 
   it 'can stand up' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     centaur.lay_down
     centaur.stand_up
     expect(centaur.standing?).to be true
   end
 
   it 'is no longer cranky after sleeping' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
 
     centaur.shoot
     centaur.run
@@ -113,7 +115,7 @@ RSpec.describe Centaur do
   end
 
   it 'becomes rested after drinking a potion' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
 
     centaur.shoot
     centaur.run
@@ -127,13 +129,13 @@ RSpec.describe Centaur do
   end
 
   it 'can only drink a potion whilst standing' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
     centaur.lay_down
     expect(centaur.drink_potion).to eq('NO!')
   end
 
   it 'gets sick if a potion is drunk while rested' do
-    centaur = Centaur.new('George', 'Palomino')
+    centaur = described_class.new('George', 'Palomino')
 
     centaur.shoot
     centaur.run

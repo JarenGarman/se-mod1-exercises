@@ -1,3 +1,6 @@
+# frozen_string_literal: false
+
+# Define class
 class Ogre
   attr_reader :name, :home, :swings, :encounter_counter
 
@@ -7,20 +10,24 @@ class Ogre
     @swings = 0
     @encounter_counter = 0
   end
+
   def encounter(human)
     human.encounter_counter += 1
-    @encounter_counter = @encounter_counter + 1
-    self.swing_at(human) if human.notices_ogre?
+    @encounter_counter += 1
+    swing_at(human) if human.notices_ogre?
   end
+
   def swing_at(human)
-    @swings = @swings + 1
+    @swings += 1
     human.knocked_out = true if @swings.even?
   end
+
   def apologize(human)
     human.knocked_out = false
   end
 end
 
+# Define class
 class Human
   attr_reader :name
   attr_accessor :encounter_counter, :knocked_out
@@ -30,9 +37,11 @@ class Human
     @encounter_counter = 0
     @knocked_out = false
   end
+
   def notices_ogre?
     (@encounter_counter % 3).zero?
   end
+
   def knocked_out?
     @knocked_out
   end

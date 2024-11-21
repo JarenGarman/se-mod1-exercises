@@ -1,3 +1,6 @@
+# frozen_string_literal: false
+
+# Define class
 class Pirate
   attr_reader :name, :job, :booty
 
@@ -7,13 +10,16 @@ class Pirate
     @booty = 0
     @heinous_acts = 0
   end
+
   def cursed?
     @heinous_acts >= 3
   end
+
   def commit_heinous_act
-    @heinous_acts = @heinous_acts + 1
+    @heinous_acts += 1
   end
+
   def rob_ship
-    @booty = @booty + 100
+    @booty += 100
   end
 end

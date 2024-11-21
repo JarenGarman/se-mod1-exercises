@@ -1,3 +1,6 @@
+# frozen_string_literal: false
+
+# Define class
 class Direwolf
   attr_reader :name, :home, :size, :starks_to_protect
 
@@ -8,6 +11,7 @@ class Direwolf
     @starks_to_protect = []
     @hunts_white_walkers = true
   end
+
   def protects(stark)
     if stark.location == @home && @starks_to_protect.size < 2
       @starks_to_protect << stark
@@ -15,19 +19,22 @@ class Direwolf
     end
     @hunts_white_walkers = false
   end
+
   def hunts_white_walkers?
     @hunts_white_walkers
   end
+
   def leaves(stark)
     if @starks_to_protect.include?(stark)
-    @starks_to_protect.delete_at(@starks_to_protect.index(stark))
-    stark.safe = false
+      @starks_to_protect.delete_at(@starks_to_protect.index(stark))
+      stark.safe = false
     else
       stark
     end
   end
 end
 
+# Define class
 class Stark
   attr_reader :name, :location, :house_words
   attr_accessor :safe
@@ -38,6 +45,7 @@ class Stark
     @house_words = 'Winter is Coming'
     @safe = false
   end
+
   def safe?
     @safe
   end

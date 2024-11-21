@@ -1,3 +1,6 @@
+# frozen_string_literal: false
+
+# Define class
 class Medusa
   attr_reader :name, :statues
 
@@ -5,6 +8,7 @@ class Medusa
     @name = name
     @statues = []
   end
+
   def stare(victim)
     if @statues.count == 3
       @statues[0].stoned = false
@@ -15,6 +19,7 @@ class Medusa
   end
 end
 
+# Define class
 class Person
   attr_reader :name
   attr_accessor :stoned
@@ -23,6 +28,7 @@ class Person
     @name = name
     @stoned = false
   end
+
   def stoned?
     @stoned
   end

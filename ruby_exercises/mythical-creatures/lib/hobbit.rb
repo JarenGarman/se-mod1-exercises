@@ -1,3 +1,6 @@
+# frozen_string_literal: false
+
+# Define class
 class Hobbit
   attr_reader :name, :disposition, :age
 
@@ -6,19 +9,24 @@ class Hobbit
     @disposition = disposition
     @age = 0
   end
+
   def celebrate_birthday
-    @age = @age + 1
+    @age += 1
   end
+
   def adult?
     @age >= 33
   end
+
   def old?
     @age >= 101
   end
-  def has_ring?
+
+  def ring?
     @name == 'Frodo'
   end
-  def is_short?
+
+  def short?
     true
   end
 end

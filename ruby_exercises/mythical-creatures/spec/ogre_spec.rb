@@ -1,25 +1,27 @@
+# frozen_string_literal: false
+
 require './spec/spec_helper'
 require './lib/ogre'
 
 RSpec.describe Ogre do
   it 'has a name' do
-    ogre = Ogre.new('Brak')
+    ogre = described_class.new('Brak')
     expect(ogre.name).to eq('Brak')
   end
 
   it 'lives somewhere by default' do
-    ogre = Ogre.new('Brak')
+    ogre = described_class.new('Brak')
     expect(ogre.home).to eq('Swamp')
   end
 
   it 'doesnt have to live in a swamp' do
-    ogre = Ogre.new('Brak', 'Castle')
+    ogre = described_class.new('Brak', 'Castle')
 
     expect(ogre.home).to eq('Castle')
   end
 
   it 'can meets humans' do
-    ogre = Ogre.new('Brak')
+    ogre = described_class.new('Brak')
     human = Human.new
     expect(human.name).to eq('Jane')
 
@@ -29,7 +31,7 @@ RSpec.describe Ogre do
   end
 
   it 'is noticed by humans every third encounter' do
-    ogre = Ogre.new('Brak')
+    ogre = described_class.new('Brak')
     human = Human.new
 
     ogre.encounter(human)
@@ -42,7 +44,7 @@ RSpec.describe Ogre do
   end
 
   it 'is noticed by humans the sixth time' do
-    ogre = Ogre.new('Brak')
+    ogre = described_class.new('Brak')
     human = Human.new
 
     6.times { ogre.encounter(human) }
@@ -51,7 +53,7 @@ RSpec.describe Ogre do
   end
 
   it 'can swing a club' do
-    ogre = Ogre.new('Brak')
+    ogre = described_class.new('Brak')
     human = Human.new
 
     ogre.swing_at(human)
@@ -60,7 +62,7 @@ RSpec.describe Ogre do
   end
 
   it 'swings its club when noticed by a human' do
-    ogre = Ogre.new('Brak')
+    ogre = described_class.new('Brak')
     human = Human.new
     ogre.encounter(human)
 
@@ -74,7 +76,7 @@ RSpec.describe Ogre do
   end
 
   it 'hits the human every second time it swings' do
-    ogre = Ogre.new('Brak')
+    ogre = described_class.new('Brak')
     human = Human.new
 
     6.times { ogre.encounter(human) }
@@ -85,7 +87,7 @@ RSpec.describe Ogre do
   end
 
   it 'apologizes and the human wakes up' do
-    ogre = Ogre.new('Brak')
+    ogre = described_class.new('Brak')
     human = Human.new
 
     6.times { ogre.encounter(human) }

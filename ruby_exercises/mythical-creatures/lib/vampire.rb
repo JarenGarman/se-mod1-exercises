@@ -1,3 +1,6 @@
+# frozen_string_literal: false
+
+# Define class
 class Vampire
   attr_reader :name, :pet, :thirsty
 
@@ -6,6 +9,7 @@ class Vampire
     @pet = pet
     @thirsty = true
   end
+
   def drink
     @thirsty = false
   end
