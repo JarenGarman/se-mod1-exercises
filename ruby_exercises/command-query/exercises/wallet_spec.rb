@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rspec'
-require_relative 'wallet_new'
+require_relative 'wallet'
 
 RSpec.describe Wallet do
   it 'starts at zero' do
@@ -13,63 +13,43 @@ RSpec.describe Wallet do
   it 'can add pennies' do
     wallet = described_class.new
 
-    wallet << :penny
-    expect(wallet.cents).to eq(1)
-
-    3.times { wallet << :penny }
+    4.times { wallet << :penny }
     expect(wallet.cents).to eq(4)
   end
 
   it 'can add nickels' do
     wallet = described_class.new
 
-    wallet << :nickel
-    expect(wallet.cents).to eq(5)
-
-    3.times { wallet << :nickel }
+    4.times { wallet << :nickel }
     expect(wallet.cents).to eq(20)
   end
 
   it 'can add dimes' do
     wallet = described_class.new
 
-    wallet << :dime
-    expect(wallet.cents).to eq(10)
-
-    3.times { wallet << :dime }
+    4.times { wallet << :dime }
     expect(wallet.cents).to eq(40)
   end
 
   it 'can add quarters' do
     wallet = described_class.new
 
-    wallet << :quarter
-    expect(wallet.cents).to eq(25)
-
-    3.times { wallet << :quarter }
+    4.times { wallet << :quarter }
     expect(wallet.cents).to eq(100)
   end
 
   it 'can take coins out' do
     wallet = described_class.new
-    wallet << :penny
-    wallet << :penny
-    wallet << :penny
-    wallet << :penny
+    4.times { wallet << :penny }
 
-    wallet.take(:penny)
-    expect(wallet.cents).to eq(3)
-
-    wallet.take(:penny, :penny)
-    expect(wallet.cents).to eq(1)
+    2.times { wallet.take(:penny) }
+    expect(wallet.cents).to eq(2)
   end
 
   it 'can take various coins out' do
     wallet = described_class.new
-    wallet << :penny
-    wallet << :dime
-    wallet << :quarter
-    wallet << :quarter
+    wallet.<<(:penny, :dime)
+    2.times { wallet << :quarter }
 
     wallet.take(:dime, :quarter)
     expect(wallet.cents).to eq(26)

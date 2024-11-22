@@ -1,0 +1,16 @@
+require:
+  - pry
+  - pry-byebug
+  - rails
+  - rspec
+  - rubocop
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-require_tools
+  - rubocop-rspec
+  - rubocop-rspec_rails
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/DescribeClass:
+  Enabled: false
