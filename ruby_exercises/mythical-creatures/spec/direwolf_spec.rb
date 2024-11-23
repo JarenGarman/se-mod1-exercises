@@ -90,7 +90,7 @@ RSpec.describe Direwolf do
   it 'the Starks are unsafe by default' do
     stark = Stark.new('Jon', 'The Wall')
 
-    expect(stark.safe?).to be false
+    expect(stark.safe).to be false
     expect(stark.house_words).to eq('Winter is Coming')
   end
 
@@ -101,14 +101,14 @@ RSpec.describe Direwolf do
 
     wolf.protects(arya_stark)
 
-    expect(arya_stark.safe?).to be true
-    expect(sansa_stark.safe?).to be false
+    expect(arya_stark.safe).to be true
+    expect(sansa_stark.safe).to be false
   end
 
   it 'hunts white walkers' do
     wolf = described_class.new('Nymeria', 'Winterfell')
 
-    expect(wolf.hunts_white_walkers?).to be true
+    expect(wolf.hunts_white_walkers).to be true
   end
 
   it 'does not hunt white walkers when protecting Starks' do
@@ -117,7 +117,7 @@ RSpec.describe Direwolf do
 
     wolf.protects(arya_stark)
 
-    expect(wolf.hunts_white_walkers?).to be false
+    expect(wolf.hunts_white_walkers).to be false
   end
 
   it 'can leave and stop protecting Starks' do
@@ -132,7 +132,7 @@ RSpec.describe Direwolf do
 
     expect(summer_wolf.starks_to_protect).to be_empty
     expect(lady_wolf.starks_to_protect.first.name).to eq('Sansa')
-    expect(arya_stark.safe?).to be false
+    expect(arya_stark.safe).to be false
   end
 
   it 'returns the Stark object when it leaves' do

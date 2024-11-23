@@ -2,14 +2,17 @@
 
 source 'https://rubygems.org'
 
+gem 'prettier_print'
 gem 'pry'
 gem 'pry-byebug'
 gem 'rails'
 gem 'rspec'
 gem 'rubocop', require: false
 gem 'rubocop-performance', require: false
-gem 'rubocop-rails', require: false
-gem 'rubocop-rake', require: false
-gem 'rubocop-require_tools', require: false
 gem 'rubocop-rspec', require: false
-gem 'rubocop-rspec_rails', require: false
+gem 'rubocop-thread_safety', require: false
+gem 'ruby-lsp', require: false
+gem "ruby-lsp-rspec", require: false
+gem 'syntax_tree'
+gem 'syntax_tree-haml'
+gem 'syntax_tree-rbs'

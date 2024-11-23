@@ -1,16 +1,10 @@
+inherit_from:
+  - /Users/jaren/node_modules/@prettier/plugin-ruby/rubocop.yml
 require:
-  - pry
-  - pry-byebug
-  - rails
-  - rspec
-  - rubocop
   - rubocop-performance
-  - rubocop-rails
-  - rubocop-rake
-  - rubocop-require_tools
   - rubocop-rspec
-  - rubocop-rspec_rails
-RSpec/ExampleLength:
+  - rubocop-thread_safety
+RSpec/MultipleExpectations:
   Enabled: false
-RSpec/DescribeClass:
+RSpec/ExampleLength:
   Enabled: false

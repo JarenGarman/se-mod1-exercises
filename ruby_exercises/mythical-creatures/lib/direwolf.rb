@@ -2,7 +2,7 @@
 
 # Define class
 class Direwolf
-  attr_reader :name, :home, :size, :starks_to_protect
+  attr_reader :name, :home, :size, :starks_to_protect, :hunts_white_walkers
 
   def initialize(name, home = 'Beyond the Wall', size = 'Massive')
     @name = name
@@ -18,10 +18,6 @@ class Direwolf
       stark.safe = true
     end
     @hunts_white_walkers = false
-  end
-
-  def hunts_white_walkers?
-    @hunts_white_walkers
   end
 
   def leaves(stark)
@@ -44,9 +40,5 @@ class Stark
     @location = location
     @house_words = 'Winter is Coming'
     @safe = false
-  end
-
-  def safe?
-    @safe
   end
 end
