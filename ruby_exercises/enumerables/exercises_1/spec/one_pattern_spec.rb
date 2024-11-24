@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'one pattern' do
+require 'rspec'
+RSpec.describe 'One' do
   it 'one more' do
     words = %w[bigger better more improved advantageous]
     count = 0

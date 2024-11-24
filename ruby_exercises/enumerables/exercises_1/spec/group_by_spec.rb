@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'group by' do
+require 'rspec'
+RSpec.describe 'Group_by' do
   it 'groups words by length' do
     words = %w[sue alice steve sally adam fort tops dog cat]
     grouped = words.group_by(&:length)

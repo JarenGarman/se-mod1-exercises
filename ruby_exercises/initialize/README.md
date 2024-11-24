@@ -19,6 +19,7 @@ Traceback (most recent call last):
 ```
 
 You'll have to _create_ the missing file. Look in the `lib` directory, see how the only file is `aardvark.rb`? This error message is saying
+
 > I cannot find ./lib/beaver.rb
 
 So, create a `beaver.rb` file in the `lib` directory, and try it again!
@@ -29,7 +30,7 @@ You'll be well served to read [Classes and Objects - Part I (LaunchSchool)](http
 
 These exercises pair very well with the above written explanations.
 
--------------------------------
+---
 
 The difficulty of these exercises steps up when you get to `kangaroo_spec.rb`, so once you've completed a few of them, consider jumping tracks to look at the `mythical-creatures` exercises.
 

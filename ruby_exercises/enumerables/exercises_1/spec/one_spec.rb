@@ -1,35 +1,29 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'one' do
+require 'rspec'
+RSpec.describe 'One' do
   it 'one more' do
     words = %w[bigger better more improved advantageous]
-    exactly_one = words.one? do |word|
-      word == 'more'
-    end
+    exactly_one = words.one?('more')
     expect(exactly_one).to be(true)
   end
 
   it 'not even one ring' do
     ornaments = %w[bracelet anklet earring]
-    exactly_one_ring = ornaments.one? do |ornament|
-      ornament == 'ring'
-    end
+    exactly_one_ring = ornaments.one?('ring')
     expect(exactly_one_ring).to be(false)
   end
 
   it 'not just one ring' do
     ornaments = %w[bracelet ring ring anklet earring]
-    exactly_one_ring = ornaments.one? do |ornament|
-      ornament == 'ring'
-    end
+    exactly_one_ring = ornaments.one?('ring')
     expect(exactly_one_ring).to be(false)
   end
 
   it 'one time' do
     words = %w[morning time evening noon dusk dawn]
-    exactly_one_time = words.one? do |word|
-      word == 'time'
-    end
+    exactly_one_time = words.one?('time')
     expect(exactly_one_time).to be(true)
   end
 

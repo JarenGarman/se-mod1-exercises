@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'Basic Enums Test' do
+require 'rspec'
+RSpec.describe 'Any' do
   it 'solve for x' do
     s = +''
     5.times do

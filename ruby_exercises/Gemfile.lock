@@ -88,10 +88,6 @@ GEM
     erubi (1.13.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    haml (6.3.0)
-      temple (>= 0.8.2)
-      thor
-      tilt
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
@@ -122,6 +118,7 @@ GEM
       timeout
     net-smtp (0.5.0)
       net-protocol
+    netrc (0.11.0)
     nio4r (2.7.4)
     nokogiri (1.16.7-aarch64-linux)
       racc (~> 1.4)
@@ -139,7 +136,6 @@ GEM
     parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
-    prettier_print (1.2.1)
     prism (1.2.0)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -188,6 +184,9 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
+    rbi (0.2.1)
+      prism (~> 1.0)
+      sorbet-runtime (>= 0.5.9204)
     rbs (3.6.1)
       logger
     rdoc (6.8.1)
@@ -220,11 +219,28 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.36.1)
       parser (>= 3.3.1.0)
+    rubocop-minitest (0.36.0)
+      rubocop (>= 1.61, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
     rubocop-performance (1.23.0)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
+    rubocop-rails (2.27.0)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.52.0, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
+    rubocop-rake (0.6.0)
+      rubocop (~> 1.0)
+    rubocop-require_tools (0.1.2)
+      rubocop (>= 0.49.1)
     rubocop-rspec (3.2.0)
       rubocop (~> 1.61)
+    rubocop-rspec_rails (2.30.0)
+      rubocop (~> 1.61)
+      rubocop-rspec (~> 3, >= 3.0.1)
+    rubocop-sorbet (0.8.7)
+      rubocop (>= 1)
     rubocop-thread_safety (0.6.0)
       rubocop (>= 1.48.1)
     ruby-lsp (0.21.3)
@@ -236,21 +252,31 @@ GEM
       ruby-lsp (~> 0.21.0)
     ruby-progressbar (1.13.0)
     securerandom (0.3.2)
+    sorbet (0.5.11647)
+      sorbet-static (= 0.5.11647)
     sorbet-runtime (0.5.11647)
+    sorbet-static (0.5.11647-aarch64-linux)
+    sorbet-static (0.5.11647-universal-darwin)
+    sorbet-static (0.5.11647-x86_64-linux)
+    sorbet-static-and-runtime (0.5.11647)
+      sorbet (= 0.5.11647)
+      sorbet-runtime (= 0.5.11647)
+    spoom (1.5.0)
+      erubi (>= 1.10.0)
+      prism (>= 0.28.0)
+      sorbet-static-and-runtime (>= 0.5.10187)
+      thor (>= 0.19.2)
     stringio (3.1.2)
-    syntax_tree (6.2.0)
-      prettier_print (>= 1.2.0)
-    syntax_tree-haml (4.0.3)
-      haml (>= 5.2)
-      prettier_print (>= 1.2.1)
-      syntax_tree (>= 6.0.0)
-    syntax_tree-rbs (1.0.0)
-      prettier_print
-      rbs
-      syntax_tree (>= 2.0.1)
-    temple (0.10.3)
+    tapioca (0.16.4)
+      bundler (>= 2.2.25)
+      netrc (>= 0.11.0)
+      parallel (>= 1.21.0)
+      rbi (~> 0.2)
+      sorbet-static-and-runtime (>= 0.5.11087)
+      spoom (>= 1.2.0)
+      thor (>= 1.2.0)
+      yard-sorbet
     thor (1.3.2)
-    tilt (2.4.0)
     timeout (0.4.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -260,6 +286,10 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    yard (0.9.37)
+    yard-sorbet (0.9.0)
+      sorbet-runtime
+      yard
     zeitwerk (2.7.1)
 
 PLATFORMS
@@ -271,20 +301,27 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  prettier_print
+  prism
   pry
   pry-byebug
   rails
+  rake
   rspec
   rubocop
+  rubocop-minitest
   rubocop-performance
+  rubocop-rails
+  rubocop-rake
+  rubocop-require_tools
   rubocop-rspec
+  rubocop-rspec_rails
+  rubocop-sorbet
   rubocop-thread_safety
   ruby-lsp
   ruby-lsp-rspec
-  syntax_tree
-  syntax_tree-haml
-  syntax_tree-rbs
+  sorbet
+  sorbet-runtime
+  tapioca
 
 BUNDLED WITH
    2.5.23

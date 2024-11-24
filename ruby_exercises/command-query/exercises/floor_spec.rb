@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -7,7 +8,7 @@ RSpec.describe Floor do
   it 'is dirty by default' do
     floor = described_class.new
 
-    expect(floor.dirty?).to be true
+    expect(floor.dirty).to be true
   end
 
   it 'is clean after it is washed' do
@@ -15,6 +16,6 @@ RSpec.describe Floor do
 
     floor.wash
 
-    expect(floor.dirty?).to be false
+    expect(floor.dirty).to be false
   end
 end

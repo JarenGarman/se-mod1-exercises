@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -7,7 +8,7 @@ RSpec.describe Door do
   it 'is locked' do
     door = described_class.new
 
-    expect(door.locked?).to be true
+    expect(door.locked).to be true
   end
 
   it 'unlocks the door' do
@@ -15,6 +16,6 @@ RSpec.describe Door do
 
     door.unlock
 
-    expect(door.locked?).to be false
+    expect(door.locked).to be false
   end
 end

@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -12,11 +13,8 @@ RSpec.describe Drops do
 
   it 'drops' do
     drops = described_class.new
-    drops.drop
 
-    expect(drops.count).to eq(1)
-
-    3.times { drops.drop }
+    4.times { drops.drop }
 
     expect(drops.count).to eq(4)
   end

@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'none pattern' do
+require 'rspec'
+RSpec.describe 'None' do
   it 'none are broken' do
     things = %w[functional working works fixed good]
     none_broken = true

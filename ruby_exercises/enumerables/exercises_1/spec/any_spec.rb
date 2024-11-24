@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'Any test' do
+require 'rspec'
+RSpec.describe 'Any' do
   it 'has at least one zero' do
     numbers = [2, 0, 9, 3, 0, 1]
     has_zero = numbers.any?(&:zero?)
@@ -15,24 +17,20 @@ RSpec.describe 'Any test' do
 
   it 'has at least one alice' do
     names = %w[Bill Bob Burton Alice Brandon]
-    has_alice = names.any? do |name|
-      name == 'Alice'
-    end
+    has_alice = names.any?('Alice')
     expect(has_alice).to be(true)
   end
 
   it 'no alices' do
     names = %w[Chuck Charlene Cory Chris Carl]
-    has_alice = names.any? do |name|
-      name == 'Alice'
-    end
+    has_alice = names.any?('Alice')
     expect(has_alice).to be(false)
   end
 
   it 'has a multi word phrase' do
     phrases = ['Sure!', 'OK.', 'I have no idea.', 'Really?Whatever.']
     multi_word_phrase = phrases.any? do |phrase|
-      phrase.match(/ /)
+      phrase.include?(' ')
     end
     expect(multi_word_phrase).to be(true)
   end

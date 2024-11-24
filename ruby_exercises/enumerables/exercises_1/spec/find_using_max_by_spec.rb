@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'max_by' do
+require 'rspec'
+RSpec.describe 'Max_by' do
   # You get the first test for free... it's already passing.
   it 'longest word' do
     words = %w[apple banana cherry date eggplant]

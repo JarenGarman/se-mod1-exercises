@@ -1,9 +1,8 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define class
 class SimpleMath
-  def initialize; end
-
   def add(num1, num2)
     num1 + num2
   end

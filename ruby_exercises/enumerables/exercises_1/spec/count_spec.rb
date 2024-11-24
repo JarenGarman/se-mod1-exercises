@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
-RSpec.describe 'count test' do
+require 'rspec'
+RSpec.describe 'Count' do
   it 'words with e' do
     words = %w[thing phone bark belt shoe bath]
     tally = words.count do |word|

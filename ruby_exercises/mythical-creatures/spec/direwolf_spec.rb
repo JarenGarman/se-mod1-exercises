@@ -1,7 +1,10 @@
+# typed: false
 # frozen_string_literal: false
 
-require './spec/spec_helper'
-require './lib/direwolf'
+require 'rspec'
+require_relative 'spec_helper'
+require_relative '../lib/direwolf'
+require_relative '../lib/stark'
 
 RSpec.describe Direwolf do
   it 'has a name' do

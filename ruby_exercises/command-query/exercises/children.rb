@@ -1,19 +1,21 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define Children class
 class Children
+  attr_reader :eldest
+
   def initialize
     @children = []
+    @eldest = nil
+    @eldest_age = 0
   end
 
   def <<(child)
     @children << child
-  end
+    return unless child.age > @eldest_age
 
-  def eldest
-    return nil if @children.empty?
-
-    @ages = @children.map(&:age)
-    @children[@ages.index(@ages.max)]
+    @eldest = child
+    @eldest_age = child.age
   end
 end

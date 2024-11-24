@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-require './lib/retirement'
+require 'rspec'
+require_relative '../lib/retirement'
 
 RSpec.describe Retirement do
   it 'can tell me when I should retire' do

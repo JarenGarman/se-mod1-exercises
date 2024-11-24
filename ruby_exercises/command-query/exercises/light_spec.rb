@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -7,7 +8,7 @@ RSpec.describe Light do
   it 'is off' do
     light = described_class.new
 
-    expect(light.on?).to be false
+    expect(light.on).to be false
   end
 
   it 'can be turned on' do
@@ -15,6 +16,6 @@ RSpec.describe Light do
 
     light.turn_on
 
-    expect(light.on?).to be true
+    expect(light.on).to be true
   end
 end

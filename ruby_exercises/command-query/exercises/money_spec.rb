@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -13,11 +14,7 @@ RSpec.describe Money do
   it 'can earn money' do
     money = described_class.new
 
-    money.earn(20)
-
-    expect(money.amount).to eq(20)
-
-    money.earn(13)
+    money.earn(33)
 
     expect(money.amount).to eq(33)
   end

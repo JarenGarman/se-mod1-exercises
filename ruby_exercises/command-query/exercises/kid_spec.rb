@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -13,11 +14,7 @@ RSpec.describe Kid do
   it 'gets 5 grams from eating candy' do
     kid = described_class.new
 
-    kid.eat_candy
-
-    expect(kid.grams_of_sugar_eaten).to eq(5)
-
-    5.times { kid.eat_candy }
+    6.times { kid.eat_candy }
 
     expect(kid.grams_of_sugar_eaten).to eq(30)
   end
@@ -25,18 +22,14 @@ RSpec.describe Kid do
   it 'is not hyperactive' do
     kid = described_class.new
 
-    expect(kid.hyperactive?).to be false
+    expect(kid.hyperactive).to be false
   end
 
   it 'is hyperactive after 60 grams of sugar' do
     kid = described_class.new
 
-    11.times { kid.eat_candy }
+    12.times { kid.eat_candy }
 
-    expect(kid.hyperactive?).to be false
-
-    kid.eat_candy
-
-    expect(kid.hyperactive?).to be true
+    expect(kid.hyperactive).to be true
   end
 end

@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -12,7 +13,7 @@ RSpec.describe Appointments do
 
   it 'has an earliest one' do
     slots = described_class.new
-    t1 = Time.new(2014, 3, 14, 4, 30)
+    t1 = Time.utc(2014, 3, 14, 4, 30)
 
     slots.at(t1)
 
@@ -21,13 +22,10 @@ RSpec.describe Appointments do
 
   it 'has an earliest of several' do
     slots = described_class.new
-    t1 = Time.new(2014, 6, 14, 16, 30)
-    t2 = Time.new(2014, 2, 28, 8, 30)
-    t3 = Time.new(2014, 2, 28, 11)
-    slots.at t1
-    slots.at t2
-    slots.at t3
+    slots.at Time.utc(2014, 6, 14, 16, 30)
+    slots.at Time.utc(2014, 2, 28, 8, 30)
+    slots.at Time.utc(2014, 2, 28, 11)
 
-    expect(slots.earliest).to eq(t2)
+    expect(slots.earliest).to eq(Time.utc(2014, 2, 28, 8, 30))
   end
 end

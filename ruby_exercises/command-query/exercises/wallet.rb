@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define the Wallet class to hold coins and store their value

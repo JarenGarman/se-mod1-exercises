@@ -1,14 +1,13 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define class
 class Santa
+  attr_reader :fits
+
   def initialize
     @fits = true
     @cookies_eaten = 0
-  end
-
-  def fits?
-    @fits
   end
 
   def eats_cookies

@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'select pattern' do
+require 'rspec'
+RSpec.describe 'Select' do
   it 'picks even numbers' do
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     evens = []

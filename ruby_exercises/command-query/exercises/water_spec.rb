@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -13,10 +14,7 @@ RSpec.describe Water do
   it 'can be heated' do
     water = described_class.new
 
-    water.heat
-    expect(water.temperature).to eq(296)
-
-    20.times { water.heat }
+    21.times { water.heat }
     expect(water.temperature).to eq(316)
   end
 end

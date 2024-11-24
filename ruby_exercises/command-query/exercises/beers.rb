@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define Beers class
@@ -13,6 +14,6 @@ class Beers
   end
 
   def restock
-    @inventory = 99
+    initialize
   end
 end

@@ -1,13 +1,12 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define class
 class Tire
+  attr_reader :flat
+
   def initialize
     @flat = false
-  end
-
-  def flat?
-    @flat
   end
 
   def blow_out

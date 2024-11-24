@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
-RSpec.describe 'all pattern' do
+require 'rspec'
+RSpec.describe 'All' do
   it 'test 1' do
     account_balances = [0, 0, 0, 0, 0, 0, 0]
     all_zeros = true

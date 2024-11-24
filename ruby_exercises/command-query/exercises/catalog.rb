@@ -1,19 +1,21 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define Catalog class
 class Catalog
+  attr_reader :cheapest
+
   def initialize
     @catalog = []
+    @cheapest = nil
+    @cheapest_price = 0
   end
 
   def <<(product)
     @catalog << product
-  end
+    return unless product.price < @cheapest_price || @cheapest_price.zero?
 
-  def cheapest
-    return nil if @catalog.empty?
-
-    prices = @catalog.map(&:price)
-    @catalog[prices.index(prices.min)].type
+    @cheapest = product.type
+    @cheapest_price = product.price
   end
 end

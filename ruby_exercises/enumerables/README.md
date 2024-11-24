@@ -16,7 +16,7 @@ Each test suite is built up in the following way:
 2. A test where the block of the loop is missing.
 3. A test where the entire loop is missing.
 4. Any number of tests where all but the input data and the assertion
-are missing.
+   are missing.
 
 This gradually transfers the responsibility to you, the learner, while still
 providing examples that you can look at.
@@ -67,29 +67,29 @@ $ rspec exercises_1/spec/map_spec.rb
 
 Consider working through the exercises in this order:
 
-* `map`
-* `select`
-* `find` (aka `detect`)
-* `sort_by`
-* `count`
-* `reject`
-* `reduce` (this one is tricky!)
-* `any?`
-* `all?`
-* `none?`
-* `one?`
-* `group_by` (this one is tricky too!)
-* `zip`
+- `map`
+- `select`
+- `find` (aka `detect`)
+- `sort_by`
+- `count`
+- `reject`
+- `reduce` (this one is tricky!)
+- `any?`
+- `all?`
+- `none?`
+- `one?`
+- `group_by` (this one is tricky too!)
+- `zip`
 
 You should work on the `pattern` test file in conjunction with the specific enumerable. `select_pattern_spec.rb` alongside `select_spec.rb`, etc.
 
-__Recommended Workflow__
+**Recommended Workflow**
 
 Here's how we recommend you work through the exercises:
 
-* Open your text editor with two panes (left and right)
-* In the left pane, open the pattern file like `map_pattern_spec.rb`
-* In the right pane, open the matching file like `map_spec.rb`
-* Run the `map_pattern_spec.rb` and solve the first exercise
-* Run the `map_spec.rb` and solve the same exercise
-* Repeat for each matching pair of exercises
+- Open your text editor with two panes (left and right)
+- In the left pane, open the pattern file like `map_pattern_spec.rb`
+- In the right pane, open the matching file like `map_spec.rb`
+- Run the `map_pattern_spec.rb` and solve the first exercise
+- Run the `map_spec.rb` and solve the same exercise
+- Repeat for each matching pair of exercises

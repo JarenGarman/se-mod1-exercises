@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
-RSpec.describe 'Count Pattern Test' do
+require 'rspec'
+RSpec.describe 'Count' do
   it 'counts words with an e' do
     words = %w[thing phone bark belt shoe bath]
     tally = 0

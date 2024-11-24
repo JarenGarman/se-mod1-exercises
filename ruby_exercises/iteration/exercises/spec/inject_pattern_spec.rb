@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
-RSpec.describe 'inject pattern test' do
+require 'rspec'
+RSpec.describe 'Inject' do
   it 'test 1' do
     numbers = [28, 12, 38, 1, 91]
     # Iterate over the numbers array defined above,
@@ -188,9 +190,9 @@ RSpec.describe 'inject pattern test' do
       hash[:flavors][hash[:flavors].size - 1].insert(0, 'and ')
       printable_menu.insert(-1, "- #{hash[:flavors].join(', ')} #{item} #{gluten}")
     end
-    expected =  "Menu:\n"\
-                "- chicken, potato, steak, and veggie empanadas (non gluten free)\n"\
-                "- blueberry, and vanilla scones (non gluten free)\n"\
+    expected =  "Menu:\n" \
+                "- chicken, potato, steak, and veggie empanadas (non gluten free)\n" \
+                "- blueberry, and vanilla scones (non gluten free)\n" \
                 "- blueberry, strawberry, and cherry parfaits (gluten free)\n"
 
     expect(printable_menu).to eq(expected)

@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'Any Pattern Test' do
+require 'rspec'
+RSpec.describe 'Any' do
   it 'has at least one zero' do
     numbers = [2, 0, 9, 3, 0, 1]
     has_zero = false
@@ -41,7 +43,7 @@ RSpec.describe 'Any Pattern Test' do
     phrases = ['Sure!', 'OK.', 'I have no idea.', 'Really?Whatever.']
     has_multi_word_phrase = false
     phrases.each do |phrase|
-      has_multi_word_phrase = true if / /.match?(phrase)
+      has_multi_word_phrase = true if phrase.include?(' ')
     end
     expect(has_multi_word_phrase).to be(true)
   end

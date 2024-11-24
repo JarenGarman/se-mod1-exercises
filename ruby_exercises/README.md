@@ -7,6 +7,7 @@ Practicing in this manner (small, bite-sized problems that you can do repeatedly
 Each folder in this repository is a set of related exercises. Open up the folder and read the README to learn more about them.
 
 ## Structure of this repository
+
 - Each folder contains a `README.md` file that provides a summary of what skills you will develop with these exercises
 - Each exercise file within the folder will begin with comments providing more detail on:
   1. How you need to manipulate or work with this file to complete the exercise.
@@ -18,11 +19,11 @@ Each folder in this repository is a set of related exercises. Open up the folder
 
 2. Install `bundler` gem
 
-  run `gem install bundler` in your terminal
+run `gem install bundler` in your terminal
 
 3. From the command line, run `bundle install`
 
-  You _should_ see something like this:
+You _should_ see something like this:
 
 ```
 $ bundle install
@@ -50,6 +51,7 @@ Installing rspec 3.10.0
 Bundle complete! 3 Gemfile dependencies, 12 gems now installed.
 Use `bundle info [gemname]` to see where a bundled gem is installed.
 ```
+
 If you see that, great!
 
 If you get an error like:
@@ -65,8 +67,9 @@ $ gem install bundler
 ```
 
 If this command throws an error, you either:
-  1. Don't have `rbenv` installed
-  2. You've not yet installed a version of Ruby.
+
+1. Don't have `rbenv` installed
+2. You've not yet installed a version of Ruby.
 
 Please check that you've followed [mod0 setup instructions](https://mod0.turing.edu/computer-setup).
 
@@ -80,7 +83,7 @@ It is used in conjunction with the `Gemfile` and `Gemfile.lock` files you see in
 
 Here's an exhaustive amount of information about gems, if you're so inclined: [guides.rubygems.org/what-is-a-gem](https://guides.rubygems.org/what-is-a-gem/)
 
--------------------
+---
 
 Once `bundle` has run successfully, open up the first test!
 
@@ -93,5 +96,4 @@ And read through the `README.md` for further instructions!
 
 If you want to view the instructions in your web browser, you can view them here: [data-types/strings/README.md](https://github.com/turingschool/ruby-exercises/tree/main/data-types/strings)
 
-
-----------------------------------
+---

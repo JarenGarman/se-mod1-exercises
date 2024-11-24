@@ -1,5 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
+require 'rspec'
+require 'rails'
 require_relative 'nesting'
 
 # The intent of this exercise is to practice working with nested collections.
@@ -13,7 +16,7 @@ require_relative 'nesting'
 # The collection you're going to be using lives in ./nesting.rb and is called stores.
 # If you spot an error or want to make this exercise better, please let us know!
 
-RSpec.describe 'Advanced Nested Collections' do
+RSpec.describe 'Hashes' do
   it 'test 1' do
     # EXAMPLE
     employees = stores[:olive_garden][:employees]
@@ -55,9 +58,7 @@ RSpec.describe 'Advanced Nested Collections' do
 
   it 'test 6' do
     # Find dishes names for Olive Garden
-    dishes_names = stores[:olive_garden][:dishes].map do |hash|
-      hash[:name]
-    end
+    dishes_names = stores[:olive_garden][:dishes].pluck(:name)
     expect(dishes_names).to eq(%w[Risotto Steak])
   end
 
@@ -67,8 +68,7 @@ RSpec.describe 'Advanced Nested Collections' do
     employee_names = stores.map do |_store, hash|
       hash[:employees]
     end
-    employee_names = employee_names.flatten
-    expected = %w[Jeff Zach Samantha Bob Sue James Alvin Simon Theodore]
+    expected = [%w[Jeff Zach Samantha], %w[Bob Sue James], %w[Alvin Simon Theodore]]
     expect(employee_names).to eq(expected)
   end
 
@@ -76,31 +76,11 @@ RSpec.describe 'Advanced Nested Collections' do
     # Return a list of all ingredients
     # across all restaurants
     ingredients = stores.map do |_store, hash|
-      hash[:dishes].map do |dish_hash|
-        dish_hash[:ingredients]
-      end
+      hash[:dishes].pluck(:ingredients)
     end
     ingredients = ingredients.flatten
-    expected = %w[
-      Rice
-      Cheese
-      Butter
-      Beef
-      Garlic
-      Flour
-      Eggs
-      Milk
-      Syrup
-      Flour
-      Eggs
-      Syrup
-      Bun
-      Hamburger
-      Ketchup
-      pickles
-      Potatoes
-      Salt
-    ]
+    expected = %w[Rice Cheese Butter Beef Garlic Flour Eggs Milk Syrup Flour Eggs Syrup Bun Hamburger Ketchup pickles
+                  Potatoes Salt]
     expect(ingredients).to eq(expected)
   end
 
@@ -119,18 +99,8 @@ RSpec.describe 'Advanced Nested Collections' do
     stores[:olive_garden][:dishes].each do |dish|
       olive_garden_menu[dish[:name]] = dish
     end
-    expected = {
-      'Risotto' => {
-        name: 'Risotto',
-        ingredients: %w[Rice Cheese Butter],
-        price: 12
-      },
-      'Steak' => {
-        name: 'Steak',
-        ingredients: %w[Beef Garlic],
-        price: 15
-      }
-    }
+    expected = { 'Risotto' => { name: 'Risotto', ingredients: %w[Rice Cheese Butter], price: 12 },
+                 'Steak' => { name: 'Steak', ingredients: %w[Beef Garlic], price: 15 } }
     expect(olive_garden_menu).to eq(expected)
   end
 
@@ -143,38 +113,12 @@ RSpec.describe 'Advanced Nested Collections' do
       end
     end
 
-    expected = {
-      'Risotto' => {
-        name: 'Risotto',
-        ingredients: %w[Rice Cheese Butter],
-        price: 12
-      },
-      'Steak' => {
-        name: 'Steak',
-        ingredients: %w[Beef Garlic],
-        price: 15
-      },
-      'Pancakes' => {
-        name: 'Pancakes',
-        ingredients: %w[Flour Eggs Milk Syrup],
-        price: 10
-      },
-      'Waffles' => {
-        name: 'Waffles',
-        ingredients: %w[Flour Eggs Syrup],
-        price: 7
-      },
-      'Big Mac' => {
-        name: 'Big Mac',
-        ingredients: %w[Bun Hamburger Ketchup pickles],
-        price: 5
-      },
-      'Fries' => {
-        name: 'Fries',
-        ingredients: %w[Potatoes Salt],
-        price: 2
-      }
-    }
+    expected = { 'Risotto' => { name: 'Risotto', ingredients: %w[Rice Cheese Butter], price: 12 },
+                 'Steak' => { name: 'Steak', ingredients: %w[Beef Garlic], price: 15 },
+                 'Pancakes' => { name: 'Pancakes', ingredients: %w[Flour Eggs Milk Syrup], price: 10 },
+                 'Waffles' => { name: 'Waffles', ingredients: %w[Flour Eggs Syrup], price: 7 },
+                 'Big Mac' => { name: 'Big Mac', ingredients: %w[Bun Hamburger Ketchup pickles], price: 5 },
+                 'Fries' => { name: 'Fries', ingredients: %w[Potatoes Salt], price: 2 } }
     expect(full_menu).to eq(expected)
   end
 end

@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -7,7 +8,7 @@ RSpec.describe Music do
   it 'is not loud' do
     music = described_class.new
 
-    expect(music.loud?).to be false
+    expect(music.loud).to be false
   end
 
   it 'is loud after turning up the volume' do
@@ -15,6 +16,6 @@ RSpec.describe Music do
 
     music.turn_up
 
-    expect(music.loud?).to be true
+    expect(music.loud).to be true
   end
 end

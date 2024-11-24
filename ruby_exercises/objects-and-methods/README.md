@@ -6,10 +6,10 @@ If you'd like to be walked through the exercise, check out the [Objects and Meth
 
 Make the tests pass in the following sequence:
 
-* `spec/candy_spec.rb`
-* `spec/bag_spec.rb`
-* `spec/costume_spec.rb`
-* `spec/trick_or_treater_spec.rb`
+- `spec/candy_spec.rb`
+- `spec/bag_spec.rb`
+- `spec/costume_spec.rb`
+- `spec/trick_or_treater_spec.rb`
 
 Run a test file by calling it with `ruby`:
 
@@ -23,8 +23,7 @@ Each object has become a little bit more complex.
 
 Make the tests pass in the following sequence:
 
-* `spec/candy_spec.rb`
-* `spec/bag_spec.rb`
-* `spec/costume_spec.rb`
-* `spec/trick_or_treater_spec.rb`
-
+- `spec/candy_spec.rb`
+- `spec/bag_spec.rb`
+- `spec/costume_spec.rb`
+- `spec/trick_or_treater_spec.rb`

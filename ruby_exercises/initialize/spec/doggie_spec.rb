@@ -1,9 +1,10 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
-require_relative '../lib/dog'
+require_relative '../lib/doggie'
 
-RSpec.describe Dog do
+RSpec.describe Doggie do
   it 'exists' do
     doug = described_class.new('Doug', 'Golden Retriever')
 

@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-require './lib/mad_lib'
+require 'rspec'
+require_relative '../lib/mad_lib'
 
 RSpec.describe MadLib do
   it 'can create a new mad lib' do

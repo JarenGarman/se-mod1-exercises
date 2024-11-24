@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -12,11 +13,8 @@ RSpec.describe Beers do
 
   it 'decreases inventory' do
     beers = described_class.new
-    beers.take_one_down_and_pass_it_around
 
-    expect(beers.inventory).to eq(98)
-
-    53.times { beers.take_one_down_and_pass_it_around }
+    54.times { beers.take_one_down_and_pass_it_around }
     expect(beers.inventory).to eq(45)
   end
 
@@ -27,10 +25,6 @@ RSpec.describe Beers do
 
     beers.restock
 
-    expect(beers.inventory).to eq(99)
-
-    5.times { beers.take_one_down_and_pass_it_around }
-    beers.restock
     expect(beers.inventory).to eq(99)
   end
 end

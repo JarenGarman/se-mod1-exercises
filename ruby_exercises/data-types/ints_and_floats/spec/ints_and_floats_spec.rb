@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'ints and floats' do
+require 'rspec'
+RSpec.describe 'Ints' do
   it 'test 1' do
     lucky = 7
     unlucky = 13

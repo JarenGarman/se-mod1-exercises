@@ -1,6 +1,9 @@
+# typed: false
 # frozen_string_literal: false
 
-RSpec.describe 'all test' do
+require 'rspec'
+
+RSpec.describe 'All' do
   it 'test all zeroes' do
     numbers = [0, 0, 0, 0, 0, 0, 0]
     all_zeros = numbers.all?(&:zero?)
@@ -15,33 +18,25 @@ RSpec.describe 'all test' do
 
   it 'all gone' do
     words = %w[gone gone gone gone gone gone gone]
-    all_gone = words.all? do |word|
-      word == 'gone'
-    end
+    all_gone = words.all?('gone')
     expect(all_gone).to be(true)
   end
 
   it 'not all gone' do
     words = %w[gone gone gone gone gone there gone gone]
-    all_gone = words.all? do |word|
-      word == 'gone'
-    end
+    all_gone = words.all?('gone')
     expect(all_gone).to be(false)
   end
 
   it 'all empty' do
     strings = ['', '', '', '', '', '', '']
-    all_empty = strings.all? do |string|
-      string == ''
-    end
+    all_empty = strings.all?('')
     expect(all_empty).to be(true)
   end
 
   it 'not all empty' do
     strings = ['', '', '', 'full', '', '', '']
-    all_empty = strings.all? do |string|
-      string == ''
-    end
+    all_empty = strings.all?('')
     expect(all_empty).to be(false)
   end
 

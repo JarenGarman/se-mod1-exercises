@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -42,6 +43,10 @@ RSpec.describe TrickOrTreater do
     trick_or_treater = described_class.new(Costume.new('Spaceship Mechanic'))
 
     expect(trick_or_treater.candy_count).to eq(0)
+  end
+
+  it 'can count candies-2' do
+    trick_or_treater = described_class.new(Costume.new('Spaceship Mechanic'))
 
     trick_or_treater.bag << Candy.new('Gummy bears')
 
@@ -55,14 +60,14 @@ RSpec.describe TrickOrTreater do
     trick_or_treater.bag << Candy.new('Salty Serpents')
 
     expect(trick_or_treater.candy_count).to eq(3)
-    trick_or_treater.eat
+  end
 
-    expect(trick_or_treater.candy_count).to eq(2)
-    trick_or_treater.eat
-
-    expect(trick_or_treater.candy_count).to eq(1)
-    trick_or_treater.eat
-
+  it 'can eat candies-2' do
+    trick_or_treater = described_class.new(Costume.new('Baron'))
+    trick_or_treater.bag << Candy.new('Gummy worms')
+    trick_or_treater.bag << Candy.new('Liquorice')
+    trick_or_treater.bag << Candy.new('Salty Serpents')
+    3.times { trick_or_treater.eat }
     expect(trick_or_treater.candy_count).to eq(0)
   end
 

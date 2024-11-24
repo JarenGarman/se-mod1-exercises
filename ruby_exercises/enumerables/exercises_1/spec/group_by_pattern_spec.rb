@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'group by pattern' do
+require 'rspec'
+RSpec.describe 'Group_by' do
   it 'group words by length' do
     words = %w[sue alice steve sally adam fort tops dog cat]
     grouped = Hash.new { |hash, key| hash[key] = [] }

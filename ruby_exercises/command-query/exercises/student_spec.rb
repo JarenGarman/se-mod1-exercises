@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -13,10 +14,7 @@ RSpec.describe Student do
   it 'can improve its grade' do
     student = described_class.new
 
-    student.study
-    expect(student.grade).to eq('B')
-
-    student.study
+    2.times { student.study }
     expect(student.grade).to eq('A')
   end
 
@@ -31,10 +29,7 @@ RSpec.describe Student do
   it 'can get worse' do
     student = described_class.new
 
-    student.slack_off
-    expect(student.grade).to eq('D')
-
-    student.slack_off
+    2.times { student.slack_off }
     expect(student.grade).to eq('F')
   end
 

@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'sort_by pattern' do
+require 'rspec'
+RSpec.describe 'Sort_by' do
   it 'sorts alphabetically' do
     words = %w[broccoli Carrots FISH Bacon candy]
     transformed = []
@@ -9,7 +11,7 @@ RSpec.describe 'sort_by pattern' do
     end
     transformed = transformed.sort
     sorted = []
-    transformed.each do |_unused, word|
+    transformed.each do |_, word|
       sorted << word
     end
     expect(sorted).to eq(%w[Bacon broccoli candy Carrots FISH])
@@ -23,7 +25,7 @@ RSpec.describe 'sort_by pattern' do
     end
     transformed = transformed.sort
     sorted = []
-    transformed.each do |_unused, thing|
+    transformed.each do |_, thing|
       sorted << thing
     end
     expect(sorted).to eq(%w[sponge pill water glass box])
@@ -37,7 +39,7 @@ RSpec.describe 'sort_by pattern' do
     end
     transformed = transformed.sort
     sorted = []
-    transformed.each do |_unused, distance|
+    transformed.each do |_, distance|
       sorted << distance
     end
     expect(sorted).to eq(%w[1cm 2cm 4cm 9cm 30cm])
@@ -51,7 +53,7 @@ RSpec.describe 'sort_by pattern' do
     end
     transformed = transformed.sort
     sorted = []
-    transformed.each do |_unused, word|
+    transformed.each do |_, word|
       sorted << word
     end
     expect(sorted).to eq(%w[bug heteromorph mathematical ancyloceratina bioengineering])
@@ -65,7 +67,7 @@ RSpec.describe 'sort_by pattern' do
     end
     transformed = transformed.sort
     sorted = []
-    transformed.each do |_unused, price|
+    transformed.each do |_, price|
       sorted << price
     end
     expect(sorted).to eq([10.01, 9.91, 11.0, 3.02, 17.9])
@@ -79,7 +81,7 @@ RSpec.describe 'sort_by pattern' do
     end
     transformed = transformed.sort
     sorted = []
-    transformed.each do |_unused, price|
+    transformed.each do |_, price|
       sorted << price
     end
     expect(sorted).to eq([11.0, 10.01, 3.02, 7.9, 9.91])

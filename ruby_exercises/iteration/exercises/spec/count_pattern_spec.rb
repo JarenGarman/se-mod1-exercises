@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'count pattern' do
+require 'rspec'
+RSpec.describe 'Count' do
   it 'test 1' do
     ages = [39, 45, 29, 24, 50]
     younger_than_thirty = 0

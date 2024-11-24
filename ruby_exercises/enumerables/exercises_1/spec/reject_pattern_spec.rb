@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'reject pattern' do
+require 'rspec'
+RSpec.describe 'Reject' do
   it 'removes zeroes' do
     numbers = [2, 93, 7, 0, 0, 1, 0, 31, 0, 368]
     filtered = []

@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'Nested Collections' do
+require 'rspec'
+RSpec.describe 'Hashes' do
   it 'test 1' do
     coordinates = [[2, 5], [87, 2], [56, 39], [3, 46]]
     # Using the coordinates variable defined above
@@ -50,11 +52,7 @@ RSpec.describe 'Nested Collections' do
   end
 
   it 'test 6' do
-    team = {
-      pitchers: %w[Kenny Joan Shabaz],
-      fielders: %w[Luke Chris Megan Mark Mackenzie],
-      catchers: ['Johnny']
-    }
+    team = { pitchers: %w[Kenny Joan Shabaz], fielders: %w[Luke Chris Megan Mark Mackenzie], catchers: ['Johnny'] }
     # Using the team variable defined above
     # retrieve all of the pitchers
     pitchers = team[:pitchers]
@@ -63,49 +61,30 @@ RSpec.describe 'Nested Collections' do
   end
 
   it 'test 7' do
-    team = {
-      pitchers: %w[Kenny Joan Shabaz],
-      fielders: %w[Luke Chris Megan Mark Mackenzie],
-      catchers: ['Johnny']
-    }
+    team = { pitchers: %w[Kenny Joan Shabaz], fielders: %w[Luke Chris Megan Mark Mackenzie], catchers: ['Johnny'] }
     # Using the team variable defined above
     # add "Phil" as a pitcher
     team[:pitchers] << 'Phil'
 
-    expected = {
-      pitchers: %w[Kenny Joan Shabaz Phil],
-      fielders: %w[Luke Chris Megan Mark Mackenzie],
-      catchers: ['Johnny']
-    }
+    expected = { pitchers: %w[Kenny Joan Shabaz Phil], fielders: %w[Luke Chris Megan Mark Mackenzie],
+                 catchers: ['Johnny'] }
     expect(team).to eq(expected)
   end
 
   it 'test 8' do
-    team = {
-      pitchers: %w[Kenny Joan Shabaz],
-      fielders: %w[Luke Chris Megan Mark Mackenzie],
-      catchers: ['Johnny']
-    }
+    team = { pitchers: %w[Kenny Joan Shabaz], fielders: %w[Luke Chris Megan Mark Mackenzie], catchers: ['Johnny'] }
     # Using the team variable defined above
     # create a new key :coaches with the value
     # of an empty array
     team[:coaches] = []
 
-    expected = {
-      pitchers: %w[Kenny Joan Shabaz],
-      fielders: %w[Luke Chris Megan Mark Mackenzie],
-      catchers: ['Johnny'],
-      coaches: []
-    }
+    expected = { pitchers: %w[Kenny Joan Shabaz], fielders: %w[Luke Chris Megan Mark Mackenzie], catchers: ['Johnny'],
+                 coaches: [] }
     expect(team).to eq(expected)
   end
 
   it 'test 9' do
-    team = {
-      pitchers: %w[Kenny Joan Shabaz],
-      fielders: %w[Luke Chris Megan Mark Mackenzie],
-      catchers: ['Johnny']
-    }
+    team = { pitchers: %w[Kenny Joan Shabaz], fielders: %w[Luke Chris Megan Mark Mackenzie], catchers: ['Johnny'] }
     # Using the team variable defined above
     # Find out how many fielders there are
     num_fielders = team[:fielders].length
@@ -113,11 +92,7 @@ RSpec.describe 'Nested Collections' do
   end
 
   it 'test 10' do
-    team = {
-      pitchers: %w[Kenny Joan Shabaz],
-      fielders: %w[Luke Chris Megan Mark Mackenzie],
-      catchers: ['Johnny']
-    }
+    team = { pitchers: %w[Kenny Joan Shabaz], fielders: %w[Luke Chris Megan Mark Mackenzie], catchers: ['Johnny'] }
     # Using the team variable defined above
     # Find out if "Kenny" is a pitcher
     kenny_is_pitcher = team[:pitchers].include?('Kenny')
@@ -129,11 +104,8 @@ RSpec.describe 'Nested Collections' do
     # into multiple lines to make it more readable
 
     three_day_forecast = {
-      days: [{ high: 70, low: 63, summary: 'Mostly Sunny' },
-             { high: 55, low: 47, summary: 'Partly Cloudy' },
-             { high: 77, low: 64, summary: 'Sunny' }],
-      'date' => '6-21-18',
-      ref_num: 3_456_789_765_456_787_656
+      days: [{ high: 70, low: 63, summary: 'Mostly Sunny' }, { high: 55, low: 47, summary: 'Partly Cloudy' },
+             { high: 77, low: 64, summary: 'Sunny' }], 'date' => '6-21-18', ref_num: 3_456_789_765_456_787_656
     }
     # Using the three_day_forecast variable defined above,
     # retrieve the expected piece of information
@@ -145,28 +117,22 @@ RSpec.describe 'Nested Collections' do
 
   it 'test 12' do
     three_day_forecast = {
-      days: [{ high: 70, low: 63, summary: 'Mostly Sunny' },
-             { high: 55, low: 47, summary: 'Partly Cloudy' },
-             { high: 77, low: 64, summary: 'Sunny' }],
-      'date' => '6-21-18',
-      ref_num: 3_456_789_765_456_787_656
+      days: [{ high: 70, low: 63, summary: 'Mostly Sunny' }, { high: 55, low: 47, summary: 'Partly Cloudy' },
+             { high: 77, low: 64, summary: 'Sunny' }], 'date' => '6-21-18', ref_num: 3_456_789_765_456_787_656
     }
     # Using the three_day_forecast variable defined above,
     # retrieve the expected piece of information
 
     actual = three_day_forecast[:days]
-    expected = [{ high: 70, low: 63, summary: 'Mostly Sunny' }, { high: 55, low: 47, summary: 'Partly Cloudy' },
-                { high: 77, low: 64, summary: 'Sunny' }]
+    expected = [{ high: 70, low: 63, summary: 'Mostly Sunny' },
+                { high: 55, low: 47, summary: 'Partly Cloudy' }, { high: 77, low: 64, summary: 'Sunny' }]
     expect(actual).to eq(expected)
   end
 
   it 'test 13' do
     three_day_forecast = {
-      days: [{ high: 70, low: 63, summary: 'Mostly Sunny' },
-             { high: 55, low: 47, summary: 'Partly Cloudy' },
-             { high: 77, low: 64, summary: 'Sunny' }],
-      'date' => '6-21-18',
-      ref_num: 3_456_789_765_456_787_656
+      days: [{ high: 70, low: 63, summary: 'Mostly Sunny' }, { high: 55, low: 47, summary: 'Partly Cloudy' },
+             { high: 77, low: 64, summary: 'Sunny' }], 'date' => '6-21-18', ref_num: 3_456_789_765_456_787_656
     }
     # Using the three_day_forecast variable defined above,
     # retrieve the expected piece of information
@@ -265,12 +231,9 @@ RSpec.describe 'Nested Collections' do
     # Add a new key "time" with the value "12:30"
     three_day_forecast['time'] = '12:30'
     expected = { 'time' => '12:30',
-                 days: [
-                   { high: 70, low: 63, summary: 'Mostly Sunny' },
-                   { high: 55, low: 47, summary: 'Partly Cloudy' },
-                   { high: 77, low: 64, summary: 'Sunny' }
-                 ],
-                 'date' => '6-21-18', ref_num: 3_456_789_765_456_787_656 }
+                 days: [{ high: 70, low: 63, summary: 'Mostly Sunny' }, { high: 55, low: 47, summary: 'Partly Cloudy' },
+                        { high: 77, low: 64, summary: 'Sunny' }], 'date' => '6-21-18',
+                 ref_num: 3_456_789_765_456_787_656 }
     expect(three_day_forecast).to eq(expected)
   end
 end

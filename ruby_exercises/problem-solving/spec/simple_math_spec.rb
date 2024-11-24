@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-require './lib/simple_math'
+require 'rspec'
+require_relative '../lib/simple_math'
 
 RSpec.describe SimpleMath do
   it 'can add two numbers' do

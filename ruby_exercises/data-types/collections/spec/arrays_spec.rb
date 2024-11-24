@@ -1,9 +1,10 @@
+# typed: false
 # frozen_string_literal: true
 
+require 'rspec'
 RSpec.describe 'Arrays' do
   it 'test 0' do
     # in the line below, create a new empty array
-
     empty = []
     expect(empty).to eq([])
   end
@@ -11,17 +12,14 @@ RSpec.describe 'Arrays' do
   it 'test 1' do
     # in the line below, create an array with the numbers 1 through 5
     nums = [1, 2, 3, 4, 5]
-
     expect(nums).to eq([1, 2, 3, 4, 5])
   end
 
   it 'test 2' do
     # in the line below, call a method on the nums variable
     # defined above to access the second element
-
     nums = [1, 2, 3]
     actual = nums.at(1)
-
     expected = 2
     expect(actual).to eq(expected)
   end
@@ -33,7 +31,9 @@ RSpec.describe 'Arrays' do
     actual = nums.last
     expected = 3
     expect(actual).to eq(expected)
+  end
 
+  it 'test 2-3' do
     # Now try to find another way to achieve the same effect
     nums = [1, 2, 3]
     actual = nums.at(2)
@@ -53,7 +53,10 @@ RSpec.describe 'Arrays' do
     # In the line below, add the element 'Brazil' to the end of the world_cup array
     world_cup.push('Brazil')
     expect(world_cup.last).to eq('Brazil')
+  end
 
+  it 'test 4-2' do
+    world_cup = %w[Germany Mexico Iceland Portugal]
     # Use a different method to add the element 'Japan' to the end of the array
     world_cup << 'Japan'
     expect(world_cup.last).to eq('Japan')
@@ -65,6 +68,13 @@ RSpec.describe 'Arrays' do
     # the last element of the array
     last_element = world_cup.pop
     expect(last_element).to eq('Portugal')
+  end
+
+  it 'test 5-2' do
+    world_cup = %w[Germany Mexico Iceland Portugal]
+    # Call a method on the world_cup variable to remove and return
+    # the last element of the array
+    world_cup.pop
     expect(world_cup).to eq(%w[Germany Mexico Iceland])
   end
 
@@ -74,7 +84,10 @@ RSpec.describe 'Arrays' do
     # is an element or not
     toxic_in_array = karaoke.include?('Toxic')
     expect(toxic_in_array).to be(false)
+  end
 
+  it 'test 6-2' do
+    karaoke = ['Shake it Off', 'Dancing Queen', 'Bohemian Rhapsody']
     # Now call a method on the karaoke variable to ask whether 'Dancing Queen'
     # is an element or not
     dancing_queen_in_array = karaoke.include?('Dancing Queen')
@@ -85,7 +98,6 @@ RSpec.describe 'Arrays' do
     band = %w[Guitar Drums Bass]
     # Call a method on the band variable to add the element 'Vocals'
     # to the beginning of the array
-
     actual = band.unshift('Vocals')
     expect(actual).to eq(%w[Vocals Guitar Drums Bass])
   end
@@ -93,8 +105,14 @@ RSpec.describe 'Arrays' do
   it 'test 8' do
     garden = %w[Tulips Tomatoes Basil Peppers]
     # Call a method to remove and return the first element from the garden array
-    first_element = garden.shift
+    garden.shift
     expect(garden).to eq(%w[Tomatoes Basil Peppers])
+  end
+
+  it 'test 8-2' do
+    garden = %w[Tulips Tomatoes Basil Peppers]
+    # Call a method to remove and return the first element from the garden array
+    first_element = garden.shift
     expect(first_element).to eq('Tulips')
   end
 
@@ -103,6 +121,10 @@ RSpec.describe 'Arrays' do
     # Call a method on the teams variable to get the second, third, and fourth teams
     some_teams = teams[1..3]
     expect(some_teams).to eq(%w[Avalanche Nuggets Broncos])
+  end
+
+  it 'test 9-2' do
+    teams = %w[Rockies Avalanche Nuggets Broncos Rapids]
 
     # Now use a different method on the teams variable to get the first and second teams
     some_teams = teams.take(2)
@@ -129,10 +151,13 @@ RSpec.describe 'Arrays' do
     # move the elements two spots to the left
     new_scores = scores.rotate!(2)
     expect(new_scores).to eq([34, 29, 48, 23, 56])
+  end
 
+  it 'test 12-2' do
+    scores = [23, 56, 34, 29, 48]
     # Now call a method on the scores variables that will
     # move the elements one spot to the right
-    new_scores = scores.rotate(2)
+    new_scores = scores.rotate(4)
     expect(new_scores).to eq([48, 23, 56, 34, 29])
   end
 
@@ -173,10 +198,21 @@ RSpec.describe 'Arrays' do
     # of the array
     roll = dice.sample
     expect(roll <= 6).to be(true)
+  end
+
+  it 'test 17-2' do
+    dice = [1, 2, 3, 4, 5, 6]
+    # Call a method on the dice variable to get a random element out
+    # of the array
+    roll = dice.sample
     expect(roll >= 1).to be(true)
-    # Note, this assertion assumes the Ruby Version is 2.4 or higher.
-    # This test will fail with expecting roll to be a FixNum if the
-    # Ruby version is 2.3 or earlier
+  end
+
+  it 'test 17-3' do
+    dice = [1, 2, 3, 4, 5, 6]
+    # Call a method on the dice variable to get a random element out
+    # of the array
+    roll = dice.sample
     expect(roll).to be_a(Integer)
   end
 end

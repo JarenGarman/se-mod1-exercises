@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-require './lib/hello'
+require 'rspec'
+require_relative '../lib/hello'
 
 RSpec.describe Hello do
   it 'says hello to Brian' do

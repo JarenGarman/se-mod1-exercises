@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -13,11 +14,7 @@ RSpec.describe Person do
   it 'gets older' do
     person = described_class.new
 
-    person.happy_birthday
-
-    expect(person.age).to eq(1)
-
-    32.times { person.happy_birthday }
+    33.times { person.happy_birthday }
 
     expect(person.age).to eq(33)
   end

@@ -1,8 +1,9 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define Kid class
 class Kid
-  attr_reader :grams_of_sugar_eaten
+  attr_reader :grams_of_sugar_eaten, :hyperactive
 
   def initialize
     @grams_of_sugar_eaten = 0
@@ -14,9 +15,5 @@ class Kid
     return unless @grams_of_sugar_eaten >= 60
 
     @hyperactive = true
-  end
-
-  def hyperactive?
-    @hyperactive
   end
 end

@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'reduce pattern' do
+require 'rspec'
+RSpec.describe 'Reduce' do
   it 'sums a list of numbers' do
     numbers = [32, 1, 21, 5, 81, 333]
     sum = 0
@@ -31,7 +33,7 @@ RSpec.describe 'reduce pattern' do
   it 'capitalizes key words in phrase' do
     keywords = %w[fish blue]
     phrase = 'one fish two fish red fish blue fish'
-    phrase_array = phrase.split(' ')
+    phrase_array = phrase.split
     keywords.each do |keyword|
       phrase_array.map do |word|
         word.upcase! if word == keyword

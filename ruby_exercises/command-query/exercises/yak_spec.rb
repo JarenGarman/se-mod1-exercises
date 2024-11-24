@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -7,7 +8,7 @@ RSpec.describe Yak do
   it 'is hairy' do
     yak = described_class.new
 
-    expect(yak.hairy?).to be true
+    expect(yak.hairy).to be true
   end
 
   it 'can be shaved' do
@@ -15,6 +16,6 @@ RSpec.describe Yak do
 
     yak.shave
 
-    expect(yak.hairy?).to be false
+    expect(yak.hairy).to be false
   end
 end

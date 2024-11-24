@@ -1,8 +1,10 @@
+# typed: false
 # frozen_string_literal: true
 
-require './lib/character_count'
+require 'rspec'
+require_relative '../lib/character_count'
 
-RSpec.describe 'character count' do
+RSpec.describe 'CharacterCount' do
   it 'can count a small word' do
     cc = CharacterCount.new
 

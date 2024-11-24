@@ -1,5 +1,7 @@
+# typed: false
 # frozen_string_literal: true
 
+require 'rspec'
 RSpec.describe 'Strings' do
   it 'test 1' do
     name = 'alice'
@@ -41,7 +43,7 @@ RSpec.describe 'Strings' do
   it 'test 5' do
     word = 'ticking'
     # In place of the line below, call a method to achieve the expected output.
-    actual = word.sub(/t/, 'k')
+    actual = word.sub('t', 'k')
     expected = 'kicking'
 
     expect(actual).to eq(expected)
@@ -50,7 +52,7 @@ RSpec.describe 'Strings' do
   it 'test 6' do
     word = 'ticking'
     # In place of the line below, call a method to achieve the expected output.
-    actual = word.sub(/ti/, 'clo')
+    actual = word.sub('ti', 'clo')
     expected = 'clocking'
 
     expect(actual).to eq(expected)

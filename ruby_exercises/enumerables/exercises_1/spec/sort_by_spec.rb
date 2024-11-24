@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'sort_by' do
+require 'rspec'
+RSpec.describe 'Sort_by' do
   it 'alphabetically' do
     words = %w[broccoli Carrots FISH Bacon candy]
     sorted = words.sort_by(&:downcase)

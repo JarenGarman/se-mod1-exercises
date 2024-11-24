@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -56,8 +57,12 @@ RSpec.describe Bag do
   it 'can be asked if it has a particular kind of candy' do
     bag = described_class.new
     bag << Candy.new('Lindt chocolate')
-
     expect(bag.contains?('Lindt chocolate')).to be true
+  end
+
+  it 'can be asked if it has a particular kind of candy-2' do
+    bag = described_class.new
+    bag << Candy.new('Lindt chocolate')
     expect(bag.contains?('Nerds')).to be false
   end
 end

@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'map' do
+require 'rspec'
+RSpec.describe 'Map' do
   it 'capitalizes' do
     names = %w[alice bob charlie]
     capitalized_names = names.map(&:capitalize)

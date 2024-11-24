@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'select pattern' do
+require 'rspec'
+RSpec.describe 'Select' do
   it 'test 1' do
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     evens = []
@@ -69,7 +71,7 @@ RSpec.describe 'select pattern' do
     furniture = ['dining table', 'bed', 'coffee table', 'deck chairs']
     words_with_c = []
     furniture.each do |item|
-      words_with_c << item if /c/.match?(item)
+      words_with_c << item if item.include?('c')
     end
     expect(words_with_c).to eq(['coffee table', 'deck chairs'])
   end
@@ -83,7 +85,7 @@ RSpec.describe 'select pattern' do
     }
     words_with_c = {}
     furniture.each do |room, item|
-      words_with_c[room] = item if /c/.match?(item)
+      words_with_c[room] = item if item.include?('c')
     end
     expected = {
       living_room: 'coffee table',
@@ -96,7 +98,7 @@ RSpec.describe 'select pattern' do
     meals = ['chips and salsa', 'chicken alfredo', 'banana pudding']
     two_words = []
     meals.each do |meal|
-      two_words << meal if meal.split(' ').size == 2
+      two_words << meal if meal.split.size == 2
     end
     expect(two_words).to eq(['chicken alfredo', 'banana pudding'])
   end
@@ -109,7 +111,7 @@ RSpec.describe 'select pattern' do
     }
     two_words = {}
     meal.each do |mealtime, item|
-      two_words[mealtime] = item if item.split(' ').size == 2
+      two_words[mealtime] = item if item.split.size == 2
     end
     expected = {
       entre: 'chicken alfredo',

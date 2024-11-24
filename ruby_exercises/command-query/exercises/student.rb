@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define class
@@ -16,7 +17,7 @@ class Student
       @grade = 'C'
     when 'C'
       @grade = 'B'
-    when 'B' || @grade == 'A'
+    when 'B'
       @grade = 'A'
     end
   end
@@ -29,7 +30,7 @@ class Student
       @grade = 'C'
     when 'C'
       @grade = 'D'
-    when 'D' || @grade == 'F'
+    when 'D'
       @grade = 'F'
     end
   end

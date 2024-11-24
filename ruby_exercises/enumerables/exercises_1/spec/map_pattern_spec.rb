@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'map pattern' do
+require 'rspec'
+RSpec.describe 'Map' do
   it 'capitalizes' do
     names = %w[alice bob charlie]
     capitalized_names = []
@@ -14,7 +16,7 @@ RSpec.describe 'map pattern' do
     numbers = [1, 2, 3, 4, 5]
     doubles = []
     numbers.each do |number|
-      doubles << number * 2
+      doubles << (number * 2)
     end
     expect(doubles).to eq([2, 4, 6, 8, 10])
   end

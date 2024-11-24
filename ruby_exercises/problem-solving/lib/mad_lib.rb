@@ -1,9 +1,8 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define class
 class MadLib
-  def initialize; end
-
   def noun(noun)
     @noun = noun
   end

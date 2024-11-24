@@ -1,7 +1,8 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define class
-class Dog
+class Doggie
   def initialize(name, breed)
     @name = name
     @breed = breed

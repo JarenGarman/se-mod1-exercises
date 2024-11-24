@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
-RSpec.describe 'All Pattern' do
+require 'rspec'
+RSpec.describe 'All' do
   it 'all zeros' do
     numbers = [0, 0, 0, 0, 0, 0, 0]
     all_zeros = true

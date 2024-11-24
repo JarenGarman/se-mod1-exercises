@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'find pattern' do
+require 'rspec'
+RSpec.describe 'Find' do
   it 'test 1' do
     ages = [39, 45, 29, 24, 50]
     first_younger_than_thirty = nil

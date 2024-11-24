@@ -1,10 +1,21 @@
-inherit_from:
-  - /Users/jaren/node_modules/@prettier/plugin-ruby/rubocop.yml
 require:
+  - rubocop-minitest
   - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-require_tools
   - rubocop-rspec
+  - rubocop-rspec_rails
+  - rubocop-sorbet
   - rubocop-thread_safety
-RSpec/MultipleExpectations:
-  Enabled: false
 RSpec/ExampleLength:
   Enabled: false
+Naming/FileName:
+  Exclude:
+    - Gemfile
+AllCops:
+  NewCops: enable
+  Include:
+    - "sorbet/rbi/shims/**/*.rbi"
+  ParserEngine: parser_prism
+  TargetRubyVersion: 3.3

@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -7,7 +8,7 @@ RSpec.describe Baby do
   it 'is tired' do
     baby = described_class.new
 
-    expect(baby.tired?).to be true
+    expect(baby.tired).to be true
   end
 
   it 'is not tired after a nap' do
@@ -15,6 +16,6 @@ RSpec.describe Baby do
 
     baby.nap
 
-    expect(baby.tired?).to be false
+    expect(baby.tired).to be false
   end
 end

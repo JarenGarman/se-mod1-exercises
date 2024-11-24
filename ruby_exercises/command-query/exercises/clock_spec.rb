@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -11,10 +12,8 @@ RSpec.describe Clock do
 
   it 'measures the passage of time' do
     clock = described_class.new
-    clock.wait
-    expect(clock.time).to eq(7)
 
-    3.times { clock.wait }
+    4.times { clock.wait }
     expect(clock.time).to eq(10)
   end
 

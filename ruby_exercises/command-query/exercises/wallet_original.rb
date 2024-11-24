@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 # Define class
@@ -16,12 +17,11 @@ class Wallet
       value = @wallet.fetch(:dime) + 10
     when :quarter
       value = @wallet.fetch(:quarter) + 25
-    end
-    @wallet.store(coin, value)
+    end && @wallet.store(coin, value)
   end
 
   def cents
-    @cents = @wallet.values.map.reduce(:+)
+    @cents = @wallet.values.map.sum
   end
 
   def take(coin, coin2 = {})

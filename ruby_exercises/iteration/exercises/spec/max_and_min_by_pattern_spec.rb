@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'max and min by pattern' do
+require 'rspec'
+RSpec.describe 'Max_by' do
   it 'test 1'  do
     numbers = [1, 100, 1000, 1_000_000]
     greatest = numbers[0]

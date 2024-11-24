@@ -1,19 +1,21 @@
+# typed: true
 # frozen_string_literal: true
 
 # Define Clearance class
 class Clearance
+  attr_reader :best_deal
+
   def initialize
     @clearance = []
+    @best_deal = nil
+    @best_deal_int = 0
   end
 
   def <<(item)
     @clearance << item
-  end
+    return unless item.deal > @best_deal_int
 
-  def best_deal
-    return nil if @clearance.empty?
-
-    deals = @clearance.map(&:deal)
-    @clearance[deals.index(deals.max)].type
+    @best_deal = item.type
+    @best_deal_int = item.deal
   end
 end

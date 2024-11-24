@@ -1,11 +1,11 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'none' do
+require 'rspec'
+RSpec.describe 'None' do
   it 'none are broken' do
     things = %w[functional working works fixed good]
-    none_broken = things.none? do |thing|
-      thing == 'broken'
-    end
+    none_broken = things.none?('broken')
     expect(none_broken).to be(true)
   end
 

@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'zip' do
+require 'rspec'
+RSpec.describe 'Zip' do
   it 'speed interview pairs' do
     list1 = %w[Alice Bob Charlie]
     list2 = %w[Xenia Yves Zach]

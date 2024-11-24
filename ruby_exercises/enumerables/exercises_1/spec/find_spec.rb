@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
-RSpec.describe 'find test' do
+require 'rspec'
+RSpec.describe 'Find' do
   it 'first seven letter word' do
     words = %w[capricious berry unicorn bag apple festering pretzel pencil]
     found = words.find do |word|

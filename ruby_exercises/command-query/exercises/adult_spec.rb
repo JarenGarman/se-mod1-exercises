@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'rspec'
@@ -7,16 +8,14 @@ RSpec.describe Adult do
   it 'does not get drunk too easily' do
     adult = described_class.new
 
-    adult.consume_an_alcoholic_beverage
-    expect(adult.sober?).to be true
+    2.times { adult.consume_an_alcoholic_beverage }
+    expect(adult.sober).to be true
+  end
 
-    adult.consume_an_alcoholic_beverage
-    expect(adult.sober?).to be true
+  it 'gets drunk after 3 drinks' do
+    adult = described_class.new
 
-    adult.consume_an_alcoholic_beverage
-    expect(adult.sober?).to be false
-
-    adult.consume_an_alcoholic_beverage
-    expect(adult.sober?).to be false
+    3.times { adult.consume_an_alcoholic_beverage }
+    expect(adult.sober).to be false
   end
 end

@@ -1,18 +1,26 @@
+# typed: false
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
 
-gem 'prettier_print'
+gem 'prism'
 gem 'pry'
 gem 'pry-byebug'
 gem 'rails'
+gem 'rake'
 gem 'rspec'
-gem 'rubocop', require: false
-gem 'rubocop-performance', require: false
-gem 'rubocop-rspec', require: false
-gem 'rubocop-thread_safety', require: false
-gem 'ruby-lsp', require: false
-gem "ruby-lsp-rspec", require: false
-gem 'syntax_tree'
-gem 'syntax_tree-haml'
-gem 'syntax_tree-rbs'
+gem 'rubocop', require: false, group: :development
+gem 'rubocop-minitest', require: false, group: :development
+gem 'rubocop-performance', require: false, group: :development
+gem 'rubocop-rails', require: false, group: :development
+gem 'rubocop-rake', require: false, group: :development
+gem 'rubocop-require_tools', require: false, group: :development
+gem 'rubocop-rspec', require: false, group: :development
+gem 'rubocop-rspec_rails', require: false, group: :development
+gem 'rubocop-sorbet', require: false, group: :development
+gem 'rubocop-thread_safety', require: false, group: :development
+gem 'ruby-lsp', require: false, group: :development
+gem 'ruby-lsp-rspec', require: false, group: :development
+gem 'sorbet', group: :development
+gem 'sorbet-runtime'
+gem 'tapioca', require: false, group: %i[development test]

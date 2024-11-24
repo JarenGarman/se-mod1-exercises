@@ -1,6 +1,8 @@
-# frozen_string_literal: true
+# typed: false
+# frozen_string_literal: false
 
-require './lib/escape_characters'
+require 'rspec'
+require_relative '../lib/escape_characters'
 
 RSpec.describe EscapeCharacters do
   it 'can add quotation marks' do

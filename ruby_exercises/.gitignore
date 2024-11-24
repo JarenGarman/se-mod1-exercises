@@ -1,0 +1,4 @@
+.vscode/** */
+.vscode
+**/.DS_Store
+sorbet/rbi/hidden-definitions/errors.txt
