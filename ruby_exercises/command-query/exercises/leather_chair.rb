@@ -1,14 +1,11 @@
-# typed: true
+# typed: strong
 # frozen_string_literal: true
 
-# Define class
-class LeatherChair
-  attr_reader :faded
-
-  def initialize
-    @faded = false
-  end
-
+require_relative '../../monkey_patch'
+# Starts out brand new, unfaded. When exposed to sunlight, becomes faded.
+class LeatherChair < T::Struct
+  const :faded, T::Boolean, default: false
+  sig { void }
   def expose_to_sunlight
     @faded = true
   end

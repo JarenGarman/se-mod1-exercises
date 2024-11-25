@@ -1,14 +1,11 @@
-# typed: true
+# typed: strong
 # frozen_string_literal: true
 
-# Define Floor class
-class Floor
-  attr_reader :dirty
-
-  def initialize
-    @dirty = true
-  end
-
+require_relative '../../monkey_patch'
+# Starts dirty. Can wash clean.
+class Floor < T::Struct
+  const :dirty, T::Boolean, default: true
+  sig { void }
   def wash
     @dirty = false
   end
