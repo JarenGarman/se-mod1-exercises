@@ -1,14 +1,12 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define class
-class MilkBottle
-  attr_reader :full
+require_relative '../../monkey_patch'
+# Starts full. Can spill.
+class MilkBottle < T::Struct
+  const :full, T::Boolean, default: true
 
-  def initialize
-    @full = true
-  end
-
+  sig { void }
   def spill
     @full = false
   end

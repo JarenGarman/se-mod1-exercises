@@ -15,7 +15,7 @@ class Wallet < T::Struct
     @wallet = T.let({ penny: 0, nickel: 0, dime: 0, quarter: 0 }, T::Hash[Symbol, Integer])
   end
 
-  sig { params(coin: Symbol, add: T::Boolean).returns(T.anything) }
+  sig { params(coin: Symbol, add: T::Boolean).void }
   def adjust(coin, add)
     case add
     when true
@@ -31,14 +31,14 @@ class Wallet < T::Struct
     end
   end
 
-  sig { params(coins: Symbol).returns(T.anything) }
+  sig { params(coins: Symbol).void }
   def <<(*coins)
     coins.map do |coin|
       adjust(coin, true)
     end
   end
 
-  sig { params(coins: Symbol).returns(T.anything) }
+  sig { params(coins: Symbol).void }
   def take(*coins)
     coins.map do |coin|
       adjust(coin, false)

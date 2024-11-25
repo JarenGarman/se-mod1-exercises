@@ -13,17 +13,25 @@ RSpec.describe Clearance do
 
   it 'has highest percent off one item' do
     clearance = described_class.new
+    socks = Item.new
+    socks.define({ socks: [price: 5, discount: 1] })
     # the discount here is a price, so this discount would be 20 percent
-    clearance << Item.new('socks', price: 5, discount: 1)
+    clearance << socks
 
     expect(clearance.best_deal).to eq('socks')
   end
 
   it 'has higest percent off many items' do
     clearance = described_class.new
-    clearance << Item.new('shirt', price: 16, discount: 2)
-    clearance << Item.new('pants', price: 10, discount: 5)
-    clearance << Item.new('jacket', price: 30, discount: 10)
+    shirt = Item.new
+    pants = Item.new
+    jacket = Item.new
+    shirt.define({ shirt: [price: 16, discount: 2] })
+    pants.define({ pants: [price: 10, discount: 5] })
+    jacket.define({ jacket: [price: 30, discount: 10] })
+    clearance << shirt
+    clearance << pants
+    clearance << jacket
 
     expect(clearance.best_deal).to eq('pants')
   end

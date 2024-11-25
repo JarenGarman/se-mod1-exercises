@@ -13,16 +13,24 @@ RSpec.describe Catalog do
 
   it 'has a cheapest of one' do
     catalog = described_class.new
-    catalog << Product.new('scissors', 8)
+    scissors = Product.new
+    scissors.describe('scissors', 8)
+    catalog << scissors
     expect(catalog.cheapest).to eq('scissors')
   end
 
   it 'has a cheapest product' do
     catalog = described_class.new
-    catalog << Product.new('cupcake', 3)
-    catalog << Product.new('shirt', 23)
-    catalog << Product.new('button', 1)
+    cupcake = Product.new
+    shirt = Product.new
+    button = Product.new
+    cupcake.describe('cupcake', 3)
+    shirt.describe('shirt', 23)
+    button.describe('button', 1)
 
+    catalog << cupcake
+    catalog << shirt
+    catalog << button
     expect(catalog.cheapest).to eq('button')
   end
 end
