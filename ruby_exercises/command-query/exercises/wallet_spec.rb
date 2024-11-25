@@ -63,4 +63,11 @@ RSpec.describe Wallet do
 
     expect(wallet.cents).to eq(1)
   end
+
+  it 'can verify cents' do
+    wallet = described_class.new
+    wallet.<<(:quarter, :dime, :quarter, :nickel, :nickel, :penny)
+
+    expect(wallet.verify_cents).to be true
+  end
 end
