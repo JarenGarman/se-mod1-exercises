@@ -15,33 +15,25 @@ class Wallet < T::Struct
     @wallet = T.let({ penny: 0, nickel: 0, dime: 0, quarter: 0 }, T::Hash[Symbol, Integer])
   end
 
-  sig { params(coin: Symbol, add: T::Boolean).void }
-  def adjust(coin, add)
-    case add
-    when true
-      @wallet[coin] = @wallet.fetch(coin) + 1
-      @cents += T.must(@coin_value[coin])
+  sig { params(coin: Symbol, modifier: Integer).void }
+  def adjust(coin, modifier)
+    return unless !@wallet.fetch(coin).zero? || modifier.positive?
 
-    when false
-      unless @wallet.fetch(coin).zero?
-
-        @wallet[coin] = @wallet.fetch(coin) - 1
-        @cents -= T.must(@coin_value[coin])
-      end
-    end
+    @wallet[coin] = @wallet.fetch(coin) + modifier
+    @cents += (T.must(@coin_value[coin]) * modifier)
   end
 
   sig { params(coins: Symbol).void }
   def <<(*coins)
     coins.map do |coin|
-      adjust(coin, true)
+      adjust(coin, 1)
     end
   end
 
   sig { params(coins: Symbol).void }
   def take(*coins)
     coins.map do |coin|
-      adjust(coin, false)
+      adjust(coin, -1)
     end
   end
 
