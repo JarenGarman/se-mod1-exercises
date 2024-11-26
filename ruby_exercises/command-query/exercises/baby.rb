@@ -1,14 +1,11 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define Baby class
-class Baby
-  attr_reader :tired
-
-  def initialize
-    @tired = true
-  end
-
+require_relative '../../monkey_patch'
+# Starts tired, can nap.
+class Baby < T::Struct
+  const :tired, T::Boolean, default: true
+  sig { void }
   def nap
     @tired = false
   end

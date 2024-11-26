@@ -3,17 +3,18 @@
 
 require_relative '../../monkey_patch'
 # Define an item to be used with the Clearance class.
-class Item < T::Struct
-  const :type, T.nilable(String)
-  const :price, T.nilable(Integer)
-  const :discount, T.nilable(Integer)
-  const :deal, T.nilable(Float)
+class Item
+  sig { returns(Float) }
+  attr_reader :deal
 
-  sig { params(item: T::Hash[Symbol, T::Hash[Symbol, Integer]]).void }
-  def define(item) # rubocop:disable Metrics/AbcSize
-    @type = T.let(item.keys[0].to_s, T.nilable(String))
-    @price = T.let(T.must(item.values.flatten[0])[:price], T.nilable(Integer))
-    @discount = T.let(T.must(item.values.flatten[0])[:discount], T.nilable(Integer))
-    @deal = T.let(1.0 - ((T.must(@price) - T.must(@discount)) / @price.to_f), T.nilable(Float))
+  sig { returns(String) }
+  attr_reader :type
+
+  sig { params(type: String, price_and_discount: T::Hash[Symbol, Integer]).void }
+  def initialize(type, price_and_discount)
+    @type = type
+    @price = T.let(T.must(price_and_discount[:price]), Integer)
+    @discount = T.let(T.must(price_and_discount[:discount]), Integer)
+    @deal = T.let((1.0 - (@price[0] - @discount[0])) / @price.to_f, Float)
   end
 end

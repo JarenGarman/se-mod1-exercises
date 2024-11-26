@@ -1,10 +1,16 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define Child class
+require_relative '../../monkey_patch'
+# Give a name and age to a child for use in the Children class.
 class Child
-  attr_reader :name, :age
+  sig { returns(String) }
+  attr_reader :name
 
+  sig { returns(Integer) }
+  attr_reader :age
+
+  sig { params(name: String, age: Integer).void }
   def initialize(name, age)
     @name = name
     @age = age

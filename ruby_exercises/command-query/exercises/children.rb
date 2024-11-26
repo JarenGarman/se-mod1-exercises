@@ -1,21 +1,16 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define Children class
-class Children
-  attr_reader :eldest
+require_relative '../../monkey_patch'
+require_relative 'child'
+# Starts out empty, can add children from Child class.
+class Children < T::Struct
+  prop :kids, T::Array[Child], default: []
 
-  def initialize
-    @children = []
-    @eldest = nil
-    @eldest_age = 0
-  end
+  sig { returns(T.nilable(Child)) }
+  def eldest
+    return nil if @kids.empty?
 
-  def <<(child)
-    @children << child
-    return unless child.age > @eldest_age
-
-    @eldest = child
-    @eldest_age = child.age
+    @kids.max_by(&:age)
   end
 end

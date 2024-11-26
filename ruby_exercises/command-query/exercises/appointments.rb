@@ -1,22 +1,14 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define Appointments class
-class Appointments
-  attr_reader :slots
-
-  def initialize
-    @slots = []
-  end
-
-  def at(time)
-    @slots << time
-  end
-
+require_relative '../../monkey_patch'
+# Starts empty, can add times and determine earliest appointment.
+class Appointments < T::Struct
+  prop :times, T::Array[Time], default: []
+  sig { returns(T.nilable(Time)) }
   def earliest
-    return nil if @slots.empty?
+    return nil if @times.empty?
 
-    times = @slots.map(&:to_i)
-    @slots[times.index(times.min)]
+    @times.min_by(&:to_i)
   end
 end

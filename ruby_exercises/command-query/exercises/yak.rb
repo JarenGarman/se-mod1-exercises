@@ -1,14 +1,12 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define class
-class Yak
-  attr_reader :hairy
+require_relative '../../monkey_patch'
+# Starts off hairy. Can be shaved.
+class Yak < T::Struct
+  const :hairy, T::Boolean, default: true
 
-  def initialize
-    @hairy = true
-  end
-
+  sig { void }
   def shave
     @hairy = false
   end

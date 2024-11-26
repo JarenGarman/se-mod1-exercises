@@ -1,19 +1,18 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define class
-class Santa
-  attr_reader :fits
+require_relative '../../monkey_patch'
+# Starts out fitting into the chimney, having eaten no cookies. No longer fits after eating three or more cookies
+class Santa < T::Struct
+  const :cookies_eaten, Integer, default: 0
 
-  def initialize
-    @fits = true
-    @cookies_eaten = 0
-  end
-
+  sig { void }
   def eats_cookies
     @cookies_eaten += 1
-    return unless @cookies_eaten >= 3
+  end
 
-    @fits = false
+  sig { returns(T::Boolean) }
+  def fits
+    @cookies_eaten < 3
   end
 end

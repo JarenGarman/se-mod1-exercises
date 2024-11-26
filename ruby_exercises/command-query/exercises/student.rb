@@ -4,12 +4,8 @@
 require_relative '../../monkey_patch'
 # Student starts with a grade of C. Can study for better grades or slack off to drop grades.
 class Student < T::Struct
-  sig { void }
-  def initialize
-    super
-    @grade_index = T.let(2, Integer)
-    @grade_array = T.let(%w[A B C D F], T::Array[String])
-  end
+  const :grade_index, Integer, default: 2
+  const :grade_array, T::Array[String], default: %w[A B C D F]
 
   sig { returns(T.nilable(String)) }
   def grade

@@ -1,14 +1,12 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define Dog class
-class Dog
-  attr_reader :hungry
+require_relative '../../monkey_patch'
+# Starts out hungry, can eat.
+class Dog < T::Struct
+  prop :hungry, T::Boolean, default: true
 
-  def initialize
-    @hungry = true
-  end
-
+  sig { void }
   def eat
     @hungry = false
   end

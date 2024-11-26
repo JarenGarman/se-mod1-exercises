@@ -1,14 +1,12 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define class
-class Teeth
-  attr_reader :clean
+require_relative '../../monkey_patch'
+# Starts dirty, can brush to clean.
+class Teeth < T::Struct
+  const :clean, T::Boolean, default: false
 
-  def initialize
-    @clean = false
-  end
-
+  sig { returns(T::Boolean) }
   def brush
     @clean = true
   end

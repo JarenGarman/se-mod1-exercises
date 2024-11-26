@@ -1,19 +1,16 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define Kid class
-class Kid
-  attr_reader :grams_of_sugar_eaten, :hyperactive
-
-  def initialize
-    @grams_of_sugar_eaten = 0
-    @hyperactive = false
-  end
-
+require_relative '../../monkey_patch'
+# Starts out having eaten 0 grams of sugar, becomes hyperactive after 60.
+class Kid < T::Struct
+  const :grams_of_sugar_eaten, Integer, default: 0
+  sig { void }
   def eat_candy
     @grams_of_sugar_eaten += 5
-    return unless @grams_of_sugar_eaten >= 60
-
-    @hyperactive = true
+  end
+  sig { returns(T::Boolean) }
+  def hyperactive
+    @grams_of_sugar_eaten >= 60
   end
 end

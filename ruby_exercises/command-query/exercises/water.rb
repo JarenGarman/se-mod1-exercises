@@ -1,14 +1,12 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define class
-class Water
-  attr_reader :temperature
+require_relative '../../monkey_patch'
+# Starts out at 295 K. Can be heated.
+class Water < T::Struct
+  const :temperature, Integer, default: 295
 
-  def initialize
-    @temperature = 295
-  end
-
+  sig { void }
   def heat
     @temperature += 1
   end

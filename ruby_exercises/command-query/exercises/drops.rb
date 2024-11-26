@@ -1,17 +1,13 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define Drops class
-class Drops
-  def initialize
-    @drops = 0
-  end
+require_relative '../../monkey_patch'
+# Starts at 0, can count up.
+class Drops < T::Struct
+  const :count, Integer, default: 0
 
-  def count
-    @drops
-  end
-
+  sig { void }
   def drop
-    @drops += 1
+    @count += 1
   end
 end

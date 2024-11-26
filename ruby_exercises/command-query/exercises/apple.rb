@@ -1,17 +1,17 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define Apple class
-class Apple
-  attr_reader :ripe
-
-  def initialize
-    @weeks = 0
-    @ripe = false
-  end
-
+require_relative '../../monkey_patch'
+# Starts unripe, will ripen after waiting two weeks
+class Apple < T::Struct
+  const :weeks, Integer, default: 0
+  sig { void }
   def wait_a_week
     @weeks += 1
-    @ripe = true if @weeks > 2
+  end
+
+  sig { returns(T::Boolean) }
+  def ripe
+    @weeks >= 2
   end
 end

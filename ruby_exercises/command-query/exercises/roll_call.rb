@@ -1,23 +1,15 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define class
-class RollCall
-  attr_reader :roll_call
+require_relative '../../monkey_patch'
+# Starts empty, can add names. Finds longest name
+class RollCall < T::Struct
+  prop :names, T::Array[String], default: []
 
-  def initialize
-    @roll_call = []
-    @longest_name = nil
-  end
-
-  def <<(name)
-    @roll_call << name
-  end
-
+  sig { returns(T.nilable(String)) }
   def longest_name
-    return if @roll_call.empty?
+    return nil if @names.empty?
 
-    name_length = @roll_call.map(&:length)
-    @longest_name = @roll_call[name_length.find_index(name_length.max)]
+    @names.max_by(&:length)
   end
 end
