@@ -9,12 +9,11 @@ class Student < T::Struct
     super
     @grade_index = T.let(2, Integer)
     @grade_array = T.let(%w[A B C D F], T::Array[String])
-    @grade = T.let('C', String)
   end
 
-  sig { returns(String) }
+  sig { returns(T.nilable(String)) }
   def grade
-    @grade = T.must(@grade_array[@grade_index])
+    @grade_array[@grade_index]
   end
 
   sig { void }
