@@ -5,23 +5,17 @@ require_relative '../../monkey_patch'
 require_relative('product')
 # Create an empty catalog. Can add products and determine the cheapest product.
 class Catalog < T::Struct
-  sig { returns(T.nilable(String)) }
-  attr_reader :cheapest
+  const :catalog, T::Array[Product], default: []
 
-  sig { void }
-  def initialize
-    super
-    @catalog = T.let([], T::Array[Product])
-    @cheapest = T.let(nil, T.nilable(String))
-    @cheapest_price = T.let(0, Integer)
+  sig { returns(T.nilable(String)) }
+  def cheapest
+    return nil if @catalog.empty?
+
+    T.must(@catalog.min_by(&:price)).type
   end
 
   sig { params(product: Product).void }
   def <<(product)
     @catalog << product
-    return unless product.price < @cheapest_price || @cheapest_price.zero?
-
-    @cheapest = product.type
-    @cheapest_price = product.price
   end
 end

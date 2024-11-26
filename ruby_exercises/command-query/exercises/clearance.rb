@@ -4,13 +4,12 @@
 require_relative '../../monkey_patch'
 require_relative('item')
 # Starts out empty. Can add items, identify the best deal.
-class Clearance < T::Struct
+class Clearance
   sig { returns(T.nilable(String)) }
   attr_reader :best_deal
 
   sig { void }
   def initialize
-    super
     @clearance = T.let([], T::Array[Item])
     @best_deal_float = T.let(0.0, Float)
     @best_deal = T.let(nil, T.nilable(String))

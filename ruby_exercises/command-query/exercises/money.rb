@@ -1,17 +1,13 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define class
-class Money
-  def initialize
-    @money = 0
-  end
+require_relative '../../monkey_patch'
+# Start with 0 money, can earn some.
+class Money < T::Struct
+  const :amount, Integer, default: 0
 
-  def amount
-    @money
-  end
-
+  sig { params(some: Integer).void }
   def earn(some)
-    @money += some
+    @amount += some
   end
 end

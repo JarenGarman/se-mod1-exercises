@@ -1,21 +1,21 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define Cupcakes class
-class Cupcakes
-  attr_reader :sweetest
+require_relative '../../monkey_patch'
+require_relative 'cupcake'
+# Starts empty, can add a Cupcake and determine which is sweetest
+class Cupcakes < T::Struct
+  const :cupcakes, T::Array[Cupcake], default: []
 
-  def initialize
-    @cupcakes = []
-    @sweetest = nil
-    @sweetest_sugar = 0
+  sig { returns(T.nilable(Cupcake)) }
+  def sweetest
+    return nil if @cupcakes.empty?
+
+    @cupcakes.max_by(&:grams_of_sugar)
   end
 
+  sig { params(cupcake: Cupcake).void }
   def <<(cupcake)
     @cupcakes << cupcake
-    return unless cupcake.grams_of_sugar > @sweetest_sugar
-
-    @sweetest = cupcake
-    @sweetest_sugar = cupcake.grams_of_sugar
   end
 end
