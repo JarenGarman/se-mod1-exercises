@@ -1,37 +1,33 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define class
-class Student
-  attr_reader :grade
-
+require_relative '../../monkey_patch'
+# Student starts with a grade of C. Can study for better grades or slack off to drop grades.
+class Student < T::Struct
+  sig { void }
   def initialize
-    @grade = 'C'
+    super
+    @grade_index = T.let(2, Integer)
+    @grade_array = T.let(%w[A B C D F], T::Array[String])
+    @grade = T.let('C', String)
   end
 
+  sig { returns(String) }
+  def grade
+    @grade = T.must(@grade_array[@grade_index])
+  end
+
+  sig { void }
   def study
-    case @grade
-    when 'F'
-      @grade = 'D'
-    when 'D'
-      @grade = 'C'
-    when 'C'
-      @grade = 'B'
-    when 'B'
-      @grade = 'A'
-    end
+    return if @grade_index.zero?
+
+    @grade_index -= 1
   end
 
+  sig { void }
   def slack_off
-    case @grade
-    when 'A'
-      @grade = 'B'
-    when 'B'
-      @grade = 'C'
-    when 'C'
-      @grade = 'D'
-    when 'D'
-      @grade = 'F'
-    end
+    return if @grade_index == 4
+
+    @grade_index += 1
   end
 end
