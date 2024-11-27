@@ -1,50 +1,32 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define class
-class Bag
-  attr_reader :bag, :count
+require_relative '../../../monkey_patch'
+require_relative 'candy'
+# Starts empty, can add candy.
+class Bag < T::Struct
+  prop :candies, T::Array[Candy], default: []
 
-  def initialize
-    @bag = []
-    @count = 0
-  end
-
-  def empty?
-    @bag.empty?
-  end
-
-  def candies
-    @bag
-  end
-
-  def <<(candy)
-    @bag << candy
-    @count += 1
-  end
-
-  def contains?(candy)
-    @candy_strings = @bag.map(&:type)
-    @candy_strings.include?(candy)
-  end
-
+  sig { params(candy: String).returns(T.nilable(Candy)) }
   def grab(candy)
-    @candy_strings = @bag.map(&:type)
-    grab = @bag[@candy_strings.index(candy)]
-    @bag.delete_at(@candy_strings.index(candy))
-    @count -= 1
-    grab
+    grabbed_candy = @candies.find { |candies| candies.type == candy }
+    @candies.delete(T.must(grabbed_candy))
+    grabbed_candy
   end
 
+  sig { params(amount: Integer).returns(T::Array[Candy]) }
   def take(amount)
-    @count -= amount
-    @bag.shift(amount)
+    @candies.shift(amount)
   end
 
+  sig { returns(Integer) }
   def eat
-    @candy_sugar = @bag.map(&:sugar)
-    @bag.shift(1)
-    @count -= 1
-    @candy_sugar[0]
+    eaten = @candies.shift(1)
+    T.must(eaten[0]).sugar
+  end
+
+  sig { params(candy_query: String).returns(T::Boolean) }
+  def contains?(candy_query)
+    @candies.any? { |candy| candy.type == candy_query }
   end
 end

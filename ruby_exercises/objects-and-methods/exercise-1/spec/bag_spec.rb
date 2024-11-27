@@ -7,11 +7,11 @@ require_relative '../lib/candy'
 
 RSpec.describe Bag do
   it 'is empty' do
-    expect(described_class.new.empty?).to be true
+    expect(described_class.new.candies.empty?).to be true
   end
 
   it 'can count the candy in an empty bag' do
-    expect(described_class.new.count).to eq(0)
+    expect(described_class.new.candies.count).to eq(0)
   end
 
   it 'has no candies when it is empty' do
@@ -23,28 +23,28 @@ RSpec.describe Bag do
 
     candy = Candy.new('Sour frogs')
 
-    bag << candy
+    bag.candies << candy
 
     expect(bag.candies).to eq([candy])
   end
 
   it 'is not empty when it has candies' do
     bag = described_class.new
-    bag << Candy.new('Nerds')
+    bag.candies << Candy.new('Nerds')
 
-    expect(bag.empty?).to be false
+    expect(bag.candies.empty?).to be false
   end
 
   it 'can count candies' do
     bag = described_class.new
-    bag << Candy.new('Caramelized Almonds')
+    bag.candies << Candy.new('Caramelized Almonds')
 
-    expect(bag.count).to eq(1)
+    expect(bag.candies.count).to eq(1)
   end
 
   it 'contains candies and candies have a type' do
     bag = described_class.new
-    bag << Candy.new("Hershey's Kisses")
+    bag.candies << Candy.new("Hershey's Kisses")
     # You usually don't want to chain a bunch of different
     # types of things together like this.
     # We'll talk about it more in a few weeks.
@@ -56,13 +56,13 @@ RSpec.describe Bag do
 
   it 'can be asked if it has a particular kind of candy' do
     bag = described_class.new
-    bag << Candy.new('Lindt chocolate')
+    bag.candies << Candy.new('Lindt chocolate')
     expect(bag.contains?('Lindt chocolate')).to be true
   end
 
   it 'can be asked if it has a particular kind of candy-2' do
     bag = described_class.new
-    bag << Candy.new('Lindt chocolate')
+    bag.candies << Candy.new('Lindt chocolate')
     expect(bag.contains?('Nerds')).to be false
   end
 end

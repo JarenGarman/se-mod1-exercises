@@ -23,7 +23,7 @@ RSpec.describe TrickOrTreater do
   it 'has an empty bag by default' do
     trick_or_treater = described_class.new(Costume.new('Alien'))
 
-    expect(trick_or_treater.bag.empty?).to be true
+    expect(trick_or_treater.bag.candies.empty?).to be true
   end
 
   it 'has an empty bag, so no candies' do
@@ -34,7 +34,7 @@ RSpec.describe TrickOrTreater do
 
   it 'can get candies' do
     trick_or_treater = described_class.new(Costume.new('Spaceship Mechanic'))
-    trick_or_treater.bag << Candy.new('Gummy bears')
+    trick_or_treater.bag.candies << Candy.new('Gummy bears')
 
     expect(trick_or_treater.candy?).to be true
   end
@@ -48,25 +48,25 @@ RSpec.describe TrickOrTreater do
   it 'can count candies-2' do
     trick_or_treater = described_class.new(Costume.new('Spaceship Mechanic'))
 
-    trick_or_treater.bag << Candy.new('Gummy bears')
+    trick_or_treater.bag.candies << Candy.new('Gummy bears')
 
     expect(trick_or_treater.candy_count).to eq(1)
   end
 
   it 'can eat candies' do
     trick_or_treater = described_class.new(Costume.new('Baron'))
-    trick_or_treater.bag << Candy.new('Gummy worms')
-    trick_or_treater.bag << Candy.new('Liquorice')
-    trick_or_treater.bag << Candy.new('Salty Serpents')
+    trick_or_treater.bag.candies << Candy.new('Gummy worms')
+    trick_or_treater.bag.candies << Candy.new('Liquorice')
+    trick_or_treater.bag.candies << Candy.new('Salty Serpents')
 
     expect(trick_or_treater.candy_count).to eq(3)
   end
 
   it 'can eat candies-2' do
     trick_or_treater = described_class.new(Costume.new('Baron'))
-    trick_or_treater.bag << Candy.new('Gummy worms')
-    trick_or_treater.bag << Candy.new('Liquorice')
-    trick_or_treater.bag << Candy.new('Salty Serpents')
+    trick_or_treater.bag.candies << Candy.new('Gummy worms')
+    trick_or_treater.bag.candies << Candy.new('Liquorice')
+    trick_or_treater.bag.candies << Candy.new('Salty Serpents')
     3.times { trick_or_treater.eat }
     expect(trick_or_treater.candy_count).to eq(0)
   end
@@ -80,9 +80,9 @@ RSpec.describe TrickOrTreater do
   it 'increases the sugar level when it eats candies' do
     trick_or_treater = described_class.new(Costume.new('Hobbit'))
 
-    trick_or_treater.bag << Candy.new('Gummy worms', 88)
-    trick_or_treater.bag << Candy.new('Liquorice', 83)
-    trick_or_treater.bag << Candy.new('Salty Serpents', 71)
+    trick_or_treater.bag.candies << Candy.new('Gummy worms', 88)
+    trick_or_treater.bag.candies << Candy.new('Liquorice', 83)
+    trick_or_treater.bag.candies << Candy.new('Salty Serpents', 71)
 
     trick_or_treater.eat
     trick_or_treater.eat

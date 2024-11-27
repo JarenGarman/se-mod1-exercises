@@ -1,11 +1,17 @@
-# typed: false
+# typed: strict
 # frozen_string_literal: true
 
-# Define class
+require_relative '../../../monkey_patch'
+# Describe candy to add to Bag class. Includes sugar content.
 class Candy
-  attr_reader :type, :sugar
+  sig { returns(String) }
+  attr_reader :type
 
-  def initialize(type, sugar = 100)
+  sig { returns(Integer) }
+  attr_reader :sugar
+
+  sig { params(type: String, sugar: Integer).void }
+  def initialize(type = '', sugar = 100)
     @type = type
     @sugar = sugar
   end

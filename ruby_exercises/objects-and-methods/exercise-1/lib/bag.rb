@@ -1,34 +1,19 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
-# Define class
-class Bag
-  def initialize
-    @bag = []
-  end
-
-  def empty?
-    @bag.empty?
-  end
-
-  def count
-    @bag.count
-  end
-
-  def candies
-    @bag
-  end
-
-  def <<(type)
-    @bag << type
-  end
-
-  def contains?(candy)
-    @candy_strings = @bag.map(&:type)
-    @candy_strings.include?(candy)
-  end
-
+require_relative '../../../monkey_patch'
+require_relative 'candy'
+# Starts empty, can hold candy.
+class Bag < T::Struct
+  prop :candies, T.nilable(T::Array[Candy]), default: []
+  sig { void }
   def eat
-    @bag = @bag.drop(1)
+    @candies = T.must(@candies).drop(1)
+  end
+  sig { params(type: String).returns(T::Boolean) }
+  def contains?(type)
+    T.must(@candies).any? do |candy|
+      candy.type == type
+    end
   end
 end

@@ -1,23 +1,33 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
+require_relative '../../../monkey_patch'
 require_relative 'bag'
-# Define class
+require_relative 'costume'
+# Starts with a costume and an empty bag. Can get candy and eat it.
 class TrickOrTreater
-  attr_reader :dressed_up_as, :bag, :sugar_level
+  sig { returns(T.nilable(String)) }
+  attr_reader :dressed_up_as
 
+  sig { returns(Bag) }
+  attr_reader :bag
+
+  sig { returns(Integer) }
+  attr_reader :sugar_level
+
+  sig { params(costume: Costume).void }
   def initialize(costume)
     @dressed_up_as = costume.style
     @bag = Bag.new
-    @sugar_level = 0
+    @sugar_level = T.let(0, Integer)
   end
 
   def candy?
-    !@bag.empty?
+    !@bag.candies.empty?
   end
 
   def candy_count
-    @bag.count
+    @bag.candies.count
   end
 
   def eat
