@@ -1,7 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
 require 'rspec'
-require './lib/pirate'
+require_relative '../lib/pirate'
 
 RSpec.describe Pirate do
   it 'has a name' do
@@ -24,7 +25,7 @@ RSpec.describe Pirate do
     expect(pirate.job).to eq('cook')
   end
 
-  it 'is not cursed by default' do
+  it 'is not cursed by default' do # rubocop:disable RSpec/MultipleExpectations
     pirate = described_class.new('Jack')
 
     expect(pirate.cursed?).to be false

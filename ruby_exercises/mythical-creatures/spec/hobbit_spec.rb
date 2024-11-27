@@ -1,7 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
-require './spec/spec_helper'
-require './lib/hobbit'
+require_relative 'spec_helper'
+require_relative '../lib/hobbit'
 
 RSpec.describe Hobbit do
   it 'has a name' do
@@ -24,7 +25,7 @@ RSpec.describe Hobbit do
     expect(hobbit.disposition).to eq('adventurous')
   end
 
-  it 'can grow older when celebrating birthdays' do
+  it 'can grow older when celebrating birthdays' do # rubocop:disable RSpec/MultipleExpectations
     hobbit = described_class.new('Meriadoc')
     expect(hobbit.age).to eq(0)
 
@@ -45,7 +46,7 @@ RSpec.describe Hobbit do
     expect(hobbit.adult?).to be false
   end
 
-  it 'comes of age at 33' do
+  it 'comes of age at 33' do # rubocop:disable RSpec/MultipleExpectations
     hobbit = described_class.new('Otho')
 
     33.times do
@@ -68,7 +69,7 @@ RSpec.describe Hobbit do
     expect(hobbit.old?).to be true
   end
 
-  it 'has the ring if its name is Frodo' do
+  it 'has the ring if its name is Frodo' do # rubocop:disable RSpec/MultipleExpectations
     frodo = described_class.new('Frodo')
     sam = described_class.new('Sam')
     expect(frodo.ring?).to be true

@@ -1,7 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
-require './spec/spec_helper'
-require './lib/ogre'
+require_relative 'spec_helper'
+require_relative '../lib/ogre'
 
 RSpec.describe Ogre do
   it 'has a name' do
@@ -20,7 +21,7 @@ RSpec.describe Ogre do
     expect(ogre.home).to eq('Castle')
   end
 
-  it 'can meets humans' do
+  it 'can meets humans' do # rubocop:disable RSpec/MultipleExpectations
     ogre = described_class.new('Brak')
     human = Human.new
     expect(human.name).to eq('Jane')
@@ -30,7 +31,7 @@ RSpec.describe Ogre do
     expect(human.encounter_counter).to eq(1)
   end
 
-  it 'is noticed by humans every third encounter' do
+  it 'is noticed by humans every third encounter' do # rubocop:disable RSpec/MultipleExpectations
     ogre = described_class.new('Brak')
     human = Human.new
 
@@ -61,7 +62,7 @@ RSpec.describe Ogre do
     expect(ogre.swings).to eq(1)
   end
 
-  it 'swings its club when noticed by a human' do
+  it 'swings its club when noticed by a human' do # rubocop:disable RSpec/MultipleExpectations
     ogre = described_class.new('Brak')
     human = Human.new
     ogre.encounter(human)
@@ -75,7 +76,7 @@ RSpec.describe Ogre do
     expect(human.notices_ogre?).to be true
   end
 
-  it 'hits the human every second time it swings' do
+  it 'hits the human every second time it swings' do # rubocop:disable RSpec/MultipleExpectations
     ogre = described_class.new('Brak')
     human = Human.new
 
@@ -86,7 +87,7 @@ RSpec.describe Ogre do
     expect(human.knocked_out?).to be true
   end
 
-  it 'apologizes and the human wakes up' do
+  it 'apologizes and the human wakes up' do # rubocop:disable RSpec/MultipleExpectations
     ogre = described_class.new('Brak')
     human = Human.new
 

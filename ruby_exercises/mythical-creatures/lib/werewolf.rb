@@ -1,47 +1,53 @@
+# typed: strict
 # frozen_string_literal: false
 
-# Define class
+require_relative '../../monkey_patch'
+# Define a Werewolf with a name and location
 class Werewolf
-  attr_reader :name, :location, :consumed
+  sig { returns(String) }
+  attr_reader :name, :location
 
+  sig { returns(Integer) }
+  attr_reader :consumed
+
+  sig { params(name: String, location: String).void }
   def initialize(name, location = 'London')
     @name = name
     @location = location
-    @human = true
-    @wolf = false
-    @consumed = 0
+    @human = T.let(true, T::Boolean)
+    @consumed = T.let(0, Integer)
   end
 
+  sig { returns(T::Boolean) }
   def human?
     @human
   end
 
+  sig { returns(T::Boolean) }
   def wolf?
-    @wolf
+    !@human
   end
 
+  sig { returns(T.nilable(T::Boolean)) }
   def hungry?
-    @wolf && @consumed.zero?
+    !@human && @consumed.zero?
   end
 
+  sig { void }
   def change!
     @human = !@human
-    @wolf = !@wolf
   end
 
+  sig { params(victim: Victim).void }
   def consume(victim)
-    return unless @wolf && !@human
+    return if @human
 
     @consumed += 1
     victim.status = :dead
   end
 end
 
-# Define class
-class Victim
-  attr_accessor :status
-
-  def initialize
-    @status = :alive
-  end
+# A victim to the Werewolf class
+class Victim < T::Struct
+  prop :status, Symbol, default: :alive
 end

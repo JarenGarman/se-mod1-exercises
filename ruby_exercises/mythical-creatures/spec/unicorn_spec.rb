@@ -1,7 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
 require 'rspec'
-require './lib/unicorn'
+require_relative '../lib/unicorn'
 
 RSpec.describe Unicorn do
   it 'has a name' do
@@ -9,19 +10,19 @@ RSpec.describe Unicorn do
     expect(unicorn.name).to eq('Robert')
   end
 
-  it 'is silver by default' do
+  it 'is silver by default' do # rubocop:disable RSpec/MultipleExpectations
     unicorn = described_class.new('Margaret')
     expect(unicorn.color).to eq('silver')
     expect(unicorn.silver?).to be true
   end
 
-  it 'doesnt have to be silver' do
+  it 'doesnt have to be silver' do # rubocop:disable RSpec/MultipleExpectations
     unicorn = described_class.new('Barbara', 'purple')
     expect(unicorn.color).to eq('purple')
     expect(unicorn.silver?).to be false
   end
 
-  it 'says sparkly stuff' do
+  it 'says sparkly stuff' do # rubocop:disable RSpec/MultipleExpectations
     unicorn = described_class.new('Johnny')
     expect(unicorn.say('Wonderful!')).to eq('**;* Wonderful! **;*')
     expect(unicorn.say('I dont like you very much.')).to eq('**;* I dont like you very much. **;*')

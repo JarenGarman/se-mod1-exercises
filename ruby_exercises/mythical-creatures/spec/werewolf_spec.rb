@@ -1,7 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
 require 'rspec'
-require './lib/werewolf'
+require_relative '../lib/werewolf'
 
 RSpec.describe Werewolf do
   it 'has a name' do
@@ -19,14 +20,14 @@ RSpec.describe Werewolf do
     expect(werewolf.human?).to be true
   end
 
-  it 'when starting as a human, changing makes it turn into a werewolf' do
+  it 'when starting as a human, changing makes it turn into a werewolf' do # rubocop:disable RSpec/MultipleExpectations
     werewolf = described_class.new('David', 'London')
     werewolf.change!
     expect(werewolf.wolf?).to be true
     expect(werewolf.human?).to be false
   end
 
-  it 'when starting as a human, changing again makes it be human again' do
+  it 'when starting as a human, changing again makes it be human again' do # rubocop:disable RSpec/MultipleExpectations
     werewolf = described_class.new('David', 'London')
     expect(werewolf.human?).to be true
 
@@ -39,7 +40,7 @@ RSpec.describe Werewolf do
     expect(werewolf.human?).to be true
   end
 
-  it 'when starting as a werewolf, changing a second time makes it a werewolf' do
+  it 'when starting as a werewolf, changing a second time makes it a werewolf' do # rubocop:disable RSpec/MultipleExpectations
     werewolf = described_class.new('David', 'London')
 
     werewolf.change!

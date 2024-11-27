@@ -1,7 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
 require 'rspec'
-require './lib/wizard'
+require_relative '../lib/wizard'
 
 RSpec.describe Wizard do
   it 'has a name' do
@@ -44,7 +45,7 @@ RSpec.describe Wizard do
     expect(wizard.cast).to eq 'MAGIC MISSILE!'
   end
 
-  it 'gets tired after casting three spells' do
+  it 'gets tired after casting three spells' do # rubocop:disable RSpec/MultipleExpectations
     wizard = described_class.new('Ben')
     2.times do
       wizard.cast

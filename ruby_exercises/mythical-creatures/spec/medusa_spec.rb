@@ -1,7 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
 require 'rspec'
-require './lib/medusa'
+require_relative '../lib/medusa'
 
 RSpec.describe Medusa do
   it 'has a name' do
@@ -14,7 +15,7 @@ RSpec.describe Medusa do
     expect(medusa.statues).to be_empty
   end
 
-  it 'gains a statue when staring at a person' do
+  it 'gains a statue when staring at a person' do # rubocop:disable RSpec/MultipleExpectations
     medusa = described_class.new('Cassiopeia')
     victim = Person.new('Perseus')
 
@@ -24,7 +25,7 @@ RSpec.describe Medusa do
     expect(medusa.statues.first).to be_an_instance_of(Person)
   end
 
-  it 'turns a person to stone when staring at them' do
+  it 'turns a person to stone when staring at them' do # rubocop:disable RSpec/MultipleExpectations
     medusa = described_class.new('Cassiopeia')
     victim = Person.new('Perseus')
 
@@ -33,7 +34,7 @@ RSpec.describe Medusa do
     expect(victim.stoned?).to be true
   end
 
-  it 'can only have three victims' do
+  it 'can only have three victims' do # rubocop:disable RSpec/MultipleExpectations
     medusa = described_class.new('Cassiopeia')
     victim1 = Person.new('Perseus')
     victim2 = Person.new('Jack')
@@ -47,7 +48,7 @@ RSpec.describe Medusa do
     expect(medusa.statues.count).to eq(3)
   end
 
-  it 'if a fourth victim is stoned the first is unstoned' do
+  it 'if a fourth victim is stoned the first is unstoned' do # rubocop:disable RSpec/MultipleExpectations
     medusa = described_class.new('Cassiopeia')
     victim1 = Person.new('Perseus')
     victim2 = Person.new('Jack')

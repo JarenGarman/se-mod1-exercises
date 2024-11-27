@@ -1,7 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
-require './spec/spec_helper'
-require './lib/centaur'
+require_relative 'spec_helper'
+require_relative '../lib/centaur'
 
 RSpec.describe Centaur do
   it 'has a name' do
@@ -34,7 +35,7 @@ RSpec.describe Centaur do
     expect(centaur.standing?).to be true
   end
 
-  it 'gets tired after running or shooting a bow thrice' do
+  it 'gets tired after running or shooting a bow thrice' do # rubocop:disable RSpec/MultipleExpectations
     centaur = described_class.new('George', 'Palomino')
     expect(centaur.cranky?).to be false
 
@@ -45,7 +46,7 @@ RSpec.describe Centaur do
     expect(centaur.cranky?).to be true
   end
 
-  it 'does not shoot a bow when cranky' do
+  it 'does not shoot a bow when cranky' do # rubocop:disable RSpec/MultipleExpectations
     centaur = described_class.new('George', 'Palomino')
 
     expect(centaur.cranky?).to be false
@@ -61,7 +62,7 @@ RSpec.describe Centaur do
     expect(centaur.sleep).to eq('NO!')
   end
 
-  it 'is not standing after laying down' do
+  it 'is not standing after laying down' do # rubocop:disable RSpec/MultipleExpectations
     centaur = described_class.new('George', 'Palomino')
     centaur.lay_down
 
@@ -94,7 +95,7 @@ RSpec.describe Centaur do
     expect(centaur.standing?).to be true
   end
 
-  it 'is no longer cranky after sleeping' do
+  it 'is no longer cranky after sleeping' do # rubocop:disable RSpec/MultipleExpectations
     centaur = described_class.new('George', 'Palomino')
 
     centaur.shoot
@@ -114,7 +115,7 @@ RSpec.describe Centaur do
     expect(centaur.run).to eq('Clop clop clop clop!')
   end
 
-  it 'becomes rested after drinking a potion' do
+  it 'becomes rested after drinking a potion' do # rubocop:disable RSpec/MultipleExpectations
     centaur = described_class.new('George', 'Palomino')
 
     centaur.shoot
@@ -134,7 +135,7 @@ RSpec.describe Centaur do
     expect(centaur.drink_potion).to eq('NO!')
   end
 
-  it 'gets sick if a potion is drunk while rested' do
+  it 'gets sick if a potion is drunk while rested' do # rubocop:disable RSpec/MultipleExpectations
     centaur = described_class.new('George', 'Palomino')
 
     centaur.shoot

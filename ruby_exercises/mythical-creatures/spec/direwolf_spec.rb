@@ -13,21 +13,21 @@ RSpec.describe Direwolf do
     expect(wolf.name).to eq('Nymeria')
   end
 
-  it 'can have a different name and can have a home' do
+  it 'can have a different name and can have a home' do # rubocop:disable RSpec/MultipleExpectations
     wolf = described_class.new('Lady')
 
     expect(wolf.home).to eq('Beyond the Wall')
     expect(wolf.name).to eq('Lady')
   end
 
-  it 'is massive by default' do
+  it 'is massive by default' do # rubocop:disable RSpec/MultipleExpectations
     wolf = described_class.new('Ghost')
 
     expect(wolf.size).to eq('Massive')
     expect(wolf.name).to eq('Ghost')
   end
 
-  it 'can have another home and be another size' do
+  it 'can have another home and be another size' do # rubocop:disable RSpec/MultipleExpectations
     wolf = described_class.new('Shaggydog', 'Winterfell', 'Smol Pupper')
 
     expect(wolf.name).to eq('Shaggydog')
@@ -35,7 +35,7 @@ RSpec.describe Direwolf do
     expect(wolf.size).to eq('Smol Pupper')
   end
 
-  it 'the Starks are in Winterfell by default' do
+  it 'the Starks are in Winterfell by default' do # rubocop:disable RSpec/MultipleExpectations
     wolf = described_class.new('Summer', 'Winterfell')
     stark = Stark.new('Bran')
 
@@ -68,7 +68,7 @@ RSpec.describe Direwolf do
     expect(wolf.starks_to_protect).to be_empty
   end
 
-  it 'can only protect two Starks at a time' do
+  it 'can only protect two Starks at a time' do # rubocop:disable RSpec/MultipleExpectations
     summer_wolf = described_class.new('Summer', 'Winterfell')
     lady_wolf = described_class.new('Lady', 'Winterfell')
     sansa_stark = Stark.new('Sansa')
@@ -90,14 +90,14 @@ RSpec.describe Direwolf do
     expect(lady_wolf.starks_to_protect).not_to include(arya_stark)
   end
 
-  it 'the Starks are unsafe by default' do
+  it 'the Starks are unsafe by default' do # rubocop:disable RSpec/MultipleExpectations
     stark = Stark.new('Jon', 'The Wall')
 
     expect(stark.safe).to be false
     expect(stark.house_words).to eq('Winter is Coming')
   end
 
-  it 'protects the Starks' do
+  it 'protects the Starks' do # rubocop:disable RSpec/MultipleExpectations
     wolf = described_class.new('Nymeria', 'Winterfell')
     arya_stark = Stark.new('Arya')
     sansa_stark = Stark.new('Sansa')
@@ -123,7 +123,7 @@ RSpec.describe Direwolf do
     expect(wolf.hunts_white_walkers).to be false
   end
 
-  it 'can leave and stop protecting Starks' do
+  it 'can leave and stop protecting Starks' do # rubocop:disable RSpec/MultipleExpectations
     summer_wolf = described_class.new('Summer', 'Winterfell')
     lady_wolf = described_class.new('Lady', 'Winterfell')
     sansa_stark = Stark.new('Sansa')

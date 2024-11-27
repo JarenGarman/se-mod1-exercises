@@ -1,7 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
 require 'rspec'
-require './lib/dragon'
+require_relative '../lib/dragon'
 
 RSpec.describe Dragon do
   it 'has a name' do
@@ -39,7 +40,7 @@ RSpec.describe Dragon do
     expect(dragon.hungry?).to be true
   end
 
-  it 'eats a lot' do
+  it 'eats a lot' do # rubocop:disable RSpec/MultipleExpectations
     dragon = described_class.new('Mnementh', :bronze, 'Flar')
     expect(dragon.hungry?).to be true
     dragon.eat

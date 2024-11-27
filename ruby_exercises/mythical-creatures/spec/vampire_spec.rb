@@ -1,7 +1,8 @@
+# typed: false
 # frozen_string_literal: false
 
 require 'rspec'
-require './lib/vampire'
+require_relative '../lib/vampire'
 
 RSpec.describe Vampire do
   it 'has a name' do
