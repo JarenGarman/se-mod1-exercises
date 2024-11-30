@@ -5,11 +5,5 @@
 # Please instead update this file by running `bin/tapioca gem ruby-lsp-rspec`.
 
 
-# source://ruby-lsp-rspec//lib/ruby_lsp_rspec/version.rb#4
-module RubyLsp; end
-
-# source://ruby-lsp-rspec//lib/ruby_lsp_rspec/version.rb#5
-module RubyLsp::RSpec; end
-
-# source://ruby-lsp-rspec//lib/ruby_lsp_rspec/version.rb#6
-RubyLsp::RSpec::VERSION = T.let(T.unsafe(nil), String)
+# THIS IS AN EMPTY RBI FILE.
+# see https://github.com/Shopify/tapioca#manually-requiring-parts-of-a-gem

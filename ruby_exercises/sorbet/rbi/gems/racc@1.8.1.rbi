@@ -5,9 +5,6 @@
 # Please instead update this file by running `bin/tapioca gem racc`.
 
 
-# source://racc//lib/racc/parser.rb#19
-ParseError = Racc::ParseError
-
 # source://racc//lib/racc/info.rb#17
 Racc::Copyright = T.let(T.unsafe(nil), String)
 
@@ -151,9 +148,6 @@ Racc::Parser::Racc_Runtime_Version = T.let(T.unsafe(nil), String)
 
 # source://racc//lib/racc/parser.rb#206
 Racc::Parser::Racc_YY_Parse_Method = T.let(T.unsafe(nil), Symbol)
-
-# source://racc//lib/racc/parser.rb#181
-Racc::Racc_No_Extensions = T.let(T.unsafe(nil), FalseClass)
 
 # source://racc//lib/racc/info.rb#15
 Racc::VERSION = T.let(T.unsafe(nil), String)

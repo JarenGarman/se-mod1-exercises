@@ -15,6 +15,9 @@ module ERB::Escape
   end
 end
 
+# source://rdoc//lib/rdoc/rd/block_parser.rb#38
+ParseError = Racc::ParseError
+
 # RDoc produces documentation for Ruby source files by parsing the source and
 # extracting the definition for classes, modules, methods, includes and
 # requires.  It associates these with optional documentation contained in an
@@ -2193,8 +2196,6 @@ RDoc::Encoding::HEADER_REGEXP = T.let(T.unsafe(nil), Regexp)
 class RDoc::Generator::Darkfish
   include ::ERB::Escape
   include ::ERB::Util
-  include ::ActiveSupport::CoreExt::ERBUtil
-  include ::ActiveSupport::CoreExt::ERBUtilPrivate
 
   # Initialize a few instance variables before we start
   #
@@ -12557,6 +12558,9 @@ class RDoc::TopLevel < ::RDoc::Context
   # source://rdoc//lib/rdoc/code_object/top_level.rb#287
   def to_s; end
 end
+
+# source://rdoc//lib/rdoc/rd/block_parser.rb#200
+Racc::Racc_No_Extensions = T.let(T.unsafe(nil), FalseClass)
 
 # :stopdoc:
 #

@@ -218,7 +218,7 @@ class RBI::TypedParam < ::T::Struct
   const :type, ::String
 
   class << self
-    # source://sorbet-runtime/0.5.11647/lib/types/struct.rb#13
+    # source://sorbet-runtime/0.5.11663/lib/types/struct.rb#13
     def inherited(s); end
   end
 end
@@ -1141,7 +1141,7 @@ class Tapioca::ConfigHelper::ConfigError < ::T::Struct
   const :message_parts, T::Array[::Tapioca::ConfigHelper::ConfigErrorMessagePart]
 
   class << self
-    # source://sorbet-runtime/0.5.11647/lib/types/struct.rb#13
+    # source://sorbet-runtime/0.5.11663/lib/types/struct.rb#13
     def inherited(s); end
   end
 end
@@ -1152,7 +1152,7 @@ class Tapioca::ConfigHelper::ConfigErrorMessagePart < ::T::Struct
   const :colors, T::Array[::Symbol]
 
   class << self
-    # source://sorbet-runtime/0.5.11647/lib/types/struct.rb#13
+    # source://sorbet-runtime/0.5.11663/lib/types/struct.rb#13
     def inherited(s); end
   end
 end
@@ -2221,7 +2221,7 @@ class Tapioca::GemInfo < ::T::Struct
     sig { params(spec: ::Bundler::LazySpecification).returns(::Tapioca::GemInfo) }
     def from_spec(spec); end
 
-    # source://sorbet-runtime/0.5.11647/lib/types/struct.rb#13
+    # source://sorbet-runtime/0.5.11663/lib/types/struct.rb#13
     def inherited(s); end
   end
 end

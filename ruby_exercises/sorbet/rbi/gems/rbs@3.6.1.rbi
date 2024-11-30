@@ -160,9 +160,6 @@ class RBS::AST::Declarations::Class < ::RBS::AST::Declarations::Base
   # source://rbs//lib/rbs/ast/declarations.rb#119
   def ==(other); end
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#53
-  def accept(visitor); end
-
   # Returns the value of attribute annotations.
   #
   # source://rbs//lib/rbs/ast/declarations.rb#93
@@ -262,9 +259,6 @@ class RBS::AST::Declarations::Constant < ::RBS::AST::Declarations::Base
   # source://rbs//lib/rbs/ast/declarations.rb#360
   def ==(other); end
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#60
-  def accept(visitor); end
-
   # Returns the value of attribute comment.
   #
   # source://rbs//lib/rbs/ast/declarations.rb#351
@@ -304,9 +298,6 @@ class RBS::AST::Declarations::Global < ::RBS::AST::Declarations::Base
 
   # source://rbs//lib/rbs/ast/declarations.rb#396
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#67
-  def accept(visitor); end
 
   # Returns the value of attribute comment.
   #
@@ -349,9 +340,6 @@ class RBS::AST::Declarations::Interface < ::RBS::AST::Declarations::Base
 
   # source://rbs//lib/rbs/ast/declarations.rb#278
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#74
-  def accept(visitor); end
 
   # Returns the value of attribute annotations.
   #
@@ -414,9 +402,6 @@ class RBS::AST::Declarations::Module < ::RBS::AST::Declarations::Base
 
   # source://rbs//lib/rbs/ast/declarations.rb#220
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#81
-  def accept(visitor); end
 
   # Returns the value of attribute annotations.
   #
@@ -528,9 +513,6 @@ class RBS::AST::Declarations::TypeAlias < ::RBS::AST::Declarations::Base
 
   # source://rbs//lib/rbs/ast/declarations.rb#321
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#88
-  def accept(visitor); end
 
   # Returns the value of attribute annotations.
   #
@@ -650,9 +632,6 @@ class RBS::AST::Members::Alias < ::RBS::AST::Members::Base
   # source://rbs//lib/rbs/ast/members.rb#414
   def ==(other); end
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#102
-  def accept(visitor); end
-
   # Returns the value of attribute annotations.
   #
   # source://rbs//lib/rbs/ast/members.rb#401
@@ -707,9 +686,6 @@ end
 class RBS::AST::Members::AttrAccessor < ::RBS::AST::Members::Base
   include ::RBS::AST::Members::Attribute
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#109
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/ast/members.rb#330
   def to_json(state = T.unsafe(nil)); end
 end
@@ -718,9 +694,6 @@ end
 class RBS::AST::Members::AttrReader < ::RBS::AST::Members::Base
   include ::RBS::AST::Members::Attribute
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#116
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/ast/members.rb#312
   def to_json(state = T.unsafe(nil)); end
 end
@@ -728,9 +701,6 @@ end
 # source://rbs//lib/rbs/ast/members.rb#345
 class RBS::AST::Members::AttrWriter < ::RBS::AST::Members::Base
   include ::RBS::AST::Members::Attribute
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#123
-  def accept(visitor); end
 
   # source://rbs//lib/rbs/ast/members.rb#348
   def to_json(state = T.unsafe(nil)); end
@@ -801,9 +771,6 @@ class RBS::AST::Members::Base; end
 class RBS::AST::Members::ClassInstanceVariable < ::RBS::AST::Members::Base
   include ::RBS::AST::Members::Var
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#130
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/ast/members.rb#160
   def to_json(state = T.unsafe(nil)); end
 end
@@ -811,9 +778,6 @@ end
 # source://rbs//lib/rbs/ast/members.rb#171
 class RBS::AST::Members::ClassVariable < ::RBS::AST::Members::Base
   include ::RBS::AST::Members::Var
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#137
-  def accept(visitor); end
 
   # source://rbs//lib/rbs/ast/members.rb#174
   def to_json(state = T.unsafe(nil)); end
@@ -823,9 +787,6 @@ end
 class RBS::AST::Members::Extend < ::RBS::AST::Members::Base
   include ::RBS::AST::Members::Mixin
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#144
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/ast/members.rb#231
   def to_json(state = T.unsafe(nil)); end
 end
@@ -834,9 +795,6 @@ end
 class RBS::AST::Members::Include < ::RBS::AST::Members::Base
   include ::RBS::AST::Members::Mixin
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#151
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/ast/members.rb#216
   def to_json(state = T.unsafe(nil)); end
 end
@@ -844,9 +802,6 @@ end
 # source://rbs//lib/rbs/ast/members.rb#143
 class RBS::AST::Members::InstanceVariable < ::RBS::AST::Members::Base
   include ::RBS::AST::Members::Var
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#158
-  def accept(visitor); end
 
   # source://rbs//lib/rbs/ast/members.rb#146
   def to_json(state = T.unsafe(nil)); end
@@ -881,9 +836,6 @@ class RBS::AST::Members::MethodDefinition < ::RBS::AST::Members::Base
 
   # source://rbs//lib/rbs/ast/members.rb#64
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#165
-  def accept(visitor); end
 
   # Returns the value of attribute annotations.
   #
@@ -1035,9 +987,6 @@ end
 class RBS::AST::Members::Prepend < ::RBS::AST::Members::Base
   include ::RBS::AST::Members::Mixin
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#172
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/ast/members.rb#246
   def to_json(state = T.unsafe(nil)); end
 end
@@ -1046,9 +995,6 @@ end
 class RBS::AST::Members::Private < ::RBS::AST::Members::Base
   include ::RBS::AST::Members::LocationOnly
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#179
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/ast/members.rb#392
   def to_json(state = T.unsafe(nil)); end
 end
@@ -1056,9 +1002,6 @@ end
 # source://rbs//lib/rbs/ast/members.rb#381
 class RBS::AST::Members::Public < ::RBS::AST::Members::Base
   include ::RBS::AST::Members::LocationOnly
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#186
-  def accept(visitor); end
 
   # source://rbs//lib/rbs/ast/members.rb#384
   def to_json(state = T.unsafe(nil)); end
@@ -1948,6 +1891,7 @@ end
 # source://rbs//lib/rbs/collection/sources/rubygems.rb#9
 class RBS::Collection::Sources::Rubygems
   include ::RBS::Collection::Sources::Base
+  include ::Singleton::SingletonInstanceMethods
   include ::Singleton
   extend ::Singleton::SingletonClassMethods
 
@@ -1986,6 +1930,7 @@ end
 # source://rbs//lib/rbs/collection/sources/stdlib.rb#9
 class RBS::Collection::Sources::Stdlib
   include ::RBS::Collection::Sources::Base
+  include ::Singleton::SingletonInstanceMethods
   include ::Singleton
   extend ::Singleton::SingletonClassMethods
 
@@ -5433,9 +5378,6 @@ class RBS::TypeName
   # source://rbs//lib/rbs/type_name.rb#59
   def absolute?; end
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#40
-  def accept(visitor); end
-
   # @return [Boolean]
   #
   # source://rbs//lib/rbs/type_name.rb#51
@@ -5528,9 +5470,6 @@ class RBS::Types::Alias
   # source://rbs//lib/rbs/types.rb#399
   def initialize(name:, args:, location:); end
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#198
-  def accept(visitor); end
-
   # Returns the value of attribute location.
   #
   # source://rbs//lib/rbs/types.rb#395
@@ -5600,9 +5539,6 @@ module RBS::Types::Bases; end
 
 # source://rbs//lib/rbs/types.rb#109
 class RBS::Types::Bases::Any < ::RBS::Types::Bases::Base
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#207
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/types.rb#110
   def to_s(level = T.unsafe(nil)); end
 
@@ -5659,55 +5595,31 @@ class RBS::Types::Bases::Base
 end
 
 # source://rbs//lib/rbs/types.rb#107
-class RBS::Types::Bases::Bool < ::RBS::Types::Bases::Base
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#216
-  def accept(visitor); end
-end
+class RBS::Types::Bases::Bool < ::RBS::Types::Bases::Base; end
 
 # source://rbs//lib/rbs/types.rb#121
-class RBS::Types::Bases::Bottom < ::RBS::Types::Bases::Base
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#225
-  def accept(visitor); end
-end
+class RBS::Types::Bases::Bottom < ::RBS::Types::Bases::Base; end
 
 # source://rbs//lib/rbs/types.rb#128
-class RBS::Types::Bases::Class < ::RBS::Types::Bases::Base
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#234
-  def accept(visitor); end
-end
+class RBS::Types::Bases::Class < ::RBS::Types::Bases::Base; end
 
 # source://rbs//lib/rbs/types.rb#123
 class RBS::Types::Bases::Instance < ::RBS::Types::Bases::Base
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#243
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/types.rb#124
   def sub(s); end
 end
 
 # source://rbs//lib/rbs/types.rb#119
-class RBS::Types::Bases::Nil < ::RBS::Types::Bases::Base
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#252
-  def accept(visitor); end
-end
+class RBS::Types::Bases::Nil < ::RBS::Types::Bases::Base; end
 
 # source://rbs//lib/rbs/types.rb#122
-class RBS::Types::Bases::Self < ::RBS::Types::Bases::Base
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#261
-  def accept(visitor); end
-end
+class RBS::Types::Bases::Self < ::RBS::Types::Bases::Base; end
 
 # source://rbs//lib/rbs/types.rb#120
-class RBS::Types::Bases::Top < ::RBS::Types::Bases::Base
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#270
-  def accept(visitor); end
-end
+class RBS::Types::Bases::Top < ::RBS::Types::Bases::Base; end
 
 # source://rbs//lib/rbs/types.rb#108
-class RBS::Types::Bases::Void < ::RBS::Types::Bases::Base
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#279
-  def accept(visitor); end
-end
+class RBS::Types::Bases::Void < ::RBS::Types::Bases::Base; end
 
 # source://rbs//lib/rbs/types.rb#1294
 class RBS::Types::Block
@@ -5753,9 +5665,6 @@ class RBS::Types::ClassInstance
   # source://rbs//lib/rbs/types.rb#357
   def initialize(name:, args:, location:); end
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#288
-  def accept(visitor); end
-
   # Returns the value of attribute location.
   #
   # source://rbs//lib/rbs/types.rb#353
@@ -5787,9 +5696,6 @@ class RBS::Types::ClassSingleton
 
   # source://rbs//lib/rbs/types.rb#209
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#297
-  def accept(visitor); end
 
   # source://rbs//lib/rbs/types.rb#209
   def eql?(other); end
@@ -5983,9 +5889,6 @@ class RBS::Types::Function::Param
   # source://rbs//lib/rbs/types.rb#883
   def ==(other); end
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#306
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/types.rb#883
   def eql?(other); end
 
@@ -6026,9 +5929,6 @@ class RBS::Types::Interface
   # source://rbs//lib/rbs/types.rb#315
   def initialize(name:, args:, location:); end
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#315
-  def accept(visitor); end
-
   # Returns the value of attribute location.
   #
   # source://rbs//lib/rbs/types.rb#311
@@ -6056,9 +5956,6 @@ class RBS::Types::Intersection
 
   # source://rbs//lib/rbs/types.rb#799
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#324
-  def accept(visitor); end
 
   # source://rbs//lib/rbs/types.rb#835
   def each_type(&block); end
@@ -6127,9 +6024,6 @@ class RBS::Types::Literal
 
   # source://rbs//lib/rbs/types.rb#1478
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#333
-  def accept(visitor); end
 
   # source://rbs//lib/rbs/types.rb#1478
   def eql?(other); end
@@ -6205,9 +6099,6 @@ class RBS::Types::Optional
   # source://rbs//lib/rbs/types.rb#635
   def ==(other); end
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#342
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/types.rb#671
   def each_type; end
 
@@ -6270,9 +6161,6 @@ class RBS::Types::Proc
 
   # source://rbs//lib/rbs/types.rb#1362
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#351
-  def accept(visitor); end
 
   # Returns the value of attribute block.
   #
@@ -6346,9 +6234,6 @@ class RBS::Types::Record
 
   # source://rbs//lib/rbs/types.rb#538
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#360
-  def accept(visitor); end
 
   # Returns the value of attribute all_fields.
   #
@@ -6436,9 +6321,6 @@ class RBS::Types::Tuple
   # source://rbs//lib/rbs/types.rb#443
   def ==(other); end
 
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#369
-  def accept(visitor); end
-
   # source://rbs//lib/rbs/types.rb#478
   def each_type(&block); end
 
@@ -6501,9 +6383,6 @@ class RBS::Types::Union
 
   # source://rbs//lib/rbs/types.rb#719
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#378
-  def accept(visitor); end
 
   # source://rbs//lib/rbs/types.rb#754
   def each_type(&block); end
@@ -6642,9 +6521,6 @@ class RBS::Types::Variable
 
   # source://rbs//lib/rbs/types.rb#142
   def ==(other); end
-
-  # source://syntax_tree-rbs/1.0.0/lib/syntax_tree/rbs/entrypoints.rb#387
-  def accept(visitor); end
 
   # source://rbs//lib/rbs/types.rb#142
   def eql?(other); end
