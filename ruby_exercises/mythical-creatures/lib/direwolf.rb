@@ -32,13 +32,12 @@ class Direwolf
     @hunts_white_walkers = false
   end
 
-  sig { params(stark: Stark).returns(T.any(Stark, FalseClass)) }
+  sig { params(stark: Stark).returns(Stark) }
   def leaves(stark)
     if @starks_to_protect.include?(stark)
       @starks_to_protect.delete_at(T.must(@starks_to_protect.index(stark)))
       stark.safe = false
-    else
-      stark
     end
+    stark
   end
 end

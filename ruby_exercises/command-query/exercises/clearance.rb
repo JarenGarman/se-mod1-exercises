@@ -9,7 +9,7 @@ class Clearance < T::Struct
 
   sig { returns(T.nilable(String)) }
   def best_deal
-    return nil if @rack.empty?
+    return nil unless @rack.any?(Item)
 
     T.must(@rack.max_by(&:deal)).type
   end

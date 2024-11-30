@@ -7,7 +7,7 @@ require_relative 'bag'
 
 # Start with a costume and empty bag. Can add candy and eat candy.
 class TrickOrTreater
-  sig { returns(T.nilable(String)) }
+  sig { returns(String) }
   attr_reader :dressed_up_as
 
   sig { returns(Bag) }
@@ -15,18 +15,18 @@ class TrickOrTreater
 
   sig { params(costume: Costume).void }
   def initialize(costume)
-    @dressed_up_as = T.let(costume.style, T.nilable(String))
+    @dressed_up_as = T.let(costume.style, String)
     @bag = T.let(Bag.new, Bag)
   end
 
   sig { returns(T::Boolean) }
   def candy?
-    !T.must(@bag.candies).empty?
+    !@bag.candies.empty?
   end
 
   sig { returns(Integer) }
   def candy_count
-    T.must(@bag.candies).count
+    @bag.candies.count
   end
 
   sig { void }

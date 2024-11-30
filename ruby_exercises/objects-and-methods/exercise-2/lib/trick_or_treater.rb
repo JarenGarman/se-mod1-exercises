@@ -6,7 +6,7 @@ require_relative 'bag'
 require_relative 'costume'
 # Starts with a costume and an empty bag. Can get candy and eat it.
 class TrickOrTreater
-  sig { returns(T.nilable(String)) }
+  sig { returns(String) }
   attr_reader :dressed_up_as
 
   sig { returns(Bag) }

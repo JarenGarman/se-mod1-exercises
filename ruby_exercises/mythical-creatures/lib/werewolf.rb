@@ -28,9 +28,9 @@ class Werewolf
     !@human
   end
 
-  sig { returns(T.nilable(T::Boolean)) }
+  sig { returns(T::Boolean) }
   def hungry?
-    !@human && @consumed.zero?
+    wolf? && @consumed.zero?
   end
 
   sig { void }

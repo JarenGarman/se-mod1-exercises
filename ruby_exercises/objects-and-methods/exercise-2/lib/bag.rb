@@ -9,6 +9,8 @@ class Bag < T::Struct
 
   sig { params(candy: String).returns(T.nilable(Candy)) }
   def grab(candy)
+    return unless @candies.find { |candies| candies.type == candy }.is_a?(Candy)
+
     grabbed_candy = @candies.find { |candies| candies.type == candy }
     @candies.delete(T.must(grabbed_candy))
     grabbed_candy
@@ -21,6 +23,8 @@ class Bag < T::Struct
 
   sig { returns(Integer) }
   def eat
+    return 0 if @candies.empty?
+
     eaten = @candies.shift(1)
     T.must(eaten[0]).sugar
   end

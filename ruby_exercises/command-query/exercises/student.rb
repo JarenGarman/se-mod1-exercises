@@ -7,9 +7,9 @@ class Student < T::Struct
   const :grade_index, Integer, default: 2
   const :grade_array, T::Array[String], default: %w[A B C D F]
 
-  sig { returns(T.nilable(String)) }
+  sig { returns(String) }
   def grade
-    @grade_array[@grade_index]
+    T.must(@grade_array[@grade_index])
   end
 
   sig { void }

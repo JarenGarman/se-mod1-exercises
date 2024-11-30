@@ -4,7 +4,7 @@
 require_relative '../../../monkey_patch'
 # Describe a costume to be used in the TrickOrTreater class.
 class Costume
-  sig { returns(T.nilable(String)) }
+  sig { returns(String) }
   attr_reader :style
 
   sig { params(style: String).void }
